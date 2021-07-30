@@ -1,15 +1,18 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Navbar } from './components/layout/Navbar';
+import { Navbar } from './components/layout/Navbar'
+import { DataState } from './components/context/DataState'
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <div className='container'>
-        
-      </div>
-    </Router>
+    <DataState>
+      <Router>
+        <Navbar />
+        <div className='container'>
+
+        </div>
+      </Router>
+    </DataState>
   );
 }
 
