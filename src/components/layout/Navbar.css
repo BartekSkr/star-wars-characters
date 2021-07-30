@@ -1,0 +1,36 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  display: block;
+  padding: 1rem 2rem;
+  border-bottom: 5px solid var(--secondary-color);
+}
+
+h1 {
+  color: var(--secondary-color);
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  transition: all 0.2s ease-in-out;
+}
+
+a {
+  color: var(--primary-color);
+  margin: 0 1rem;
+  text-decoration: none;
+}
+
+li:hover {
+  transform: scale(1.2);
+  transition: all 0.2s ease-in-out;
+}

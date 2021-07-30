@@ -1,10 +1,15 @@
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Navbar } from './components/layout/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <p>Star Wars Characters</p>
-    </div>
+    <Router>
+      <Navbar />
+      <div className='container'>
+        
+      </div>
+    </Router>
   );
 }
 
