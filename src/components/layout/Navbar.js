@@ -10,7 +10,7 @@ export const Navbar = ({ title }) => {
       <h1>{title}</h1>
       <ul>
         <li>
-          <Link to='/'>Home</Link>
+          <Link to='/'>Characters</Link>
         </li>
         <li>
           <Link to='favourites'>Favourites</Link>
