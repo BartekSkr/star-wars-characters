@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 export const Navbar = ({ title }) => {
+
   return (
     <nav className='navbar'>
       <h1>{title}</h1>
       <ul>
         <li>
-          <Link to='/'>Search</Link>
+          <Link to='/'>Home</Link>
         </li>
         <li>
           <Link to='favourites'>Favourites</Link>
