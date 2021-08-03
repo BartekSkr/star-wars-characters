@@ -14,5 +14,13 @@
 body {
   font-family: 'Roboto', sans-serif;
   background-color: rgb(41, 40, 40);
+  line-height: 1.6;
+  letter-spacing: 0.12rem;
   color: var(--primary-color);
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  padding-top: 0.5rem;
 }
