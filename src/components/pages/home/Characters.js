@@ -14,27 +14,23 @@ export const Characters = () => {
     return (
     <Fragment>
       <Search />
-      <div className='character'>
-          <div className='character-info'>
-          {characters.map((character, index) => (
-            <div key={index}>
-              <h2>{character.name}</h2>
+      <Fragment>
+        {characters.map((character, index) => (
+          <div key={index} className='character'>
+            <div className='character-info'>
+              <h3>{character.name}</h3>
+              <span><strong>Height: </strong><p>{character.height} cm</p></span>
+              <span><strong>Mass: </strong><p>{character.mass} kg</p></span>
+              <span><strong>Hair color: </strong><p>{character.hair_color}</p></span>
+              <span><strong>Birth year: </strong><p>{character.birth_year}</p></span>
+              <span><strong>Gender: </strong><p>{character.gender}</p></span>
             </div>
-          ))}
-          {/* <h2>Luke Skywalker</h2>
-          <h4>Height: 172 cm</h4>
-          <h4>Mass: 77 kg</h4>
-          <h4>Hair color: blond</h4>
-          <h4>Skin color: fair</h4>
-          <h4>Eye color: blue</h4>
-          <h4>Birth year: 19BBY</h4>
-          <h4>Gender: male</h4>
-          <h4>Homeworld: Tatooine</h4> */}
-        </div>
-        <div className='character-button'>
-          <button className='add-button'>Add to favourites</button>
-        </div>
-      </div>
+            <div className='character-button'>
+              <button className='add-button'>Add to favourites</button>
+            </div>
+          </div>
+        ))}
+      </Fragment>
     </Fragment>
     )
   }
