@@ -35,7 +35,7 @@ export const DataState = ({ children }) => {
   }
 
   return (
-    <DataContext.Provider value={{ loading, searchCharacterByName, characters }}>
+    <DataContext.Provider value={{ loading, searchCharacterByName, characters, getData }}>
       {children}
     </DataContext.Provider>
   )
