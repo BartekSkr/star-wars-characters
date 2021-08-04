@@ -23,7 +23,7 @@ export const DataState = ({ children }) => {
     })
   }
 
-  //  searching a character by name
+  //  searching for character by name
   const searchCharacterByName = e => {
     if (e.key === 'Enter') {
       fetch(`https://swapi.dev/api/people/?search=${e.target.value}`)
