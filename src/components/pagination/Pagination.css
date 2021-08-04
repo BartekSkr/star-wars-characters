@@ -2,21 +2,21 @@
   margin-bottom: 1rem;
 }
 
-#pagination-li {
+.pagination-li {
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
 
-#pagination-a-chosen {
+.pagination-a-chosen {
   border-bottom: 3px solid var(--secondary-color);
   color: var(--secondary-color);
 }
 
-#pagination-li:hover #pagination-a {
+.pagination-li:hover .pagination-a {
   color: var(--secondary-color);
 }
 
-#pagination-li:hover {
+.pagination-li:hover {
   transform: scale(1.5);
   transition: all 0.2s ease-in-out;
 }

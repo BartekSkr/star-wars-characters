@@ -16,14 +16,14 @@ export const Pagination = ({ postsPerPage, totalPosts }) => {
     pageNumbers.push(i)
   }
 
-  const handleOnClick = num => {
-    return function () {
-      getData(num)
-      setCurrentPage(num)
-      console.log('currentPage: ', currentPage)
-      console.log('number: ', num)
-    }
-  }
+  // const handleOnClick = num => {
+  //   return function () {
+  //     getData(num)
+  //     setCurrentPage(num)
+  //     console.log('currentPage: ', currentPage)
+  //     console.log('number: ', num)
+  //   }
+  // }
 
   return (
     <Fragment>
@@ -31,17 +31,17 @@ export const Pagination = ({ postsPerPage, totalPosts }) => {
         {pageNumbers.map(number => (
           // <li id='pagination-li' key={number}>
           // <li id='pagination-li-chosen' key={currentPage}>
-          <li id='pagination-li' key={number}>
+          <li className='pagination-li' key={number}>
             {/* <a onClick={() => getData(number)} href="/#"> */}
             {/* <a id='pagination-a' */}
-            <a id={number === currentPage ? 'pagination-a-chosen' : 'pagination-a'}
-              // onClick={() => {
-              //   getData(number)
-              //   setCurrentPage(number)
-              //   console.log('currentPage: ', currentPage)
-              //   console.log('number: ', number)
-              // }}
-              onClick={handleOnClick(number)}
+            <a className={number === currentPage ? 'pagination-a-chosen' : 'pagination-a'}
+              onClick={() => {
+                getData(number)
+                setCurrentPage(number)
+                console.log('currentPage: ', currentPage)
+                console.log('number: ', number)
+              }}
+              // onClick={handleOnClick(number)}
               href="/#">
               {number}
             </a>
