@@ -8,11 +8,11 @@ import { Pagination } from '../../pagination/Pagination'
 export const Characters = () => {
   const dataContext = useContext(DataContext)
   const { characters, loading } = dataContext
-  const [currentPage, setCurrentPage] = useState(1)
+  // const [currentPage, setCurrentPage] = useState(1)
 
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber)
-  }
+  // const paginate = (pageNumber) => {
+  //   setCurrentPage(pageNumber)
+  // }
 
   if (loading) {
     return <Spinner />
