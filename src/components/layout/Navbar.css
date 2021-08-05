@@ -20,7 +20,7 @@ ul {
   justify-content: center;
 }
 
-li {
+.navbar-li {
   transition: all 0.2s ease-in-out;
 }
 
@@ -30,7 +30,11 @@ a {
   text-decoration: none;
 }
 
-li:hover {
+.navbar-li:hover {
   transform: scale(1.2);
   transition: all 0.2s ease-in-out;
+}
+
+.navbar-li:hover a {
+  color: var(--secondary-color);
 }
