@@ -1,21 +1,43 @@
 .character {
   border: 1px solid var(--secondary-color);
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 0.5rem;
   margin-bottom: 1rem;
-  display: flex;
-  justify-content: space-between;
 }
 
 .character-info {
-  width: 70%;
+  width: 100%;
 }
 
-.character-info > h3 {
+.character-info-header {
+  color: var(--secondary-color);
+  width: 100%;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.character-info-details {
+  visibility: hidden;
+  height: 0;
+  opacity: 0;
+  transition: height 0.5s ease-in-out, opacity 0.7s ease-in-out;
+}
+
+.character-info-details-active {
+  padding: 0 1rem;
+  visibility: visible;
+  opacity: 1;
+  height: 128px;
+  transition: height 0.5s ease-in-out, opacity 1s ease-in-out 0.22s;
+}
+
+.character-info-details-active > h3 {
   margin-bottom: 0.5rem;
 }
 
-.character-info > span {
+.character-info-details-active > span {
   display: flex;
 }
 
@@ -23,11 +45,24 @@ p {
   margin-left: 0.5rem;
 }
 
-.add-button {
+.add-button,
+.details-button {
   color: black;
   background-color: var(--secondary-color);
   border-radius: 0.5rem;
-  height: 3em;
-  padding: 0 1rem;
+  border: none;
+  height: 2rem;
+  width: 2rem;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.details-button {
+  margin-left: 0.5rem;
+}
+
+.add-button:active,
+.details-button:active {
+  transform: scale(0.96);
+  transition: all 0.2s ease-in-out;
 }
