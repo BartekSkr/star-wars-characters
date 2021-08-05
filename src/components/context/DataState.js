@@ -3,6 +3,7 @@ import DataContext from './dataContext'
 
 export const DataState = ({ children }) => {
   const [characters, setCharacters] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -18,6 +19,7 @@ export const DataState = ({ children }) => {
       .then(data => {
         setLoading(false)
         setCharacters(data.results)
+        setCurrentPage(pageNumber)
 
         console.log(data.results)
     })
@@ -35,7 +37,7 @@ export const DataState = ({ children }) => {
   }
 
   return (
-    <DataContext.Provider value={{ loading, searchCharacterByName, characters, getData }}>
+    <DataContext.Provider value={{ loading, searchCharacterByName, characters, getData, currentPage }}>
       {children}
     </DataContext.Provider>
   )
