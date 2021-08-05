@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from 'react'
+import React, { Fragment, useContext } from 'react'
 import DataContext from '../context/dataContext'
 import './Pagination.css'
 
@@ -19,12 +19,8 @@ export const Pagination = ({ postsPerPage, totalPosts }) => {
     <Fragment>
       <ul id='pagination-ul'>
         {pageNumbers.map(number => (
-          <li className='pagination-li' key={number}>
-            <a className={currentPage === number ? 'pagination-a-active' : 'pagination-a'}
-              onClick={() => {
-                getData(number)
-              }}
-              href="/#">
+          <li className='pagination-li' key={number} onClick={()=>getData(number)}>
+            <a className={currentPage === number ? 'pagination-a-active' : 'pagination-a'} href="/#">
               {number}
             </a>
           </li>
