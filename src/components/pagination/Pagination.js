@@ -20,7 +20,7 @@ export const Pagination = ({ postsPerPage, totalPosts }) => {
       <ul id='pagination-ul'>
         {pageNumbers.map(number => (
           <li className='pagination-li' key={number}>
-            <a className={currentPage === number ? 'pagination-a-chosen' : 'pagination-a'}
+            <a className={currentPage === number ? 'pagination-a-active' : 'pagination-a'}
               onClick={() => {
                 getData(number)
                 console.log('number: ', number)
