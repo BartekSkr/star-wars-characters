@@ -24,10 +24,15 @@ ul {
   transition: all 0.2s ease-in-out;
 }
 
-a {
+.navbar-link {
   color: var(--primary-color);
   margin: 0 1rem;
   text-decoration: none;
+}
+
+.navbar-link-active {
+  color: var(--secondary-color);
+  border-bottom: 3px solid var(--secondary-color);
 }
 
 .navbar-li:hover {

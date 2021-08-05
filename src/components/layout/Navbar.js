@@ -1,6 +1,6 @@
 import React from 'react'
 import './Navbar.css'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 export const Navbar = ({ title }) => {
@@ -9,10 +9,20 @@ export const Navbar = ({ title }) => {
       <h1>{title}</h1>
       <ul>
         <li className='navbar-li'>
-          <Link to='/'>Characters</Link>
+          <NavLink
+            className='navbar-link'
+            activeClassName='navbar-link-active'
+            exact to='/'>
+            Characters
+          </NavLink>
         </li>
         <li className='navbar-li'>
-          <Link to='favourites'>Favourites</Link>
+          <NavLink
+            className='navbar-link'
+            activeClassName='navbar-link-active'
+            exact to='favourites'>
+            Favourites
+          </NavLink>
         </li>
       </ul>
     </nav>
