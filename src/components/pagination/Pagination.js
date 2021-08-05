@@ -23,7 +23,6 @@ export const Pagination = ({ postsPerPage, totalPosts }) => {
             <a className={currentPage === number ? 'pagination-a-active' : 'pagination-a'}
               onClick={() => {
                 getData(number)
-                console.log('number: ', number)
               }}
               href="/#">
               {number}
