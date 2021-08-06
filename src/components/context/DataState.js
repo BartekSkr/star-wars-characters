@@ -39,8 +39,6 @@ export const DataState = ({ children }) => {
         setCurrentPage(pageNumber)
         setCharactersCount(data.count)
         setCharacterSearchError(false)
-
-        console.log(data.results)
       })
       .catch(err => console.error(err))
   }
@@ -61,8 +59,6 @@ export const DataState = ({ children }) => {
           setApi(`https://swapi.dev/api/people/?search=${e.target.value}&page=`)
           setCurrentPage(1)
           data.results.length !== 0 ? setCharacterSearchError(false) : setCharacterSearchError(true)
-
-          console.log(data.results)
         })
         .catch(err => console.error(err))
     }
