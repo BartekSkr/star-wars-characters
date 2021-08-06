@@ -8,9 +8,12 @@
 }
 
 a {
-  color: var(--primary-color);
-  margin: 0 1rem;
   text-decoration: none;
+  margin: 0 1rem;
+}
+
+.pagination-a {
+  color: var(--primary-color);
 }
 
 .pagination-a-active {

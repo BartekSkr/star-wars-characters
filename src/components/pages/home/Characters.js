@@ -1,12 +1,12 @@
 import React, { Fragment, useContext } from 'react'
 import './Characters.css'
+import { Search } from './Search'
+import { Spinner } from '../../layout/Spinner'
+import { Pagination } from '../../pagination/Pagination'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
-import { Search } from './Search'
-import { Spinner } from '../../layout/Spinner'
 import DataContext from '../../context/dataContext'
-import { Pagination } from '../../pagination/Pagination'
 import ReactTooltip from 'react-tooltip'
 
 export const Characters = () => {

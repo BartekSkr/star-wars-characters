@@ -1,17 +1,13 @@
 import React, { Fragment, useContext } from 'react'
-import DataContext from '../context/dataContext'
 import './Pagination.css'
+import DataContext from '../context/dataContext'
 
-export const Pagination = ({ postsPerPage, totalPosts }) => {
+export const Pagination = () => {
   const dataContext = useContext(DataContext)
-  const { getData, currentPage } = dataContext
+  const { charactersCount, getData, currentPage, api } = dataContext
   const pageNumbers = []
 
-  // for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++){
-  //   pageNumbers.push(i)
-  // }
-
-  for (let i = 1; i <= 9; i++){
+  for (let i = 1; i <= Math.ceil(charactersCount / 10); i++){
     pageNumbers.push(i)
   }
 
@@ -19,7 +15,7 @@ export const Pagination = ({ postsPerPage, totalPosts }) => {
     <Fragment>
       <ul id='pagination-ul'>
         {pageNumbers.map(number => (
-          <li className='pagination-li' key={number} onClick={()=>getData(number)}>
+          <li className='pagination-li' key={number} onClick={()=>getData(api, number)}>
             <a className={currentPage === number ? 'pagination-a-active' : 'pagination-a'} href="/#">
               {number}
             </a>
