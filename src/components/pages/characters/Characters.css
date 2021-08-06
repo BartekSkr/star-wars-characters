@@ -46,7 +46,8 @@ p {
 }
 
 .add-button,
-.details-button {
+.details-button,
+.details-button-rotated {
   color: black;
   background-color: var(--secondary-color);
   border-radius: 0.5rem;
@@ -57,8 +58,14 @@ p {
   transition: all 0.2s ease-in-out;
 }
 
-.details-button {
+.details-button,
+.details-button-rotated {
   margin-left: 0.5rem;
+}
+
+.details-button-rotated {
+  transform: rotate(180deg);
+  transition: transform 0.4s ease-in;
 }
 
 .add-button:active,

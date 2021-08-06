@@ -19,6 +19,8 @@ export const DataState = ({ children }) => {
   const [inputValue, setInputValue] = useState()
   //  message if the searched character doesn't exist
   const [characterSearchError, setCharacterSearchError] = useState(false)
+  //  does not display data when loading
+  const [display, setDisplay] = useState(false)
 
   useEffect(() => {
     ReactTooltip.rebuild()
@@ -27,10 +29,12 @@ export const DataState = ({ children }) => {
   //  get data from api
   const getData = (api, pageNumber) => {
     setLoading(true)
+    setDisplay(false)
     fetch(`${api}${pageNumber}`)
       .then(response => response.json())
       .then(data => {
         setLoading(false)
+        setDisplay(true)
         setCharacters(data.results)
         setCurrentPage(pageNumber)
         setCharactersCount(data.count)
@@ -45,10 +49,12 @@ export const DataState = ({ children }) => {
   const searchCharacterByName = e => {
     if (e.key === 'Enter') {
       setLoading(true)
+      setDisplay(false)
       fetch(`https://swapi.dev/api/people/?search=${e.target.value}`)
         .then(response => response.json())
         .then(data => {
           setLoading(false)
+          setDisplay(true)
           setCharacters(data.results)
           setCharactersCount(data.count)
           setInputValue(e.target.value)
@@ -63,7 +69,7 @@ export const DataState = ({ children }) => {
   }
 
   return (
-    <DataContext.Provider value={{ loading, searchCharacterByName, characters, getData, currentPage, buttonKey, setButtonKey, charactersCount, api, setApi, inputValue, characterSearchError }}>
+    <DataContext.Provider value={{ loading, searchCharacterByName, characters, getData, currentPage, buttonKey, setButtonKey, charactersCount, api, setApi, inputValue, characterSearchError, display }}>
       {children}
     </DataContext.Provider>
   )
