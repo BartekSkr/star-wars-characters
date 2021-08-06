@@ -17,6 +17,8 @@ export const DataState = ({ children }) => {
   const [api, setApi] = useState('https://swapi.dev/api/people/?page=')
   //  input value for a pagination
   const [inputValue, setInputValue] = useState()
+  //  message if the searched character doesn't exist
+  const [characterSearchError, setCharacterSearchError] = useState(false)
 
   useEffect(() => {
     ReactTooltip.rebuild()
@@ -32,33 +34,36 @@ export const DataState = ({ children }) => {
         setCharacters(data.results)
         setCurrentPage(pageNumber)
         setCharactersCount(data.count)
+        setCharacterSearchError(false)
 
-        console.log(data)
-        console.log(data.count)
-    })
+        console.log(data.results)
+      })
+      .catch(err => console.error(err))
   }
 
   //  searching for a character by name
   const searchCharacterByName = e => {
     if (e.key === 'Enter') {
+      setLoading(true)
       fetch(`https://swapi.dev/api/people/?search=${e.target.value}`)
         .then(response => response.json())
         .then(data => {
+          setLoading(false)
           setCharacters(data.results)
           setCharactersCount(data.count)
           setInputValue(e.target.value)
           setApi(`https://swapi.dev/api/people/?search=${e.target.value}&page=`)
           setCurrentPage(1)
+          data.results.length !== 0 ? setCharacterSearchError(false) : setCharacterSearchError(true)
 
-          console.log('inputValue: ', e.target.value)
           console.log(data.results)
-          console.log(data.count)
         })
+        .catch(err => console.error(err))
     }
   }
 
   return (
-    <DataContext.Provider value={{ loading, searchCharacterByName, characters, getData, currentPage, buttonKey, setButtonKey, charactersCount, api, setApi, inputValue }}>
+    <DataContext.Provider value={{ loading, searchCharacterByName, characters, getData, currentPage, buttonKey, setButtonKey, charactersCount, api, setApi, inputValue, characterSearchError }}>
       {children}
     </DataContext.Provider>
   )

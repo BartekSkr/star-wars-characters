@@ -6,12 +6,13 @@ import { Pagination } from '../../pagination/Pagination'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import yoda from '../../icons/baby-yoda.svg'
 import DataContext from '../../context/dataContext'
 import ReactTooltip from 'react-tooltip'
 
 export const Characters = () => {
   const dataContext = useContext(DataContext)
-  const { characters, loading, buttonKey, setButtonKey } = dataContext
+  const { characters, loading, buttonKey, setButtonKey, characterSearchError } = dataContext
 
   if (loading) {
     return <Spinner />
@@ -19,6 +20,12 @@ export const Characters = () => {
     return (
     <Fragment>
       <Search />
+      {characterSearchError === true &&
+        <div className='search-error'>
+          <h3>Sorry, no such character, there is... Try again, please!</h3>
+          <img src={yoda} alt='yoda' id='yoda-icon' />
+        </div>
+      }
       <Fragment>
         {characters.map((character, index) => (
           <div key={index} className='character'>
@@ -52,7 +59,7 @@ export const Characters = () => {
           </div>
         ))}
       </Fragment>
-        <Pagination />
+      <Pagination />
     </Fragment>
     )
   }

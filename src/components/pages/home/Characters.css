@@ -66,3 +66,16 @@ p {
   transform: scale(0.96);
   transition: all 0.2s ease-in-out;
 }
+
+.search-error {
+  color: var(--secondary-color);
+  margin: 2rem auto;
+  text-align: center;
+  width: 80%;
+}
+
+#yoda-icon {
+  width: 100px;
+  height: 100px;
+  margin-top: 2rem;
+}
