@@ -14,6 +14,10 @@
   color: var(--secondary-color);
 }
 
+.initial-info span {
+  color: var(--secondary-color);
+}
+
 .character-info {
   width: 100%;
 }
