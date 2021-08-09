@@ -6,6 +6,7 @@ import { Pagination } from '../../pagination/Pagination'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faJournalWhills } from '@fortawesome/free-solid-svg-icons'
 import yoda from '../../icons/baby-yoda.svg'
 import DataContext from '../../context/dataContext'
 import ReactTooltip from 'react-tooltip'
@@ -17,17 +18,26 @@ export const Characters = () => {
   return (
     <Fragment>
       <Search />
+      {/* information about missing character or a typo */}
       {characterSearchError === true &&
         <div className='search-error' >
           <h3>Sorry, no such character, there is... Try again, please!</h3>
           <img src={yoda} alt='yoda' id='yoda-icon' />
         </div>
       }
+      {/* spinner while loading data */}
       {loading === true &&
         <Fragment>
           <Spinner />
         </Fragment>
       }
+      {/* initial info */}
+      {display === false && loading===false &&
+        <div className='initial-info'>
+        <h3>Press the icon <FontAwesomeIcon id='initial-info-icon' icon={faJournalWhills}/> to display the entire list of Star Wars characters, or enter the name of the character you are interested in.</h3>
+        </div>
+      }
+      {/* API data */}
       {display === true &&
         <Fragment>
           {characters.map((character, index) => (
