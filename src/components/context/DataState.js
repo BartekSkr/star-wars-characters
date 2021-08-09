@@ -26,7 +26,7 @@ export const DataState = ({ children }) => {
     ReactTooltip.rebuild()
   }, [])
 
-  //  get data from api
+  //  getting data from API
   const getData = (api, pageNumber) => {
     setLoading(true)
     setDisplay(false)
