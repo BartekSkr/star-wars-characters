@@ -18,7 +18,7 @@
 }
 
 .search-button:active {
-  transform: scale(0.96);
+  transform: scale(0.95);
   transition: all 0.2s ease-in-out;
 }
 
@@ -32,4 +32,11 @@
   overflow: hidden;
   border: none;
   text-indent: 1rem;
+}
+
+/* layout on larger screens */
+@media (min-width: 900px) {
+  .search {
+    width: var(--larger-screens-default-width);
+  }
 }

@@ -31,3 +31,14 @@ img {
 .not-found-ul > li {
   margin-bottom: 1rem;
 }
+
+/* layout on larger screens */
+@media (min-width: 900px) {
+  .not-found-container {
+    width: var(--larger-screens-default-width);
+  }
+
+  .not-found-info {
+    margin: 0 auto;
+  }
+}

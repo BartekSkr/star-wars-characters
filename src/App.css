@@ -3,6 +3,7 @@
 :root {
   --primary-color: whitesmoke;
   --secondary-color: yellow;
+  --larger-screens-default-width: 50%;
 }
 
 * {
