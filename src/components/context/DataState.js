@@ -31,7 +31,7 @@ export const DataState = ({ children }) => {
     setLoading(true)
     setDisplay(false)
     fetch(`${api}${pageNumber}`)
-      .then(response => response.json())
+      .then(res => res.json())
       .then(data => {
         setLoading(false)
         setDisplay(true)
@@ -49,7 +49,7 @@ export const DataState = ({ children }) => {
       setLoading(true)
       setDisplay(false)
       fetch(`https://swapi.dev/api/people/?search=${e.target.value}`)
-        .then(response => response.json())
+        .then(res => res.json())
         .then(data => {
           setLoading(false)
           setDisplay(true)
