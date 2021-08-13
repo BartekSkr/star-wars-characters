@@ -34,7 +34,7 @@ export const Characters = () => {
       {/* initial info */}
       {display === false && loading===false &&
         <div className='initial-info'>
-        <h3>Press the icon <FontAwesomeIcon id='initial-info-icon' icon={faJournalWhills}/> to display the entire list of <span>Star Wars</span> characters, or enter the name of the character you are interested in.</h3>
+        <h3>Press the icon: <FontAwesomeIcon id='initial-info-icon' icon={faJournalWhills}/> to display the entire list of <span>Star Wars</span> characters, or enter the name of the character you are interested in.</h3>
         </div>
       }
       {/* API data */}
