@@ -48,7 +48,11 @@ export const Characters = () => {
                 <div className='character-info-header'>
                   <h3>{character.name}</h3>
                   <div>
-                    <button className='add-button' data-tip='Add to favourites'>
+                    <button
+                      className='add-button'
+                      data-tip='Add to favourites'
+                      onClick={() => console.log('character added: ', character)}
+                    >
                       <FontAwesomeIcon icon={faPlus} />
                     </button>
                     <button
