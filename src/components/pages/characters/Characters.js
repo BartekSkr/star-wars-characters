@@ -65,9 +65,9 @@ export const Characters = () => {
                         if (!charID) {
                           dispatch(addToFavourites(character))
                         }
-
+                        //====================================================
                         //  dorzucić jakieś info jeśli postać jest już dodana do listy ulubionych
-
+                        //====================================================
                       }}
                     >
                       <FontAwesomeIcon icon={faPlus} />
