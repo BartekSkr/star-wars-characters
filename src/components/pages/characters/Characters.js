@@ -10,10 +10,14 @@ import { faJournalWhills } from '@fortawesome/free-solid-svg-icons'
 import yoda from '../../icons/baby-yoda.svg'
 import DataContext from '../../context/dataContext'
 import ReactTooltip from 'react-tooltip'
+import { addToFavourites } from '../../actions/favouritesActions'
+import { useDispatch } from 'react-redux'
 
 export const Characters = () => {
   const dataContext = useContext(DataContext)
   const { characters, loading, buttonKey, setButtonKey, characterSearchError, display } = dataContext
+  //  dispatch an action
+  const dispatch = useDispatch()
 
   return (
     <Fragment>
@@ -51,7 +55,9 @@ export const Characters = () => {
                     <button
                       className='add-button'
                       data-tip='Add to favourites'
-                      onClick={() => console.log('character added: ', character)}
+                      onClick={() => {
+                        dispatch(addToFavourites(character))
+                      }}
                     >
                       <FontAwesomeIcon icon={faPlus} />
                     </button>
