@@ -12,10 +12,11 @@ import DataContext from '../../context/dataContext'
 import ReactTooltip from 'react-tooltip'
 import { addToFavourites } from '../../actions/favouritesActions'
 import { useDispatch } from 'react-redux'
+import { initialState } from '../../reducers/favouritesReducer'
 
 export const Characters = () => {
   const dataContext = useContext(DataContext)
-  const { characters, loading, buttonKey, setButtonKey, characterSearchError, display } = dataContext
+  const { characters, loading, buttonKey, setButtonKey, characterSearchError, display, charactersCount } = dataContext
   //  dispatch an action
   const dispatch = useDispatch()
 
@@ -23,7 +24,7 @@ export const Characters = () => {
     <Fragment>
       <Search />
       {/* information about missing character or a typo */}
-      {characterSearchError === true &&
+      {characterSearchError === true && loading === false &&
         <div className='search-error' >
           <h3>Sorry, no such character, there is... Try again, please!</h3>
           <img src={yoda} alt='yoda' id='yoda-icon' />
@@ -36,7 +37,7 @@ export const Characters = () => {
         </Fragment>
       }
       {/* initial info */}
-      {display === false && loading===false &&
+      {display === false && loading === false &&
         <div className='initial-info'>
           <h3>
             Press the icon: <FontAwesomeIcon id='initial-info-icon' icon={faJournalWhills} /> to display the entire list of <span>Star Wars</span> characters, or enter the name of the character you are interested in.
@@ -46,8 +47,8 @@ export const Characters = () => {
       {/* API data */}
       {display === true &&
         <Fragment>
-          {characters.map((character, index) => (
-            <div key={index} className='character'>
+          {characters.map((character) => (
+            <div key={character.created} className='character'>
               <div className='character-info'>
                 <div className='character-info-header'>
                   <h3>{character.name}</h3>
@@ -56,7 +57,17 @@ export const Characters = () => {
                       className='add-button'
                       data-tip='Add to favourites'
                       onClick={() => {
-                        dispatch(addToFavourites(character))
+                        let charID = initialState.favouriteCharacters.find(char => {
+                          if (char.created === character.created) {
+                            return true
+                          }
+                        })
+                        if (!charID) {
+                          dispatch(addToFavourites(character))
+                        }
+
+                        //  dorzucić jakieś info jeśli postać jest już dodana do listy ulubionych
+
                       }}
                     >
                       <FontAwesomeIcon icon={faPlus} />
