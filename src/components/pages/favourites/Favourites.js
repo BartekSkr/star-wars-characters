@@ -35,8 +35,17 @@ export const Favourites = () => {
                     className='add-button'
                     data-tip='Delete from favourites'
                     onClick={() => {
-                      // dispatch(deleteFromFavourites(character))
-                      console.log(character.created)
+                      dispatch(deleteFromFavourites(character))
+                      let characterID = initialState.favouriteCharacters.find(char => {
+                        if (char.created === character.created) {
+                          return false
+                        }
+                      })
+
+                      if (characterID) {
+                        dispatch.deleteFromFavourites(character)
+                      }
+                      //  pomyśleć jak odświerzyć komponent po usunięciu postaci z listy
                     }}
                   >
                     <FontAwesomeIcon icon={faTrash} />
@@ -46,7 +55,6 @@ export const Favourites = () => {
                     data-tip='Show details'
                     onClick={() => {
                       setButtonKey(character.created)
-                      console.log(character)
                     }}
                   >
                     <FontAwesomeIcon icon={faChevronDown} />

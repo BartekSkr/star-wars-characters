@@ -16,7 +16,7 @@ import { initialState } from '../../reducers/favouritesReducer'
 
 export const Characters = () => {
   const dataContext = useContext(DataContext)
-  const { characters, loading, buttonKey, setButtonKey, characterSearchError, display, charactersCount } = dataContext
+  const { characters, loading, buttonKey, setButtonKey, characterSearchError, display } = dataContext
   //  dispatch an action
   const dispatch = useDispatch()
 
@@ -57,12 +57,13 @@ export const Characters = () => {
                       className='add-button'
                       data-tip='Add to favourites'
                       onClick={() => {
-                        let charID = initialState.favouriteCharacters.find(char => {
+                        let characterID = initialState.favouriteCharacters.find(char => {
                           if (char.created === character.created) {
                             return true
                           }
                         })
-                        if (!charID) {
+
+                        if (!characterID) {
                           dispatch(addToFavourites(character))
                         }
                         //====================================================
