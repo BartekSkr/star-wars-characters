@@ -1,6 +1,6 @@
 import React from 'react'
 import './404-page.css'
-import darthVader from '../../icons/darth-vader.ico'
+import darthVader from '../../icons/darth-vader.png'
 
 export const PageNotFound = () => {
   return (
