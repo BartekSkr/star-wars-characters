@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react'
+import React, { Fragment, useContext, useEffect } from 'react'
 import './Favourites.css'
 import yoda from '../../icons/baby-yoda.svg'
 import { initialState } from '../../reducers/favouritesReducer'
@@ -6,15 +6,30 @@ import ReactTooltip from 'react-tooltip'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
-import { deleteFromFavourites } from '../../actions/favouritesActions'
+import { deleteFromFavourites, getFavourites } from '../../actions/favouritesActions'
 import DataContext from '../../context/dataContext'
 // import { Pagination } from '../../pagination/Pagination'
-import { useDispatch } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 
-export const Favourites = () => {
+// const mapStateToProps = state => ({
+//   favouriteCharacters: state.favouriteCharacters
+// })
+
+// const enhance = connect(mapStateToProps, {})
+// const enhance = connect(
+//   (state) => ({favouriteCharacters: state.favouriteCharacters}),
+//   {})
+
+// export const Favourites = () => {
+const FavouritesPage = () => {
   const dataContext = useContext(DataContext)
   const { buttonKey, setButtonKey } = dataContext
   const dispatch = useDispatch()
+
+
+  useEffect(() => {
+    dispatch(getFavourites())
+  })
 
   return (
     <Fragment>
@@ -36,16 +51,14 @@ export const Favourites = () => {
                     data-tip='Delete from favourites'
                     onClick={() => {
                       dispatch(deleteFromFavourites(character))
-                      let characterID = initialState.favouriteCharacters.find(char => {
-                        if (char.created === character.created) {
-                          return false
-                        }
-                      })
-
-                      if (characterID) {
-                        dispatch.deleteFromFavourites(character)
-                      }
-                      //  pomyśleć jak odświerzyć komponent po usunięciu postaci z listy
+                      // let characterID = initialState.favouriteCharacters.find(char => {
+                      //   if (char.created === character.created) {
+                      //     return false
+                      //   }
+                      // })
+                      // if (characterID) {
+                      //   dispatch.deleteFromFavourites(character)
+                      // }
                     }}
                   >
                     <FontAwesomeIcon icon={faTrash} />
@@ -77,3 +90,6 @@ export const Favourites = () => {
     </Fragment>
   )
 }
+
+// export const Favourites = enhance(FavouritesPage)
+export const Favourites = connect((state) => ({favouriteCharacters: state.favouriteCharacters}), {})(FavouritesPage)

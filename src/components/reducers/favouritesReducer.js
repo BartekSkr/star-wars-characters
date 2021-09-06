@@ -1,4 +1,4 @@
-import { ADD_TO_FAVOURITES, DELETE_FROM_FAVOURITES } from '../actions/types'
+import { ADD_TO_FAVOURITES, DELETE_FROM_FAVOURITES, GET_FAVOURITES } from '../actions/types'
 
 export const initialState = {
   favouriteCharacters: [],
@@ -19,6 +19,8 @@ export const favouriteListReducer = (state = initialState, action) => {
         ...state,
         favouriteCharacter: action.payload
       }
+    case GET_FAVOURITES:
+      return state.favouriteCharacters
     default:
       return state
   }
