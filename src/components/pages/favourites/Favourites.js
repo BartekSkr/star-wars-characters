@@ -92,4 +92,4 @@ const FavouritesPage = () => {
 }
 
 // export const Favourites = enhance(FavouritesPage)
-export const Favourites = connect((state) => ({favouriteCharacters: state.favouriteCharacters}), {})(FavouritesPage)
+export const Favourites = connect((state) => ({ favouriteCharacters: state.favouriteCharacters }), {})(FavouritesPage)
