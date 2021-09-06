@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react'
+import React, { Fragment, useContext, useEffect } from 'react'
 import './Favourites.css'
 import yoda from '../../icons/baby-yoda.svg'
 import { initialState } from '../../reducers/favouritesReducer'
@@ -6,15 +6,27 @@ import ReactTooltip from 'react-tooltip'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
-import { deleteFromFavourites } from '../../actions/favouritesActions'
+import { deleteFromFavourites, getFavourites } from '../../actions/favouritesActions'
 import DataContext from '../../context/dataContext'
+import { connect } from 'react-redux';
 // import { Pagination } from '../../pagination/Pagination'
 import { useDispatch } from 'react-redux'
 
-export const Favourites = () => {
+const mapStateToProps = state => ({
+  favouriteCharacters: state.favouriteCharacters,
+});
+
+
+const enhance = connect(mapStateToProps, {});
+
+const FavouritesPage = (props) => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getFavourites());
+  });
   const dataContext = useContext(DataContext)
   const { buttonKey, setButtonKey } = dataContext
-  const dispatch = useDispatch()
 
   return (
     <Fragment>
@@ -77,3 +89,5 @@ export const Favourites = () => {
     </Fragment>
   )
 }
+
+export const Favourites = enhance(FavouritesPage);
