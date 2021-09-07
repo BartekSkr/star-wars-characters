@@ -10,6 +10,7 @@ import { deleteFromFavourites, getFavourites } from '../../actions/favouritesAct
 import DataContext from '../../context/dataContext'
 // import { Pagination } from '../../pagination/Pagination'
 import { connect, useDispatch } from 'react-redux'
+import { toast } from 'react-toastify'
 
 // const mapStateToProps = state => ({
 //   favouriteCharacters: state.favouriteCharacters
@@ -25,7 +26,8 @@ const FavouritesPage = () => {
   const dataContext = useContext(DataContext)
   const { buttonKey, setButtonKey } = dataContext
   const dispatch = useDispatch()
-
+  //  toast
+  const deleteFromFavouritesToast = toastInfo => toast.info(toastInfo)
 
   useEffect(() => {
     dispatch(getFavourites())
@@ -51,6 +53,7 @@ const FavouritesPage = () => {
                     data-tip='Delete from favourites'
                     onClick={() => {
                       dispatch(deleteFromFavourites(character))
+                      deleteFromFavouritesToast(`Been removed from the favorites list, ${character.name} has.`)
                       // let characterID = initialState.favouriteCharacters.find(char => {
                       //   if (char.created === character.created) {
                       //     return false

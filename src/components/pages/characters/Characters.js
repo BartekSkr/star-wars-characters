@@ -13,12 +13,14 @@ import ReactTooltip from 'react-tooltip'
 import { addToFavourites } from '../../actions/favouritesActions'
 import { useDispatch } from 'react-redux'
 import { initialState } from '../../reducers/favouritesReducer'
+import { toast } from 'react-toastify'
 
 export const Characters = () => {
   const dataContext = useContext(DataContext)
   const { characters, loading, buttonKey, setButtonKey, characterSearchError, display } = dataContext
-  //  dispatch an action
   const dispatch = useDispatch()
+  //  toast
+  const addToFavouritesToast = toastInfo => toast.info(toastInfo)
 
   return (
     <Fragment>
@@ -62,13 +64,12 @@ export const Characters = () => {
                             return true
                           }
                         })
-
                         if (!characterID) {
                           dispatch(addToFavourites(character))
+                          addToFavouritesToast(`Been added to the favourites list, ${character.name} has.`)
+                        } else {
+                          addToFavouritesToast(`Already on the favourites list, ${character.name} is.`)
                         }
-                        //====================================================
-                        //  dorzucić jakieś info jeśli postać jest już dodana do listy ulubionych
-                        //====================================================
                       }}
                     >
                       <FontAwesomeIcon icon={faPlus} />
