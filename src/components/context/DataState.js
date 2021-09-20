@@ -5,6 +5,8 @@ import DataContext from './dataContext'
 export const DataState = ({ children }) => {
   //  characters data from API & from user search
   const [characters, setCharacters] = useState([])
+  //  character details data
+  const [characterDetails, setCharacterDetails] = useState([])
   //  number of characters found
   const [charactersCount, setCharactersCount] = useState()
   //  current data page
@@ -64,8 +66,24 @@ export const DataState = ({ children }) => {
     }
   }
 
+  //  fetching data for character's details
+  const getCharacterDetails = characterNumber => {
+    setLoading(true)
+    setDisplay(false)
+    fetch(`https://swapi.dev/api/people/${characterNumber}`)
+      .then(res => res.json())
+      .then(data => {
+        setLoading(false)
+        setDisplay(true)
+        setCharacterDetails(data)
+
+        console.log('characterDetails: ', data)
+      })
+      .catch(err => console.log(err))
+  }
+
   return (
-    <DataContext.Provider value={{ loading, searchCharacterByName, characters, getData, currentPage, buttonKey, setButtonKey, charactersCount, api, setApi, inputValue, characterSearchError, display }}>
+    <DataContext.Provider value={{ loading, searchCharacterByName, characters, getData, currentPage, buttonKey, setButtonKey, charactersCount, api, setApi, inputValue, characterSearchError, display, getCharacterDetails, characterDetails }}>
       {children}
     </DataContext.Provider>
   )
