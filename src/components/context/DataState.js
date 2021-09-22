@@ -28,7 +28,7 @@ export const DataState = ({ children }) => {
     ReactTooltip.rebuild()
   }, [])
 
-  //  getting data from API
+  //  fetching data from API
   const getData = (api, pageNumber) => {
     setLoading(true)
     setDisplay(false)
@@ -67,10 +67,10 @@ export const DataState = ({ children }) => {
   }
 
   //  fetching data for character's details
-  const getCharacterDetails = characterNumber => {
+  const getCharacterDetails = characterUrl => {
     setLoading(true)
     setDisplay(false)
-    fetch(`https://swapi.dev/api/people/${characterNumber}`)
+    fetch(`${characterUrl}`)
       .then(res => res.json())
       .then(data => {
         setLoading(false)

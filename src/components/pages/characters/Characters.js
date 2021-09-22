@@ -78,12 +78,11 @@ export const Characters = () => {
                     className='details-button'
                     data-tip='Show details'
                     onClick={() => {
-                      let characterNumber = character.url.slice(29, 31).match(/\d+/).toString()
-                      getCharacterDetails(characterNumber)
+                      getCharacterDetails(character.url)
                     }}
                   >
                   <Link
-                    to={`/character/${characterDetails.name}`}
+                    to={`/${character.name}`}
                   >
                     <FontAwesomeIcon className='details-button-icon' icon={faInfo} />
                   </Link>

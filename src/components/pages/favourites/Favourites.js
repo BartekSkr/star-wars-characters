@@ -8,7 +8,6 @@ import { faInfo } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { deleteFromFavourites, getFavourites } from '../../actions/favouritesActions'
 import DataContext from '../../context/dataContext'
-// import { Pagination } from '../../pagination/Pagination'
 import { connect, useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
@@ -43,16 +42,18 @@ const FavouritesPage = () => {
                     className='add-button'
                     data-tip='Delete from favourites'
                     onClick={() => {
-                      dispatch(deleteFromFavourites(character))
-                      deleteFromFavouritesToast(`Been removed from the favorites list, ${character.name} has.`)
-                      // let characterID = initialState.favouriteCharacters.find(char => {
-                      //   if (char.created === character.created) {
-                      //     return false
-                      //   }
-                      // })
-                      // if (characterID) {
-                      //   dispatch.deleteFromFavourites(character)
-                      // }
+                      let characterID = initialState.favouriteCharacters.find(char => {
+                        if (char.created === character.created) {
+                          return true
+                          }
+                      })
+                      if (characterID) {
+                        dispatch(deleteFromFavourites(character))
+                        deleteFromFavouritesToast(`Been removed from the favorites list, ${character.name} has.`)
+                      }
+                      if(!characterID){
+                        deleteFromFavouritesToast(`Not in your favorites list, this character is.`)
+                      }
                     }}
                   >
                     <FontAwesomeIcon icon={faTrash} />
@@ -61,12 +62,11 @@ const FavouritesPage = () => {
                     className='details-button'
                     data-tip='Show details'
                     onClick={() => {
-                      let characterNumber = character.url.slice(29, 31).match(/\d+/).toString()
-                      getCharacterDetails(characterNumber)
+                      getCharacterDetails(character.url)
                     }}
                   >
                     <Link
-                      to={`/character/${character.name}`}
+                      to={`/favourites/${character.name}`}
                     >
                     <FontAwesomeIcon className='details-button-icon' icon={faInfo} />
                     </Link>
@@ -78,7 +78,6 @@ const FavouritesPage = () => {
           </div>
         ))}
       </Fragment>
-      {/* <Pagination charactersNumber={initialState.favouriteCharacters.length}/> */}
     </Fragment>
   )
 }

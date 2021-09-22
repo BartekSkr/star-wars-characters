@@ -25,6 +25,7 @@ function App() {
               <Route exact path='' component={CharacterDetails} />
               <Route component={PageNotFound}/>
             </Switch>
+              {/* <Route exact path='' component={CharacterDetails} /> */}
           </div>
         </Router>
           <ToastContainer
