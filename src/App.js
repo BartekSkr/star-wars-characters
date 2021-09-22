@@ -21,7 +21,8 @@ function App() {
             <Switch>
               <Route exact path='/' component={Characters} />
               <Route exact path='/favourites' component={Favourites} />
-              <Route exact path='character/:name' component={CharacterDetails} />
+              {/* <Route exact path='character/:name' component={CharacterDetails} /> */}
+              <Route exact path='' component={CharacterDetails} />
               <Route component={PageNotFound}/>
             </Switch>
           </div>

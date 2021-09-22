@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom'
 
 export const Characters = () => {
   const dataContext = useContext(DataContext)
-  const { characters, loading, buttonKey, setButtonKey, characterSearchError, display, getCharacterDetails, characterDetails } = dataContext
+  const { characters, loading, characterSearchError, display, getCharacterDetails, characterDetails } = dataContext
   const dispatch = useDispatch()
   //  toast
   const addToFavouritesToast = toastInfo => toast.info(toastInfo)
@@ -85,32 +85,11 @@ export const Characters = () => {
                   <Link
                     to={`/character/${characterDetails.name}`}
                   >
-                    <FontAwesomeIcon icon={faInfo} />
+                    <FontAwesomeIcon className='details-button-icon' icon={faInfo} />
                   </Link>
                   </button>
-                  {/* <button
-                    className='details-button'
-                    data-tip='Show details'
-                    onClick={() => {
-                      let characterNumber = character.url.slice(29, 31).match(/\d+/).toString()
-                      getCharacterDetails(characterNumber)
-                      // setButtonKey(character.created)
-                      // console.log(character.url)
-                      // console.log(character.url.slice(29, 31).match(/\d+/).toString())
-                    }}
-                  >
-                    <FontAwesomeIcon icon={faInfo} />
-                  </button> */}
                 </div>
               </div>
-                {/* <div className={buttonKey === character.created ? 'character-info-details-active' : 'character-info-details'}>
-                  <span><strong>Height: </strong><p>{character.height} cm</p></span>
-                  <span><strong>Mass: </strong><p>{character.mass} kg</p></span>
-                  <span><strong>Hair color: </strong><p>{character.hair_color}</p></span>
-                  <span><strong>Birth year: </strong><p>{character.birth_year}</p></span>
-                  <span><strong>Gender: </strong><p>{character.gender}</p></span>
-                </div> */}
-              {/* </div> */}
               <ReactTooltip place='left' effect='solid' type='info' />
             </div>
           ))}

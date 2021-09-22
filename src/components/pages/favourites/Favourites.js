@@ -4,27 +4,18 @@ import yoda from '../../icons/baby-yoda.svg'
 import { initialState } from '../../reducers/favouritesReducer'
 import ReactTooltip from 'react-tooltip'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faInfo } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { deleteFromFavourites, getFavourites } from '../../actions/favouritesActions'
 import DataContext from '../../context/dataContext'
 // import { Pagination } from '../../pagination/Pagination'
 import { connect, useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
+import { Link } from 'react-router-dom'
 
-// const mapStateToProps = state => ({
-//   favouriteCharacters: state.favouriteCharacters
-// })
-
-// const enhance = connect(mapStateToProps, {})
-// const enhance = connect(
-//   (state) => ({favouriteCharacters: state.favouriteCharacters}),
-//   {})
-
-// export const Favourites = () => {
 const FavouritesPage = () => {
   const dataContext = useContext(DataContext)
-  const { buttonKey, setButtonKey } = dataContext
+  const { getCharacterDetails } = dataContext
   const dispatch = useDispatch()
   //  toast
   const deleteFromFavouritesToast = toastInfo => toast.info(toastInfo)
@@ -67,22 +58,20 @@ const FavouritesPage = () => {
                     <FontAwesomeIcon icon={faTrash} />
                   </button>
                   <button
-                    className={buttonKey !== character.created ? 'details-button' : 'details-button-rotated'}
+                    className='details-button'
                     data-tip='Show details'
                     onClick={() => {
-                      setButtonKey(character.created)
+                      let characterNumber = character.url.slice(29, 31).match(/\d+/).toString()
+                      getCharacterDetails(characterNumber)
                     }}
                   >
-                    <FontAwesomeIcon icon={faChevronDown} />
+                    <Link
+                      to={`/character/${character.name}`}
+                    >
+                    <FontAwesomeIcon className='details-button-icon' icon={faInfo} />
+                    </Link>
                   </button>
                 </div>
-              </div>
-              <div className={buttonKey === character.created ? 'character-info-details-active' : 'character-info-details'}>
-                <span><strong>Height: </strong><p>{character.height} cm</p></span>
-                <span><strong>Mass: </strong><p>{character.mass} kg</p></span>
-                <span><strong>Hair color: </strong><p>{character.hair_color}</p></span>
-                <span><strong>Birth year: </strong><p>{character.birth_year}</p></span>
-                <span><strong>Gender: </strong><p>{character.gender}</p></span>
               </div>
             </div>
             <ReactTooltip place='left' effect='solid' type='info' />
@@ -94,5 +83,4 @@ const FavouritesPage = () => {
   )
 }
 
-// export const Favourites = enhance(FavouritesPage)
 export const Favourites = connect((state) => ({ favouriteCharacters: state.favouriteCharacters }), {})(FavouritesPage)
