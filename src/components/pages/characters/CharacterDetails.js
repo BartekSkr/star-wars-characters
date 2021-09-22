@@ -34,25 +34,37 @@ export const CharacterDetails = () => {
         <div className='character'>
           <div className='character-info-header'>
           <h2>{characterDetails.name}</h2>
-            <button
-              className='add-button'
-              data-tip='Add to favourites'
-              onClick={() => {
-                let characterID = initialState.favouriteCharacters.find(char => {
-                  if (char.created === characterDetails.created) {
-                    return true
+            <div>
+              <button
+                className='add-button'
+                data-tip='Add to favourites'
+                onClick={() => {
+                  let characterID = initialState.favouriteCharacters.find(char => {
+                    if (char.created === characterDetails.created) {
+                      return true
+                    }
+                  })
+                  if (!characterID) {
+                    dispatch(addToFavourites(characterDetails))
+                    addToFavouritesToast(`Been added to the favourites list, ${characterDetails.name} has.`)
+                  } else {
+                    addToFavouritesToast(`Already on the favourites list, ${characterDetails.name} is.`)
                   }
-                })
-                if (!characterID) {
-                  dispatch(addToFavourites(characterDetails))
-                  addToFavouritesToast(`Been added to the favourites list, ${characterDetails.name} has.`)
-                } else {
-                  addToFavouritesToast(`Already on the favourites list, ${characterDetails.name} is.`)
-                }
-              }}
-            >
-              <FontAwesomeIcon icon={faPlus} />
-            </button>
+                }}
+              >
+                <FontAwesomeIcon icon={faPlus} />
+              </button>
+              <button
+                className='add-button'
+                data-tip='Delete from favourites'
+                onClick={() => {
+                  dispatch(deleteFromFavourites(characterDetails))
+                  deleteFromFavouritesToast(`Been removed from the favorites list, ${characterDetails.name} has.`)
+                }}
+              >
+                <FontAwesomeIcon icon={faTrash} />
+              </button>
+            </div>
           </div>
           <div className='character-info-details'>
             <span><strong>Height: </strong><p>{characterDetails.height} cm</p></span>
