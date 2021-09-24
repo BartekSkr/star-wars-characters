@@ -10,7 +10,7 @@ import { faJournalWhills } from '@fortawesome/free-solid-svg-icons'
 import yoda from '../../icons/baby-yoda.svg'
 import DataContext from '../../context/dataContext'
 import ReactTooltip from 'react-tooltip'
-import { addToFavourites } from '../../actions/favouritesActions'
+import { addToFavourites, getFavourites } from '../../actions/favouritesActions'
 import { useDispatch } from 'react-redux'
 import { initialState } from '../../reducers/favouritesReducer'
 import { toast } from 'react-toastify'
@@ -59,6 +59,7 @@ export const Characters = () => {
                     className='add-button'
                     data-tip='Add to favourites'
                     onClick={() => {
+                      // eslint-disable-next-line
                       let characterID = initialState.favouriteCharacters.find(char => {
                         if (char.created === character.created) {
                           return true

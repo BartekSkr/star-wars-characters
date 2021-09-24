@@ -23,11 +23,12 @@ export const CharacterDetails = () => {
     dispatch(getFavourites())
   })
 
-  let characterID = initialState.favouriteCharacters.find(char => {
-    if (char.created === characterDetails.created) {
-      return true
-    }
-  })
+  // eslint-disable-next-line
+  // let characterFound = initialState.favouriteCharacters.find(char => {
+  //   if (char.created === characterDetails.created) {
+  //     return true
+  //   }
+  // })
 
   return (
     <Fragment>
@@ -45,6 +46,10 @@ export const CharacterDetails = () => {
                 className='add-button'
                 data-tip='Add to favourites'
                 onClick={() => {
+                  let characterID = initialState.favouriteCharacters.find(char => {
+                    if (char.created === characterDetails.created) return true
+                  })
+                  // if (!characterFound) {
                   if (!characterID) {
                     dispatch(addToFavourites(characterDetails))
                     addToFavouritesToast(`Been added to the favourites list, ${characterDetails.name} has.`)
@@ -59,11 +64,16 @@ export const CharacterDetails = () => {
                 className='add-button'
                 data-tip='Delete from favourites'
                 onClick={() => {
+                  let characterID = initialState.favouriteCharacters.find(char => {
+                    if (char.created === characterDetails.created) return true
+                  })
+                  // if (characterFound) {
                   if (characterID) {
                     dispatch(deleteFromFavourites(characterDetails))
                     deleteFromFavouritesToast(`Been removed from the favorites list, ${characterDetails.name} has.`)
                   }
-                  if(!characterID){
+                  // if(!characterFound) {
+                  if(!characterID) {
                     deleteFromFavouritesToast(`Not in your favorites list, this character is.`)
                   }
                 }}

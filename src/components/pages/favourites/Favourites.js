@@ -42,10 +42,9 @@ const FavouritesPage = () => {
                     className='add-button'
                     data-tip='Delete from favourites'
                     onClick={() => {
+                      // eslint-disable-next-line
                       let characterID = initialState.favouriteCharacters.find(char => {
-                        if (char.created === character.created) {
-                          return true
-                          }
+                        if (char.created === character.created) return true
                       })
                       if (characterID) {
                         dispatch(deleteFromFavourites(character))
@@ -62,7 +61,11 @@ const FavouritesPage = () => {
                     <button
                       className='details-button'
                       data-tip='Show details'
-                      onClick={() => getCharacterDetails(character.url)}
+                      // onClick={() => getCharacterDetails(character.url)}
+                      onClick={() => {
+                        getCharacterDetails(character.url)
+                        console.log(initialState.favouriteCharacters.indexOf(character))
+                      }}
                     >
                       <FontAwesomeIcon className='details-button-icon' icon={faInfo} />
                     </button>
