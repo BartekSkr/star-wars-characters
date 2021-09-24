@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom'
 
 export const Characters = () => {
   const dataContext = useContext(DataContext)
-  const { characters, loading, characterSearchError, display, getCharacterDetails, characterDetails } = dataContext
+  const { characters, loading, characterSearchError, display, getCharacterDetails } = dataContext
   const dispatch = useDispatch()
   //  toast
   const addToFavouritesToast = toastInfo => toast.info(toastInfo)
