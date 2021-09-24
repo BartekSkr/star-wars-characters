@@ -74,19 +74,15 @@ export const Characters = () => {
                   >
                     <FontAwesomeIcon icon={faPlus} />
                   </button>
-                  <button
-                    className='details-button'
-                    data-tip='Show details'
-                    onClick={() => {
-                      getCharacterDetails(character.url)
-                    }}
-                  >
-                  <Link
-                    to={`/${character.name}`}
-                  >
-                    <FontAwesomeIcon className='details-button-icon' icon={faInfo} />
+                  <Link to={`/${character.name}`}>
+                    <button
+                      className='details-button'
+                      data-tip='Show details'
+                      onClick={() => getCharacterDetails(character.url)}
+                    >
+                      <FontAwesomeIcon className='details-button-icon' icon={faInfo} />
+                    </button>
                   </Link>
-                  </button>
                 </div>
               </div>
               <ReactTooltip place='left' effect='solid' type='info' />

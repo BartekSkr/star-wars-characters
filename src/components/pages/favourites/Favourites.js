@@ -58,19 +58,15 @@ const FavouritesPage = () => {
                   >
                     <FontAwesomeIcon icon={faTrash} />
                   </button>
-                  <button
-                    className='details-button'
-                    data-tip='Show details'
-                    onClick={() => {
-                      getCharacterDetails(character.url)
-                    }}
-                  >
-                    <Link
-                      to={`/favourites/${character.name}`}
+                  <Link to={`/favourites/${character.name}`}>
+                    <button
+                      className='details-button'
+                      data-tip='Show details'
+                      onClick={() => getCharacterDetails(character.url)}
                     >
-                    <FontAwesomeIcon className='details-button-icon' icon={faInfo} />
-                    </Link>
-                  </button>
+                      <FontAwesomeIcon className='details-button-icon' icon={faInfo} />
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
