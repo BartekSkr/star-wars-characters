@@ -23,13 +23,6 @@ export const CharacterDetails = () => {
     dispatch(getFavourites())
   })
 
-  // eslint-disable-next-line
-  // let characterFound = initialState.favouriteCharacters.find(char => {
-  //   if (char.created === characterDetails.created) {
-  //     return true
-  //   }
-  // })
-
   return (
     <Fragment>
       {loading === true && display === false &&
@@ -46,10 +39,10 @@ export const CharacterDetails = () => {
                 className='add-button'
                 data-tip='Add to favourites'
                 onClick={() => {
+                  // eslint-disable-next-line
                   let characterID = initialState.favouriteCharacters.find(char => {
                     if (char.created === characterDetails.created) return true
                   })
-                  // if (!characterFound) {
                   if (!characterID) {
                     dispatch(addToFavourites(characterDetails))
                     addToFavouritesToast(`Been added to the favourites list, ${characterDetails.name} has.`)
@@ -64,15 +57,14 @@ export const CharacterDetails = () => {
                 className='add-button'
                 data-tip='Delete from favourites'
                 onClick={() => {
+                  // eslint-disable-next-line
                   let characterID = initialState.favouriteCharacters.find(char => {
                     if (char.created === characterDetails.created) return true
                   })
-                  // if (characterFound) {
                   if (characterID) {
                     dispatch(deleteFromFavourites(characterDetails))
                     deleteFromFavouritesToast(`Been removed from the favorites list, ${characterDetails.name} has.`)
                   }
-                  // if(!characterFound) {
                   if(!characterID) {
                     deleteFromFavouritesToast(`Not in your favorites list, this character is.`)
                   }

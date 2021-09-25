@@ -61,11 +61,7 @@ const FavouritesPage = () => {
                     <button
                       className='details-button'
                       data-tip='Show details'
-                      // onClick={() => getCharacterDetails(character.url)}
-                      onClick={() => {
-                        getCharacterDetails(character.url)
-                        console.log(initialState.favouriteCharacters.indexOf(character))
-                      }}
+                      onClick={() => getCharacterDetails(character.url)}
                     >
                       <FontAwesomeIcon className='details-button-icon' icon={faInfo} />
                     </button>
