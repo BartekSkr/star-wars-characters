@@ -76,8 +76,6 @@ export const DataState = ({ children }) => {
         setLoading(false)
         setDisplay(true)
         setCharacterDetails(data)
-
-        console.log('characterDetails: ', data)
       })
       .catch(err => console.log(err))
   }
