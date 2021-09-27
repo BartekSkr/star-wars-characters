@@ -4,30 +4,21 @@ import yoda from '../../icons/baby-yoda.svg'
 import { initialState } from '../../reducers/favouritesReducer'
 import ReactTooltip from 'react-tooltip'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faInfo } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { deleteFromFavourites, getFavourites } from '../../actions/favouritesActions'
 import DataContext from '../../context/dataContext'
-// import { Pagination } from '../../pagination/Pagination'
 import { connect, useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
+import { Link } from 'react-router-dom'
 
-// const mapStateToProps = state => ({
-//   favouriteCharacters: state.favouriteCharacters
-// })
-
-// const enhance = connect(mapStateToProps, {})
-// const enhance = connect(
-//   (state) => ({favouriteCharacters: state.favouriteCharacters}),
-//   {})
-
-// export const Favourites = () => {
 const FavouritesPage = () => {
   const dataContext = useContext(DataContext)
-  const { buttonKey, setButtonKey } = dataContext
+  const { getCharacterDetails } = dataContext
   const dispatch = useDispatch()
   //  toast
-  const deleteFromFavouritesToast = toastInfo => toast.info(toastInfo)
+  const deleteFromFavouritesToastInfo = toastInfo => toast.info(toastInfo)
+  const deleteFromFavouritesToastError = toastInfo => toast.error(toastInfo)
 
   useEffect(() => {
     dispatch(getFavourites())
@@ -52,47 +43,39 @@ const FavouritesPage = () => {
                     className='add-button'
                     data-tip='Delete from favourites'
                     onClick={() => {
-                      dispatch(deleteFromFavourites(character))
-                      deleteFromFavouritesToast(`Been removed from the favorites list, ${character.name} has.`)
-                      // let characterID = initialState.favouriteCharacters.find(char => {
-                      //   if (char.created === character.created) {
-                      //     return false
-                      //   }
-                      // })
-                      // if (characterID) {
-                      //   dispatch.deleteFromFavourites(character)
-                      // }
+                      // eslint-disable-next-line
+                      let characterID = initialState.favouriteCharacters.find(char => {
+                        if (char.created === character.created) return true
+                      })
+                      if (characterID) {
+                        dispatch(deleteFromFavourites(character))
+                        deleteFromFavouritesToastInfo(`Been removed from the favorites list, ${character.name} has.`)
+                      }
+                      if(!characterID){
+                        deleteFromFavouritesToastError(`Not in your favorites list, this character is.`)
+                      }
                     }}
                   >
                     <FontAwesomeIcon icon={faTrash} />
                   </button>
-                  <button
-                    className={buttonKey !== character.created ? 'details-button' : 'details-button-rotated'}
-                    data-tip='Show details'
-                    onClick={() => {
-                      setButtonKey(character.created)
-                    }}
-                  >
-                    <FontAwesomeIcon icon={faChevronDown} />
-                  </button>
+                  <Link to={`/favourites/${character.name}`}>
+                    <button
+                      className='details-button'
+                      data-tip='Show details'
+                      onClick={() => getCharacterDetails(character.url)}
+                    >
+                      <FontAwesomeIcon className='details-button-icon' icon={faInfo} />
+                    </button>
+                  </Link>
                 </div>
-              </div>
-              <div className={buttonKey === character.created ? 'character-info-details-active' : 'character-info-details'}>
-                <span><strong>Height: </strong><p>{character.height} cm</p></span>
-                <span><strong>Mass: </strong><p>{character.mass} kg</p></span>
-                <span><strong>Hair color: </strong><p>{character.hair_color}</p></span>
-                <span><strong>Birth year: </strong><p>{character.birth_year}</p></span>
-                <span><strong>Gender: </strong><p>{character.gender}</p></span>
               </div>
             </div>
             <ReactTooltip place='left' effect='solid' type='info' />
           </div>
         ))}
       </Fragment>
-      {/* <Pagination charactersNumber={initialState.favouriteCharacters.length}/> */}
     </Fragment>
   )
 }
 
-// export const Favourites = enhance(FavouritesPage)
 export const Favourites = connect((state) => ({ favouriteCharacters: state.favouriteCharacters }), {})(FavouritesPage)

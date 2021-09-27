@@ -5,7 +5,7 @@ import { Spinner } from '../../layout/Spinner'
 import { Pagination } from '../../pagination/Pagination'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faInfo } from '@fortawesome/free-solid-svg-icons'
 import { faJournalWhills } from '@fortawesome/free-solid-svg-icons'
 import yoda from '../../icons/baby-yoda.svg'
 import DataContext from '../../context/dataContext'
@@ -14,13 +14,15 @@ import { addToFavourites } from '../../actions/favouritesActions'
 import { useDispatch } from 'react-redux'
 import { initialState } from '../../reducers/favouritesReducer'
 import { toast } from 'react-toastify'
+import { Link } from 'react-router-dom'
 
 export const Characters = () => {
   const dataContext = useContext(DataContext)
-  const { characters, loading, buttonKey, setButtonKey, characterSearchError, display } = dataContext
+  const { characters, loading, characterSearchError, display, getCharacterDetails } = dataContext
   const dispatch = useDispatch()
   //  toast
-  const addToFavouritesToast = toastInfo => toast.info(toastInfo)
+  const addToFavouritesToastSuccess = toastInfo => toast.success(toastInfo)
+  const addToFavouritesToastError = toastInfo => toast.error(toastInfo)
 
   return (
     <Fragment>
@@ -51,46 +53,38 @@ export const Characters = () => {
         <Fragment>
           {characters.map((character) => (
             <div key={character.created} className='character'>
-              <div className='character-info'>
-                <div className='character-info-header'>
-                  <h3>{character.name}</h3>
-                  <div>
-                    <button
-                      className='add-button'
-                      data-tip='Add to favourites'
-                      onClick={() => {
-                        let characterID = initialState.favouriteCharacters.find(char => {
-                          if (char.created === character.created) {
-                            return true
-                          }
-                        })
-                        if (!characterID) {
-                          dispatch(addToFavourites(character))
-                          addToFavouritesToast(`Been added to the favourites list, ${character.name} has.`)
-                        } else {
-                          addToFavouritesToast(`Already on the favourites list, ${character.name} is.`)
+              <div className='character-info-header'>
+                <h3>{character.name}</h3>
+                <div>
+                  <button
+                    className='add-button'
+                    data-tip='Add to favourites'
+                    onClick={() => {
+                      // eslint-disable-next-line
+                      let characterID = initialState.favouriteCharacters.find(char => {
+                        if (char.created === character.created) {
+                          return true
                         }
-                      }}
-                    >
-                      <FontAwesomeIcon icon={faPlus} />
-                    </button>
+                      })
+                      if (!characterID) {
+                        dispatch(addToFavourites(character))
+                        addToFavouritesToastSuccess(`Been added to the favourites list, ${character.name} has.`)
+                      } else {
+                        addToFavouritesToastError(`Already on the favourites list, ${character.name} is.`)
+                      }
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faPlus} />
+                  </button>
+                  <Link to={`/${character.name}`}>
                     <button
-                      className={buttonKey !== character.created ? 'details-button' : 'details-button-rotated'}
+                      className='details-button'
                       data-tip='Show details'
-                      onClick={() => {
-                        setButtonKey(character.created)
-                      }}
+                      onClick={() => getCharacterDetails(character.url)}
                     >
-                      <FontAwesomeIcon icon={faChevronDown} />
+                      <FontAwesomeIcon className='details-button-icon' icon={faInfo} />
                     </button>
-                  </div>
-                </div>
-                <div className={buttonKey === character.created ? 'character-info-details-active' : 'character-info-details'}>
-                  <span><strong>Height: </strong><p>{character.height} cm</p></span>
-                  <span><strong>Mass: </strong><p>{character.mass} kg</p></span>
-                  <span><strong>Hair color: </strong><p>{character.hair_color}</p></span>
-                  <span><strong>Birth year: </strong><p>{character.birth_year}</p></span>
-                  <span><strong>Gender: </strong><p>{character.gender}</p></span>
+                  </Link>
                 </div>
               </div>
               <ReactTooltip place='left' effect='solid' type='info' />

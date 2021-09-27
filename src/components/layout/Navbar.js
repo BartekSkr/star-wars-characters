@@ -20,7 +20,7 @@ export const Navbar = ({ title }) => {
           <NavLink
             className='navbar-link'
             activeClassName='navbar-link-active'
-            exact to='favourites'>
+            exact to='/favourites'>
             Favourites
           </NavLink>
         </li>
