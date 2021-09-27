@@ -17,11 +17,6 @@
   transition: all 0.2s ease-in-out;
 }
 
-.search-button:active {
-  transform: scale(0.95);
-  transition: all 0.2s ease-in-out;
-}
-
 .search-input {
   width: 100%;
   margin-left: 1rem;
