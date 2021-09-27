@@ -21,7 +21,8 @@ export const Characters = () => {
   const { characters, loading, characterSearchError, display, getCharacterDetails } = dataContext
   const dispatch = useDispatch()
   //  toast
-  const addToFavouritesToast = toastInfo => toast.info(toastInfo)
+  const addToFavouritesToastSuccess = toastInfo => toast.success(toastInfo)
+  const addToFavouritesToastError = toastInfo => toast.error(toastInfo)
 
   return (
     <Fragment>
@@ -67,9 +68,9 @@ export const Characters = () => {
                       })
                       if (!characterID) {
                         dispatch(addToFavourites(character))
-                        addToFavouritesToast(`Been added to the favourites list, ${character.name} has.`)
+                        addToFavouritesToastSuccess(`Been added to the favourites list, ${character.name} has.`)
                       } else {
-                        addToFavouritesToast(`Already on the favourites list, ${character.name} is.`)
+                        addToFavouritesToastError(`Already on the favourites list, ${character.name} is.`)
                       }
                     }}
                   >

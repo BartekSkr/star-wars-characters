@@ -16,7 +16,8 @@ export const CharacterDetails = () => {
   const { loading, display, characterDetails } = dataContext
   const dispatch = useDispatch()
   //  toast
-  const addToFavouritesToast = toastInfo => toast.info(toastInfo)
+  const addToFavouritesToastSuccess = toastInfo => toast.success(toastInfo)
+  const addToFavouritesToastError = toastInfo => toast.error(toastInfo)
   const deleteFromFavouritesToast = toastInfo => toast.info(toastInfo)
 
   useEffect(() => {
@@ -45,9 +46,9 @@ export const CharacterDetails = () => {
                   })
                   if (!characterID) {
                     dispatch(addToFavourites(characterDetails))
-                    addToFavouritesToast(`Been added to the favourites list, ${characterDetails.name} has.`)
+                    addToFavouritesToastSuccess(`Been added to the favourites list, ${characterDetails.name} has.`)
                   } else {
-                    addToFavouritesToast(`Already on the favourites list, ${characterDetails.name} is.`)
+                    addToFavouritesToastError(`Already on the favourites list, ${characterDetails.name} is.`)
                   }
                 }}
               >
@@ -66,7 +67,7 @@ export const CharacterDetails = () => {
                     deleteFromFavouritesToast(`Been removed from the favorites list, ${characterDetails.name} has.`)
                   }
                   if(!characterID) {
-                    deleteFromFavouritesToast(`Not in your favorites list, this character is.`)
+                    addToFavouritesToastError(`Not in your favorites list, this character is.`)
                   }
                 }}
               >

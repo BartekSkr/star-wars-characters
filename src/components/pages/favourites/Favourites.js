@@ -17,7 +17,8 @@ const FavouritesPage = () => {
   const { getCharacterDetails } = dataContext
   const dispatch = useDispatch()
   //  toast
-  const deleteFromFavouritesToast = toastInfo => toast.info(toastInfo)
+  const deleteFromFavouritesToastInfo = toastInfo => toast.info(toastInfo)
+  const deleteFromFavouritesToastError = toastInfo => toast.error(toastInfo)
 
   useEffect(() => {
     dispatch(getFavourites())
@@ -48,10 +49,10 @@ const FavouritesPage = () => {
                       })
                       if (characterID) {
                         dispatch(deleteFromFavourites(character))
-                        deleteFromFavouritesToast(`Been removed from the favorites list, ${character.name} has.`)
+                        deleteFromFavouritesToastInfo(`Been removed from the favorites list, ${character.name} has.`)
                       }
                       if(!characterID){
-                        deleteFromFavouritesToast(`Not in your favorites list, this character is.`)
+                        deleteFromFavouritesToastError(`Not in your favorites list, this character is.`)
                       }
                     }}
                   >
