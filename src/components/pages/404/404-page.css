@@ -11,9 +11,9 @@ img {
   margin: 2rem auto 1rem auto;
 }
 
-.not-found-container > h2 {
+/* .not-found-container > h2 {
   color: var(--secondary-color);
-}
+} */
 
 .not-found-info > h3 {
   margin: 1rem 0;

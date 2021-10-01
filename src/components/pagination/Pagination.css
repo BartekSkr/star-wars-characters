@@ -13,18 +13,18 @@
   margin: 0 1rem;
 }
 
-.pagination-a {
+/* .pagination-a {
   color: var(--primary-color);
-}
+} */
 
-.pagination-a-active {
+/* .pagination-a-active {
   border-bottom: 3px solid var(--secondary-color);
   color: var(--secondary-color);
-}
+} */
 
-.pagination-li:hover .pagination-a {
+/* .pagination-li:hover .pagination-a {
   color: var(--secondary-color);
-}
+} */
 
 .pagination-li:hover {
   transform: scale(1.5);
