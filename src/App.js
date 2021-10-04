@@ -31,7 +31,7 @@ function App() {
                   <Route exact path='/' component={Characters} />
                   <Route exact path='/favourites' component={Favourites} />
                   <Route exact path='' component={CharacterDetails} />
-                  <Route component={PageNotFound}/>
+                  <Route component={PageNotFound} />
                 </Switch>
               </div>
             </Router>

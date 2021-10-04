@@ -1,6 +1,7 @@
 import React, { Fragment, useContext, useEffect } from 'react'
 import './Favourites.css'
 import yoda from '../../icons/baby-yoda.svg'
+import yoda2 from '../../icons/baby-yoda-2.svg'
 import { initialState } from '../../reducers/favouritesReducer'
 import ReactTooltip from 'react-tooltip'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,7 +15,7 @@ import { Link } from 'react-router-dom'
 
 const FavouritesPage = () => {
   const dataContext = useContext(DataContext)
-  const { getCharacterDetails } = dataContext
+  const { getCharacterDetails, myTheme } = dataContext
   const dispatch = useDispatch()
   //  toast
   const deleteFromFavouritesToastInfo = toastInfo => toast.info(toastInfo)
@@ -29,7 +30,8 @@ const FavouritesPage = () => {
       {initialState.favouriteCharacters.length === 0 &&
         <div className='empty-list'>
           <h3>No any favourite characters yet, sorry there is. Add your favourite characters, please. </h3>
-          <img src={yoda} alt='yoda' id='yoda-icon' />
+          {/* <img src={yoda} alt='yoda' id='yoda-icon' /> */}
+          <img src={myTheme === 'light' ? yoda : yoda2} alt='yoda' id='yoda-icon' />
         </div>
       }
       <Fragment>
