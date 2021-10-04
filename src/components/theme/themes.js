@@ -93,6 +93,10 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${props => props.theme.accentColor};
   }
 
+  .search-input {
+    border: 3px solid ${props => props.theme.fontColor}
+  }
+
   .search-error {
     color: ${props => props.theme.accentColor};
   }
