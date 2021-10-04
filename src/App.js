@@ -12,15 +12,17 @@ import 'react-toastify/dist/ReactToastify.css'
 import { CharacterDetails } from './components/pages/characters/CharacterDetails'
 import { ThemeProvider } from 'styled-components'
 import { darkTheme, GlobalStyles, lightTheme } from './components/theme/themes'
-import { useState } from 'react'
+import { useContext } from 'react';
+import DataContext from './components/context/dataContext'
 
 function App() {
-  const [theme, setTheme] = useState('dark')
+  const dataContext = useContext(DataContext)
+  const { myTheme } = dataContext
 
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    <ThemeProvider theme={myTheme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />
-        <DataState>
+        {/* <DataState> */}
           <Provider store={store}>
             <Router>
               <Navbar />
@@ -44,7 +46,7 @@ function App() {
                 theme='dark'
               />
           </Provider>
-        </DataState>
+        {/* </DataState> */}
     </ThemeProvider>
   );
 }

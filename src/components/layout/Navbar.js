@@ -3,20 +3,25 @@ import './Navbar.css'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSun } from '@fortawesome/free-solid-svg-icons'
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 import ReactTooltip from 'react-tooltip'
+import DataContext from '../context/dataContext'
+import { useContext } from 'react'
 
 export const Navbar = ({ title }) => {
+  const dataContext = useContext(DataContext)
+  const { myTheme, setMyTheme } = dataContext
 
   return (
     <nav className='navbar'>
       <h1>{title}</h1>
       <button
         className='theme-button'
-        data-tip='Change theme'
-        onClick={() => console.log('theme')}
+        // data-tip='Change theme'
+        data-tip={myTheme === 'light' ? 'Change to dark theme' : 'Change to light theme'}
+        onClick={() => myTheme === 'light' ? setMyTheme('dark') : setMyTheme('light')}
       >
-        <FontAwesomeIcon icon={faSun} />
+        <FontAwesomeIcon icon={myTheme === 'light' ? faMoon : faSun} />
       </button>
       <ul>
         <li className='navbar-li'>
