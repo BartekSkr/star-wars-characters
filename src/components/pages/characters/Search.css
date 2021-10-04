@@ -7,18 +7,13 @@
 }
 
 .search-button {
-  color: var(--secondary-color);
+  /* color: var(--secondary-color); */
   width: 10%;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
   margin: 0;
-  transition: all 0.2s ease-in-out;
-}
-
-.search-button:active {
-  transform: scale(0.95);
   transition: all 0.2s ease-in-out;
 }
 
