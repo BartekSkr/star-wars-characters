@@ -28,7 +28,7 @@ function App() {
               <Navbar />
               <div className='container'>
                 <Switch>
-                  <Route exact path='/characters' component={Characters} />
+                  <Route exact path='/' component={Characters} />
                   <Route exact path='/favourites' component={Favourites} />
                   <Route exact path='/details' component={CharacterDetails} />
                   <Route component={PageNotFound} />
