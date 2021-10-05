@@ -1,4 +1,4 @@
-## General info
+### General info
 
 App allows you to search characters from a Star Wars, add/remove them to/from your favorites list.
 
