@@ -28,7 +28,7 @@ export const Navbar = ({ title }) => {
           <NavLink
             className='navbar-link'
             activeClassName='navbar-link-active'
-            exact to='/'
+            exact to='/characters'
           >
             Characters
           </NavLink>

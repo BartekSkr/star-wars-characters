@@ -77,7 +77,7 @@ export const Characters = () => {
                   >
                     <FontAwesomeIcon icon={faPlus} />
                   </button>
-                  <Link to={`/${character.name}`}>
+                  <Link to={`/characters/${character.name}`}>
                     <button
                       className='details-button'
                       data-tip='Show details'
