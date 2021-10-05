@@ -8,6 +8,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faInfo } from '@fortawesome/free-solid-svg-icons'
 import { faJournalWhills } from '@fortawesome/free-solid-svg-icons'
 import yoda from '../../icons/baby-yoda.svg'
+import yoda2 from '../../icons/baby-yoda-2.svg'
 import DataContext from '../../context/dataContext'
 import ReactTooltip from 'react-tooltip'
 import { addToFavourites } from '../../actions/favouritesActions'
@@ -18,7 +19,7 @@ import { Link } from 'react-router-dom'
 
 export const Characters = () => {
   const dataContext = useContext(DataContext)
-  const { characters, loading, characterSearchError, display, getCharacterDetails } = dataContext
+  const { characters, loading, characterSearchError, display, getCharacterDetails, myTheme } = dataContext
   const dispatch = useDispatch()
   //  toast
   const addToFavouritesToastSuccess = toastInfo => toast.success(toastInfo)
@@ -31,7 +32,7 @@ export const Characters = () => {
       {characterSearchError === true && loading === false &&
         <div className='search-error' >
           <h3>Sorry, no such character, there is... Try again, please!</h3>
-          <img src={yoda} alt='yoda' id='yoda-icon' />
+          <img src={myTheme === 'light' ? yoda : yoda2} alt='yoda' id='yoda-icon' />
         </div>
       }
       {/* spinner while loading data */}
