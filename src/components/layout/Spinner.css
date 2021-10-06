@@ -1,5 +1,4 @@
 .spinner {
-  /* color: var(--primary-color); */
   display: block;
   position: relative;
   left: 50%;
@@ -23,7 +22,6 @@
   width: 6px;
   height: 18px;
   border-radius: 20%;
-  /* background: yellow; */
 }
 
 .spinner div:nth-child(1) {

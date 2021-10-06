@@ -17,7 +17,6 @@ export const Navbar = ({ title }) => {
       <h1>{title}</h1>
       <button
         className='theme-button'
-        // data-tip='Change theme'
         data-tip={myTheme === 'light' ? 'Change to dark theme' : 'Change to light theme'}
         onClick={() => myTheme === 'light' ? setMyTheme('dark') : setMyTheme('light')}
       >
