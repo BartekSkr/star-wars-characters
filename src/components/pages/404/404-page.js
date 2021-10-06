@@ -11,7 +11,6 @@ export const PageNotFound = () => {
 
   return (
     <div className='not-found-container'>
-      {/* <img src={darthVader} alt="darth vader icon" /> */}
       <img src={myTheme === 'light' ? darthVader : darthVader2} alt="darth vader icon" />
       <h2>ERROR</h2>
       <div className='not-found-info'>
