@@ -77,7 +77,6 @@ export const Characters = () => {
                   >
                     <FontAwesomeIcon icon={faPlus} />
                   </button>
-                  {/* <Link to={`/${character.name}`}> */}
                   <Link to={`/details`}>
                     <button
                       className='details-button'
