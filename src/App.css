@@ -1,27 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 :root {
-  /* --primary-color: whitesmoke;
-  --secondary-color: yellow; */
   --larger-screens-default-width: 50%;
 }
-
-/* * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-} */
-
-/* body {
-  font-family: 'Roboto', sans-serif;
-  background-color: black;
-  line-height: 1.6;
-  letter-spacing: 0.12rem;
-  color: var(--primary-color);
-} */
-
-/* .container {
-  width: 90%;
-  margin: auto;
-  padding-top: 0.5rem;
-} */

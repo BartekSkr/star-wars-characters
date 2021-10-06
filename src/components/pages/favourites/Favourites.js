@@ -30,7 +30,6 @@ const FavouritesPage = () => {
       {initialState.favouriteCharacters.length === 0 &&
         <div className='empty-list'>
           <h3>No any favourite characters yet, sorry there is. Add your favourite characters, please. </h3>
-          {/* <img src={yoda} alt='yoda' id='yoda-icon' /> */}
           <img src={myTheme === 'light' ? yoda : yoda2} alt='yoda' id='yoda-icon' />
         </div>
       }
@@ -60,7 +59,6 @@ const FavouritesPage = () => {
                   >
                     <FontAwesomeIcon icon={faTrash} />
                   </button>
-                  {/* <Link to={`/details/${character.name}`}> */}
                   <Link to={`/details`}>
                     <button
                       className='details-button'
