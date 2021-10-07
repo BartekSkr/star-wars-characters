@@ -12,12 +12,15 @@ export const Navbar = ({ title }) => {
   const dataContext = useContext(DataContext)
   const { myTheme, setMyTheme } = dataContext
 
+  const themeTooltipText = myTheme === 'light' ? "Switch to dark theme" : "Switch to light theme"
+
   return (
     <nav className='navbar'>
       <h1>{title}</h1>
       <button
         className='theme-button'
-        data-tip={myTheme === 'light' ? 'Change to dark theme' : 'Change to light theme'}
+        aria-label={themeTooltipText}
+        // data-tip={myTheme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
         onClick={() => myTheme === 'light' ? setMyTheme('dark') : setMyTheme('light')}
       >
         <FontAwesomeIcon icon={myTheme === 'light' ? faMoon : faSun} />

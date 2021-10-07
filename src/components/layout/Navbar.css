@@ -42,10 +42,28 @@ ul {
   height: 1.5rem;
   width: 1.5rem;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  opacity: 0.6;
+}
+
+.theme-button::after {
+  content: attr(aria-label);
+  color: whitesmoke;
+  position: absolute;
+  width: max-content;
+  background: #066fc5;
+  border-radius: 0.2rem;
+  padding: 0.7rem 1.2rem;
+  left: -10.5rem;
+  top: -30%;
+  margin: 0 auto;
+  transform: scale(0);
 }
 
 .theme-button:hover {
-  transform: scale(1.3);
-  transition: transform 0.2s ease;
+  opacity: 1;
+}
+
+.theme-button:hover::after {
+  opacity: 0.95;
+  transform: scale(1);
 }
