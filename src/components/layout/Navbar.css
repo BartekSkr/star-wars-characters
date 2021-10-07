@@ -37,7 +37,7 @@ ul {
   position: absolute;
   top: 1.8rem;
   right: 1rem;
-  border-radius: 0.2rem;
+  border-radius: 50%;
   border: none;
   height: 1.5rem;
   width: 1.5rem;
@@ -59,11 +59,14 @@ ul {
   transform: scale(0);
 }
 
-.theme-button:hover {
+.theme-button:hover,
+.theme-button:focus {
   opacity: 1;
+  background: hsl(0 0% 50% / 0.3);
 }
 
-.theme-button:hover::after {
+.theme-button:hover::after,
+.theme-button:focus::after {
   opacity: 1;
   transform: scale(1);
 }
