@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
-import ReactTooltip from 'react-tooltip'
 import DataContext from '../context/dataContext'
 import { useContext } from 'react'
 
@@ -20,7 +19,6 @@ export const Navbar = ({ title }) => {
       <button
         className='theme-button'
         aria-label={themeTooltipText}
-        // data-tip={myTheme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
         onClick={() => myTheme === 'light' ? setMyTheme('dark') : setMyTheme('light')}
       >
         <FontAwesomeIcon icon={myTheme === 'light' ? faMoon : faSun} />
@@ -45,7 +43,6 @@ export const Navbar = ({ title }) => {
           </NavLink>
         </li>
       </ul>
-      <ReactTooltip place='left' effect='solid' type='info' />
     </nav>
   )
 }
