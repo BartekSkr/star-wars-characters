@@ -41,7 +41,7 @@ function App() {
               autoClose={3000}
               transition={Zoom}
               limit={4}
-              theme='dark'
+              theme={myTheme === 'light' ? 'light' : 'dark'}
             />
         </Provider>
     </ThemeProvider>
