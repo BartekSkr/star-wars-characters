@@ -19,9 +19,9 @@ function App() {
   const { myTheme } = dataContext
 
   return (
-    <ThemeProvider theme={myTheme === 'light' ? lightTheme : darkTheme}>
-      <GlobalStyles />
-        <Provider store={store}>
+    <Provider store={store}>
+      <ThemeProvider theme={myTheme === 'light' ? lightTheme : darkTheme}>
+        <GlobalStyles />
           <Router>
             <Navbar />
             <div className='container'>
@@ -43,8 +43,8 @@ function App() {
               limit={4}
               theme={myTheme === 'light' ? 'light' : 'dark'}
             />
-        </Provider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </Provider>
   );
 }
 

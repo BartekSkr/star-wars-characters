@@ -23,8 +23,8 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     letter-spacing: 0.12rem;
-    background-color: ${props => props.theme.body};
-    color: ${props => props.theme.fontColor};
+    background-color: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.fontColor};
   }
 
   .container {
@@ -34,91 +34,91 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .navbar {
-    border-bottom: 5px solid ${props => props.theme.accentColor};
+    border-bottom: 5px solid ${({ theme }) => theme.accentColor};
   }
 
   .navbar h1 {
-    color: ${props => props.theme.accentColor}
+    color: ${({ theme }) => theme.accentColor}
   }
 
   .navbar-link {
-    color: ${props => props.theme.fontColor}
+    color: ${({ theme }) => theme.fontColor}
   }
 
   .navbar-link-active {
-    color: ${props => props.theme.accentColor};
-    border-bottom: 3px solid ${props => props.theme.accentColor};
+    color: ${({ theme }) => theme.accentColor};
+    border-bottom: 3px solid ${({ theme }) => theme.accentColor};
   }
 
   .navbar-li:hover a {
-    color: ${props => props.theme.accentColor};
+    color: ${({ theme }) => theme.accentColor};
   }
 
   .theme-button {
-    color: ${props => props.theme.fontColor};
+    color: ${({ theme }) => theme.fontColor};
   }
 
   .theme-button:hover {
-    color: ${props => props.theme.accentColor};
+    color: ${({ theme }) => theme.accentColor};
   }
 
   .spinner {
-    color: ${props => props.theme.accentColor};
+    color: ${({ theme }) => theme.accentColor};
   }
 
   .spinner div::after {
-    background: ${props => props.theme.accentColor};
+    background: ${({ theme }) => theme.accentColor};
   }
 
   .not-found-container > h2 {
-    color: ${props => props.theme.accentColor};
+    color: ${({ theme }) => theme.accentColor};
   }
 
   .character {
-    border: 3px solid ${props => props.theme.accentColor};
+    border: 3px solid ${({ theme }) => theme.accentColor};
   }
 
   #initial-info-icon,
   .initial-info span {
-    color ${props => props.theme.accentColor};
+    color ${({ theme }) => theme.accentColor};
   }
 
   .character-info-header {
-    color: ${props => props.theme.accentColor};
+    color: ${({ theme }) => theme.accentColor};
   }
 
   .add-button,
   .details-button {
-    color: ${props => props.theme.body};
-    background-color: ${props => props.theme.accentColor};
+    color: ${({ theme }) => theme.body};
+    background-color: ${({ theme }) => theme.accentColor};
   }
 
   .search-input {
-    border: 3px solid ${props => props.theme.fontColor}
+    border: 3px solid ${({ theme }) => theme.fontColor}
   }
 
   .search-error {
-    color: ${props => props.theme.accentColor};
+    color: ${({ theme }) => theme.accentColor};
   }
 
   .search-button {
-    color: ${props => props.theme.accentColor};
+    color: ${({ theme }) => theme.accentColor};
   }
 
   .empty-list {
-    color: ${props => props.theme.accentColor};
+    color: ${({ theme }) => theme.accentColor};
   }
 
   .pagination-a {
-    color: ${props => props.theme.fontColor};
+    color: ${({ theme }) => theme.fontColor};
   }
 
   .pagination-a-active {
-    border-bottom 3px solid ${props => props.theme.accentColor};
-    color: ${props => props.theme.accentColor};
+    border-bottom 3px solid ${({ theme }) => theme.accentColor};
+    color: ${({ theme }) => theme.accentColor};
   }
 
   .pagination-li:hover pagination-a {
-    color: ${props => props.theme.accentColor};
+    color: ${({ theme }) => theme.accentColor};
   }
 `
