@@ -3,5 +3,5 @@
 
 [[redirects]]
   from='/*'
-  to='/src/components/pages/404/404-page.js'
+  to='/404'
   status=404
