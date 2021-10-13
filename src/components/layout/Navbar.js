@@ -6,12 +6,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 import DataContext from '../context/dataContext'
 import { useContext } from 'react'
+import {themeInitialState} from '../reducers/themeReducer'
+import { setDarkTheme, setLightTheme } from '../actions/themeActions'
+import { connect } from 'react-redux'
 
-export const Navbar = ({ title }) => {
+// export const Navbar = ({ title }) => {
+export const Navbar2 = ({ title }) => {
   const dataContext = useContext(DataContext)
   const { myTheme, setMyTheme } = dataContext
 
-  const themeTooltipText = myTheme === 'light' ? "Switch to dark theme" : "Switch to light theme"
+  // const themeTooltipText = myTheme === 'light' ? "Switch to dark theme" : "Switch to light theme"
+  const themeTooltipText = themeInitialState.activeTheme === 'light' ? "Switch to dark theme" : "Switch to light theme"
 
   return (
     <nav className='navbar'>
@@ -19,7 +24,8 @@ export const Navbar = ({ title }) => {
       <button
         className='theme-button'
         aria-label={themeTooltipText}
-        onClick={() => myTheme === 'light' ? setMyTheme('dark') : setMyTheme('light')}
+        // onClick={() => myTheme === 'light' ? setMyTheme('dark') : setMyTheme('light')}
+        onClick={() => themeInitialState.activeTheme === 'light' ? setDarkTheme() : setLightTheme()}
       >
         <FontAwesomeIcon icon={myTheme === 'light' ? faMoon : faSun} />
       </button>
@@ -47,10 +53,14 @@ export const Navbar = ({ title }) => {
   )
 }
 
-Navbar.defaultProps = {
+// Navbar.defaultProps = {
+Navbar2.defaultProps = {
   title: 'STAR WARS CHARACTERS'
 }
 
-Navbar.propTypes = {
+// Navbar.propTypes = {
+Navbar2.propTypes = {
   title: PropTypes.string.isRequired,
 }
+
+export const Navbar = connect((state) => ({ activeTheme: state.activeTheme }), {})(Navbar2)

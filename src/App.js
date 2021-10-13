@@ -13,6 +13,7 @@ import { ThemeProvider } from 'styled-components'
 import { darkTheme, GlobalStyles, lightTheme } from './components/theme/themes'
 import { useContext } from 'react';
 import DataContext from './components/context/dataContext'
+import { themeInitialState } from './components/reducers/themeReducer';
 
 function App() {
   const dataContext = useContext(DataContext)
@@ -20,7 +21,8 @@ function App() {
 
   return (
     <Provider store={store}>
-      <ThemeProvider theme={myTheme === 'light' ? lightTheme : darkTheme}>
+      {/* <ThemeProvider theme={myTheme === 'light' ? lightTheme : darkTheme}> */}
+      <ThemeProvider theme={themeInitialState.activeTheme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyles />
           <Router>
             <Navbar />

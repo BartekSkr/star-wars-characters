@@ -23,7 +23,8 @@ export const favouriteListReducer = (state = initialState, action) => {
         favouriteCharacter: action.payload
       }
     case GET_FAVOURITES:
-      return state.favouriteCharacters
+      // return state.favouriteCharacters
+      return state
     default:
       return state
   }
