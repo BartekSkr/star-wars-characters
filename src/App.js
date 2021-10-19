@@ -13,7 +13,7 @@ import { ThemeProvider } from 'styled-components'
 import { darkTheme, GlobalStyles, lightTheme } from './components/theme/themes'
 import { useContext } from 'react';
 import DataContext from './components/context/dataContext'
-import { themeInitialState } from './components/reducers/themeReducer';
+import { themeInitialState } from './components/reducers/themeReducer'
 
 function App() {
   const dataContext = useContext(DataContext)
