@@ -67,7 +67,7 @@ export const CharacterDetails = () => {
                     deleteFromFavouritesToast(`Been removed from the favorites list, ${characterDetails.name} has.`)
                   }
                   if(!characterID) {
-                    addToFavouritesToastError(`Not in your favorites list, this character is.`)
+                    addToFavouritesToastError(`Not in your favorites list, ${characterDetails.name} is.`)
                   }
                 }}
               >

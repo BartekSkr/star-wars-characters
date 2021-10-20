@@ -1,4 +1,4 @@
-import './App.css';
+import './App.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Navbar } from './components/layout/Navbar'
 import { Characters } from './components/pages/characters/Characters'
@@ -11,9 +11,8 @@ import 'react-toastify/dist/ReactToastify.css'
 import { CharacterDetails } from './components/pages/characters/CharacterDetails'
 import { ThemeProvider } from 'styled-components'
 import { darkTheme, GlobalStyles, lightTheme } from './components/theme/themes'
-import { useContext } from 'react';
+import { useContext } from 'react'
 import DataContext from './components/context/dataContext'
-import { themeInitialState } from './components/reducers/themeReducer'
 
 function App() {
   const dataContext = useContext(DataContext)

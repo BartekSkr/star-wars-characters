@@ -6,9 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 import DataContext from '../context/dataContext'
 import { useContext } from 'react'
-import {themeInitialState} from '../reducers/themeReducer'
-import { setDarkTheme, setLightTheme } from '../actions/themeActions'
-import { connect, useDispatch } from 'react-redux'
 
 export const Navbar = ({ title }) => {
   const dataContext = useContext(DataContext)
@@ -55,5 +52,5 @@ Navbar.defaultProps = {
 }
 
 Navbar.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 }
