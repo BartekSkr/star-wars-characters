@@ -6,12 +6,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 import DataContext from '../context/dataContext'
 import { useContext } from 'react'
+import {themeInitialState} from '../reducers/themeReducer'
+import { setDarkTheme, setLightTheme } from '../actions/themeActions'
+import { connect, useDispatch } from 'react-redux'
 
 export const Navbar = ({ title }) => {
   const dataContext = useContext(DataContext)
   const { myTheme, setMyTheme } = dataContext
 
-  const themeTooltipText = myTheme === 'light' ? "Switch to dark theme" : "Switch to light theme"
+  const themeTooltipText = myTheme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'
 
   return (
     <nav className='navbar'>
