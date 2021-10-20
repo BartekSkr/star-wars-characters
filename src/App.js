@@ -21,8 +21,7 @@ function App() {
 
   return (
     <Provider store={store}>
-      {/* <ThemeProvider theme={myTheme === 'light' ? lightTheme : darkTheme}> */}
-      <ThemeProvider theme={themeInitialState.activeTheme === 'light' ? lightTheme : darkTheme}>
+      <ThemeProvider theme={myTheme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyles />
           <Router>
             <Navbar />

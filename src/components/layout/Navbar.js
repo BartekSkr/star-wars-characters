@@ -11,13 +11,10 @@ import { setDarkTheme, setLightTheme } from '../actions/themeActions'
 import { connect, useDispatch } from 'react-redux'
 
 export const Navbar = ({ title }) => {
-// export const Navbar2 = ({ title }) => {
   const dataContext = useContext(DataContext)
   const { myTheme, setMyTheme } = dataContext
-  const dispatch = useDispatch()
 
-  // const themeTooltipText = myTheme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'
-  const themeTooltipText = themeInitialState.activeTheme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'
+  const themeTooltipText = myTheme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'
 
   return (
     <nav className='navbar'>
@@ -25,14 +22,9 @@ export const Navbar = ({ title }) => {
       <button
         className='theme-button'
         aria-label={themeTooltipText}
-        // onClick={() => myTheme === 'light' ? setMyTheme('dark') : setMyTheme('light')}
-        onClick={() => {
-          themeInitialState.activeTheme === 'light' ? dispatch(setDarkTheme()) : dispatch(setLightTheme())
-          console.log(themeInitialState.activeTheme)
-        }}
+        onClick={() => myTheme === 'light' ? setMyTheme('dark') : setMyTheme('light')}
       >
-        {/* <FontAwesomeIcon icon={myTheme === 'light' ? faMoon : faSun} /> */}
-        <FontAwesomeIcon icon={themeInitialState.activeTheme === 'light' ? faMoon : faSun} />
+        <FontAwesomeIcon icon={myTheme === 'light' ? faMoon : faSun} />
       </button>
       <ul>
         <li className='navbar-li'>
@@ -59,13 +51,9 @@ export const Navbar = ({ title }) => {
 }
 
 Navbar.defaultProps = {
-// Navbar2.defaultProps = {
   title: 'STAR WARS CHARACTERS'
 }
 
 Navbar.propTypes = {
-// Navbar2.propTypes = {
   title: PropTypes.string.isRequired,
 }
-
-// export const Navbar = connect((state) => ({ activeTheme: state.activeTheme }), {})(Navbar2)
