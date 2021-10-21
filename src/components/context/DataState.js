@@ -75,9 +75,37 @@ export const DataState = ({ children }) => {
     fetch(`${characterUrl}`)
       .then(res => res.json())
       .then(data => {
+        // setLoading(false)
+        // setDisplay(true)
+        setCharacterDetails(data)
+
+        let filmsData = []
+        data.films.map(item => {
+          fetch(item)
+            .then(res => res.json())
+            .then(filmData => filmsData.push(filmData))
+        })
+        data.films = filmsData
+
+        let vehiclesData = []
+        data.vehicles.map(item => {
+          fetch(item)
+            .then(res => res.json())
+            .then(data => vehiclesData.push(data))
+        })
+        data.vehicles = vehiclesData
+
+        let starshipsData = []
+        data.starships.map(item => {
+          fetch(item)
+            .then(res => res.json())
+            .then(data => starshipsData.push(data))
+        })
+        data.starships = starshipsData
+        console.log(data)
+
         setLoading(false)
         setDisplay(true)
-        setCharacterDetails(data)
       })
       .catch(err => console.log(err))
   }
