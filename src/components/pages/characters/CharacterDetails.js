@@ -83,6 +83,7 @@ export const CharacterDetails = () => {
             <span><strong>Eye color: </strong><p>{characterDetails.eye_color}</p></span>
             <span><strong>Birth year: </strong><p>{characterDetails.birth_year}</p></span>
             <span><strong>Gender: </strong><p>{characterDetails.gender}</p></span>
+            <span><strong>Homeworld: </strong><p>{characterDetails.homeworld}</p></span>
             {characterDetails.films.length !== 0 &&
               <Fragment>
                 <h3><p>Movies:</p></h3>

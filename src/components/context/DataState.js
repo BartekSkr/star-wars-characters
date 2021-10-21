@@ -77,7 +77,7 @@ export const DataState = ({ children }) => {
       .then(data => {
         // setLoading(false)
         // setDisplay(true)
-        setCharacterDetails(data)
+        // setCharacterDetails(data)
 
         let filmsData = []
         data.films.map(item => {
@@ -91,7 +91,7 @@ export const DataState = ({ children }) => {
         data.vehicles.map(item => {
           fetch(item)
             .then(res => res.json())
-            .then(data => vehiclesData.push(data))
+            .then(vehicleData => vehiclesData.push(vehicleData))
         })
         data.vehicles = vehiclesData
 
@@ -99,11 +99,17 @@ export const DataState = ({ children }) => {
         data.starships.map(item => {
           fetch(item)
             .then(res => res.json())
-            .then(data => starshipsData.push(data))
+            .then(starShipData => starshipsData.push(starShipData))
         })
         data.starships = starshipsData
+
+        fetch(data.homeworld)
+          .then(res => res.json())
+          .then(homeworldData => {data.homeworld = homeworldData.name})
+
         console.log(data)
 
+        setCharacterDetails(data)
         setLoading(false)
         setDisplay(true)
       })
