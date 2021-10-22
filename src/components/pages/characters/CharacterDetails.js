@@ -85,7 +85,7 @@ export const CharacterDetails = () => {
             <span><strong>Gender: </strong><p>{characterDetails.gender}</p></span>
             <span><strong>Homeworld: </strong><p>{characterDetails.homeworld}</p></span>
             {characterDetails.films.length !== 0 &&
-              <Fragment>
+              <div className='movies'>
                 <h3><p>Movies:</p></h3>
                   <Fragment>
                     {characterDetails.films?.map(filmData => (
@@ -94,10 +94,10 @@ export const CharacterDetails = () => {
                       </div>
                     ))}
                   </Fragment>
-              </Fragment>
+              </div>
             }
             {characterDetails.vehicles.length !== 0 &&
-              <Fragment>
+              <div className='vehicles'>
                 <h3><p>Vehicles:</p></h3>
                   <Fragment>
                     {characterDetails.vehicles?.map(vehicleData => (
@@ -106,10 +106,10 @@ export const CharacterDetails = () => {
                       </div>
                     ))}
                   </Fragment>
-              </Fragment>
+              </div>
             }
             {characterDetails.starships.length !== 0 &&
-              <Fragment>
+              <div className='starships'>
                 <h3><p>Starships:</p></h3>
                   <Fragment>
                     {characterDetails.starships?.map(starshipData => (
@@ -118,7 +118,7 @@ export const CharacterDetails = () => {
                       </div>
                     ))}
                   </Fragment>
-              </Fragment>
+              </div>
             }
           </div>
           <ReactTooltip place='left' effect='solid' type='info' />
