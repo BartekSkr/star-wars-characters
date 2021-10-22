@@ -120,30 +120,6 @@ export const CharacterDetails = () => {
                   </Fragment>
               </Fragment>
             }
-            {/* <h3><p>Movies:</p></h3>
-              <Fragment>
-                {characterDetails.films?.map(filmData => (
-                  <div key={filmData.episode_id}>
-                    <div>● '{filmData.title}' (ep. {filmData.episode_id})</div>
-                  </div>
-                ))}
-              </Fragment>
-            <h3><p>Vehicles:</p></h3>
-              <Fragment>
-                {characterDetails.vehicles?.map(vehicleData => (
-                  <div key={vehicleData.created}>
-                    <div>● {vehicleData.name}</div>
-                  </div>
-                ))}
-              </Fragment>
-            <h3><p>Starships:</p></h3>
-              <Fragment>
-                {characterDetails.starships?.map(starshipData => (
-                  <div key={starshipData.created}>
-                    <div>● {starshipData.name}</div>
-                  </div>
-                ))}
-              </Fragment> */}
           </div>
           <ReactTooltip place='left' effect='solid' type='info' />
         </div>

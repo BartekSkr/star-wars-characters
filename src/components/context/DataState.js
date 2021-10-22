@@ -69,52 +69,50 @@ export const DataState = ({ children }) => {
   }
 
   //  fetching data for character's details
-  const getCharacterDetails = characterUrl => {
+   const getCharacterDetails = characterUrl => {
     setLoading(true)
     setDisplay(false)
     fetch(`${characterUrl}`)
       .then(res => res.json())
-      .then(data => {
-        // setLoading(false)
-        // setDisplay(true)
-        // setCharacterDetails(data)
+      .then(async data => {
 
         let filmsData = []
-        data.films.map(item => {
+        let vehiclesData = []
+        let starshipsData = []
+
+        await Promise.all([
+          ...data.films.map(item =>
           fetch(item)
             .then(res => res.json())
             .then(filmData => filmsData.push(filmData))
-        })
-        data.films = filmsData
 
-        let vehiclesData = []
-        data.vehicles.map(item => {
+          ),
+          ...data.vehicles.map(item =>
           fetch(item)
             .then(res => res.json())
             .then(vehicleData => vehiclesData.push(vehicleData))
-        })
-        data.vehicles = vehiclesData
 
-        let starshipsData = []
-        data.starships.map(item => {
+          ),
+          ...data.starships.map(item =>
           fetch(item)
             .then(res => res.json())
-            .then(starShipData => starshipsData.push(starShipData))
-        })
+            .then(starshipData => starshipsData.push(starshipData))
+
+          ),
+          fetch(data.homeworld)
+            .then(res => res.json())
+            .then(homeworldData => data.homeworld = homeworldData.name)
+        ])
+        data.films = filmsData
+        data.vehicles = vehiclesData
         data.starships = starshipsData
-
-        fetch(data.homeworld)
-          .then(res => res.json())
-          .then(homeworldData => {data.homeworld = homeworldData.name})
-
-        console.log(data)
 
         setCharacterDetails(data)
         setLoading(false)
         setDisplay(true)
       })
       .catch(err => console.log(err))
-  }
+    }
 
   return (
     <DataContext.Provider value={{ loading, searchCharacterByName, characters, getData, currentPage, buttonKey, setButtonKey, charactersCount, api, setApi, inputValue, characterSearchError, display, getCharacterDetails, characterDetails, myTheme, setMyTheme }}>
