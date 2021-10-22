@@ -83,6 +83,43 @@ export const CharacterDetails = () => {
             <span><strong>Eye color: </strong><p>{characterDetails.eye_color}</p></span>
             <span><strong>Birth year: </strong><p>{characterDetails.birth_year}</p></span>
             <span><strong>Gender: </strong><p>{characterDetails.gender}</p></span>
+            <span><strong>Homeworld: </strong><p>{characterDetails.homeworld}</p></span>
+            {characterDetails.films.length !== 0 &&
+              <Fragment>
+                <h3><p>Movies:</p></h3>
+                  <Fragment>
+                    {characterDetails.films?.map(filmData => (
+                      <div key={filmData.episode_id}>
+                        <div>● '{filmData.title}' (ep. {filmData.episode_id})</div>
+                      </div>
+                    ))}
+                  </Fragment>
+              </Fragment>
+            }
+            {characterDetails.vehicles.length !== 0 &&
+              <Fragment>
+                <h3><p>Vehicles:</p></h3>
+                  <Fragment>
+                    {characterDetails.vehicles?.map(vehicleData => (
+                      <div key={vehicleData.created}>
+                        <div>● {vehicleData.name}</div>
+                      </div>
+                    ))}
+                  </Fragment>
+              </Fragment>
+            }
+            {characterDetails.starships.length !== 0 &&
+              <Fragment>
+                <h3><p>Starships:</p></h3>
+                  <Fragment>
+                    {characterDetails.starships?.map(starshipData => (
+                      <div key={starshipData.created}>
+                        <div>● {starshipData.name}</div>
+                      </div>
+                    ))}
+                  </Fragment>
+              </Fragment>
+            }
           </div>
           <ReactTooltip place='left' effect='solid' type='info' />
         </div>

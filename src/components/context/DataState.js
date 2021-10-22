@@ -69,18 +69,50 @@ export const DataState = ({ children }) => {
   }
 
   //  fetching data for character's details
-  const getCharacterDetails = characterUrl => {
+   const getCharacterDetails = characterUrl => {
     setLoading(true)
     setDisplay(false)
     fetch(`${characterUrl}`)
       .then(res => res.json())
-      .then(data => {
+      .then(async data => {
+
+        let filmsData = []
+        let vehiclesData = []
+        let starshipsData = []
+
+        await Promise.all([
+          ...data.films.map(item =>
+          fetch(item)
+            .then(res => res.json())
+            .then(filmData => filmsData.push(filmData))
+
+          ),
+          ...data.vehicles.map(item =>
+          fetch(item)
+            .then(res => res.json())
+            .then(vehicleData => vehiclesData.push(vehicleData))
+
+          ),
+          ...data.starships.map(item =>
+          fetch(item)
+            .then(res => res.json())
+            .then(starshipData => starshipsData.push(starshipData))
+
+          ),
+          fetch(data.homeworld)
+            .then(res => res.json())
+            .then(homeworldData => data.homeworld = homeworldData.name)
+        ])
+        data.films = filmsData
+        data.vehicles = vehiclesData
+        data.starships = starshipsData
+
+        setCharacterDetails(data)
         setLoading(false)
         setDisplay(true)
-        setCharacterDetails(data)
       })
       .catch(err => console.log(err))
-  }
+    }
 
   return (
     <DataContext.Provider value={{ loading, searchCharacterByName, characters, getData, currentPage, buttonKey, setButtonKey, charactersCount, api, setApi, inputValue, characterSearchError, display, getCharacterDetails, characterDetails, myTheme, setMyTheme }}>
