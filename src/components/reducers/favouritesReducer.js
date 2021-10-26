@@ -14,10 +14,11 @@ export const favouriteListReducer = (state = initialState, action) => {
         favouriteCharacter: action.payload
       }
     case DELETE_FROM_FAVOURITES:
-      initialState.favouriteCharacters.splice(
-        initialState.favouriteCharacters.map(character => character.name).indexOf(action.payload.name),
-        1
-      )
+      initialState.favouriteCharacters
+        .splice(
+          initialState.favouriteCharacters
+            .map(character => character.name)
+            .indexOf(action.payload.name), 1)
       return {
         ...state,
         favouriteCharacter: action.payload
