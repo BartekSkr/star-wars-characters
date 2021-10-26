@@ -22,7 +22,7 @@ export const CharacterDetails = () => {
 
   useEffect(() => {
     dispatch(getFavourites())
-  })
+  }, [dispatch])
 
   return (
     <Fragment>

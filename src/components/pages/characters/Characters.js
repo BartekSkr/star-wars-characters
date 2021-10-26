@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react'
+import React, { Fragment, useContext, useEffect } from 'react'
 import './Characters.css'
 import { Search } from './Search'
 import { Spinner } from '../../layout/Spinner'
@@ -11,7 +11,7 @@ import yoda from '../../icons/baby-yoda.svg'
 import yoda2 from '../../icons/baby-yoda-2.svg'
 import DataContext from '../../context/dataContext'
 import ReactTooltip from 'react-tooltip'
-import { addToFavourites } from '../../actions/favouritesActions'
+import { addToFavourites, getFavourites } from '../../actions/favouritesActions'
 import { useDispatch } from 'react-redux'
 import { initialState } from '../../reducers/favouritesReducer'
 import { toast } from 'react-toastify'
@@ -24,6 +24,10 @@ export const Characters = () => {
   //  toast
   const addToFavouritesToastSuccess = toastInfo => toast.success(toastInfo)
   const addToFavouritesToastError = toastInfo => toast.error(toastInfo)
+
+  useEffect(() => {
+    dispatch(getFavourites())
+  })
 
   return (
     <Fragment>
