@@ -23,7 +23,7 @@ const FavouritesPage = () => {
 
   useEffect(() => {
     dispatch(getFavourites())
-  })
+  } ,[dispatch])
 
   return (
     <Fragment>

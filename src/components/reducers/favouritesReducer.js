@@ -1,8 +1,7 @@
 import { ADD_TO_FAVOURITES, DELETE_FROM_FAVOURITES, GET_FAVOURITES } from '../actions/types'
 
 export const initialState = {
-  favouriteCharacters: [],
-  favouriteCharacter: {}
+  favouriteCharacters: []
 }
 
 export const favouriteListReducer = (state = initialState, action) => {
@@ -11,7 +10,7 @@ export const favouriteListReducer = (state = initialState, action) => {
       initialState.favouriteCharacters.unshift(action.payload)
       return {
         ...state,
-        favouriteCharacter: action.payload
+        favouriteCharacters: action.payload
       }
     case DELETE_FROM_FAVOURITES:
       initialState.favouriteCharacters
@@ -21,10 +20,10 @@ export const favouriteListReducer = (state = initialState, action) => {
             .indexOf(action.payload.name), 1)
       return {
         ...state,
-        favouriteCharacter: action.payload
+        favouriteCharacters: action.payload
       }
     case GET_FAVOURITES:
-      return state.favouriteCharacters
+      return {...state.favouriteCharacters}
     default:
       return state
   }

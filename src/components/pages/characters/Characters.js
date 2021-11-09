@@ -27,7 +27,7 @@ export const Characters = () => {
 
   useEffect(() => {
     dispatch(getFavourites())
-  })
+  }, [dispatch])
 
   return (
     <Fragment>
