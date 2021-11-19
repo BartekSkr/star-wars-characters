@@ -12,14 +12,13 @@ import yoda2 from '../../icons/baby-yoda-2.svg'
 import DataContext from '../../context/dataContext'
 import ReactTooltip from 'react-tooltip'
 import { addToFavourites } from '../../actions/favouritesActions'
-import { connect, useDispatch } from 'react-redux'
+import { connect } from 'react-redux'
 import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
 
-const Characters = ({ list }) => {
+const Characters = ({ list, add }) => {
   const dataContext = useContext(DataContext)
   const { characters, loading, characterSearchError, display, getCharacterDetails, myTheme } = dataContext
-  const dispatch = useDispatch()
   //  toast
   const addToFavouritesToastSuccess = toastInfo => toast.success(toastInfo)
   const addToFavouritesToastError = toastInfo => toast.error(toastInfo)
@@ -67,7 +66,7 @@ const Characters = ({ list }) => {
                         }
                       })
                       if (!characterID) {
-                        dispatch(addToFavourites(character))
+                        add(character)
                         addToFavouritesToastSuccess(`Been added to the favourites list, ${character.name} has.`)
                       } else {
                         addToFavouritesToastError(`Already on the favourites list, ${character.name} is.`)
@@ -101,4 +100,8 @@ const mapStateToProps = state => ({
   list: state.list
 })
 
-export default connect(mapStateToProps, {})(Characters)
+const mapDispatchToProps = dispatch => ({
+  add: character => dispatch(addToFavourites(character))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Characters)

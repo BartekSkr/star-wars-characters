@@ -5,15 +5,14 @@ import { Spinner } from '../../layout/Spinner'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
-import { connect, useDispatch } from 'react-redux'
+import { connect } from 'react-redux'
 import { toast } from 'react-toastify'
 import { addToFavourites, deleteFromFavourites } from '../../actions/favouritesActions'
 import ReactTooltip from 'react-tooltip'
 
-const CharacterDetails = ({ list, remove }) => {
+const CharacterDetails = ({ list, add, remove }) => {
   const dataContext = useContext(DataContext)
   const { loading, display, characterDetails } = dataContext
-  const dispatch = useDispatch()
   //  toast
   const addToFavouritesToastSuccess = toastInfo => toast.success(toastInfo)
   const addToFavouritesToastError = toastInfo => toast.error(toastInfo)
@@ -40,7 +39,7 @@ const CharacterDetails = ({ list, remove }) => {
                     if (char.created === characterDetails.created) return true
                   })
                   if (!characterID) {
-                    dispatch(addToFavourites(characterDetails))
+                    add(characterDetails)
                     addToFavouritesToastSuccess(`Been added to the favourites list, ${characterDetails.name} has.`)
                   } else {
                     addToFavouritesToastError(`Already on the favourites list, ${characterDetails.name} is.`)
@@ -128,6 +127,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
+  add: characterDetails => dispatch(addToFavourites(characterDetails)),
   remove: characterDetails => dispatch(deleteFromFavourites(characterDetails))
 })
 
