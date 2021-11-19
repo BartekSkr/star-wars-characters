@@ -88,6 +88,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .add-button,
+  .delete-button,
   .details-button {
     color: ${({ theme }) => theme.body};
     background-color: ${({ theme }) => theme.accentColor};

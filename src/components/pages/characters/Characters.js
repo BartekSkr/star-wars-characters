@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect } from 'react'
+import React, { Fragment, useContext } from 'react'
 import './Characters.css'
 import { Search } from './Search'
 import { Spinner } from '../../layout/Spinner'
@@ -11,23 +11,18 @@ import yoda from '../../icons/baby-yoda.svg'
 import yoda2 from '../../icons/baby-yoda-2.svg'
 import DataContext from '../../context/dataContext'
 import ReactTooltip from 'react-tooltip'
-import { addToFavourites, getFavourites } from '../../actions/favouritesActions'
-import { useDispatch } from 'react-redux'
-import { initialState } from '../../reducers/favouritesReducer'
+import { addToFavourites } from '../../actions/favouritesActions'
+import { connect, useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
 
-export const Characters = () => {
+const Characters = ({ list }) => {
   const dataContext = useContext(DataContext)
   const { characters, loading, characterSearchError, display, getCharacterDetails, myTheme } = dataContext
   const dispatch = useDispatch()
   //  toast
   const addToFavouritesToastSuccess = toastInfo => toast.success(toastInfo)
   const addToFavouritesToastError = toastInfo => toast.error(toastInfo)
-
-  useEffect(() => {
-    dispatch(getFavourites())
-  }, [dispatch])
 
   return (
     <Fragment>
@@ -66,7 +61,7 @@ export const Characters = () => {
                     data-tip='Add to favourites'
                     onClick={() => {
                       // eslint-disable-next-line
-                      let characterID = initialState.favouriteCharacters.find(char => {
+                      let characterID = list.find(char => {
                         if (char.created === character.created) {
                           return true
                         }
@@ -101,3 +96,9 @@ export const Characters = () => {
     </Fragment>
   )
 }
+
+const mapStateToProps = state => ({
+  list: state.list
+})
+
+export default connect(mapStateToProps, {})(Characters)

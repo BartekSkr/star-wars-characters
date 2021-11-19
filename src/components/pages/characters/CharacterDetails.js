@@ -1,17 +1,16 @@
-import React, { Fragment, useContext, useEffect } from 'react'
+import React, { Fragment, useContext } from 'react'
 import './Characters.css'
 import DataContext from '../../context/dataContext'
 import { Spinner } from '../../layout/Spinner'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
-import { initialState } from '../../reducers/favouritesReducer'
-import { useDispatch } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
-import { addToFavourites, deleteFromFavourites, getFavourites } from '../../actions/favouritesActions'
+import { addToFavourites, deleteFromFavourites } from '../../actions/favouritesActions'
 import ReactTooltip from 'react-tooltip'
 
-export const CharacterDetails = () => {
+const CharacterDetails = ({ list, remove }) => {
   const dataContext = useContext(DataContext)
   const { loading, display, characterDetails } = dataContext
   const dispatch = useDispatch()
@@ -19,10 +18,6 @@ export const CharacterDetails = () => {
   const addToFavouritesToastSuccess = toastInfo => toast.success(toastInfo)
   const addToFavouritesToastError = toastInfo => toast.error(toastInfo)
   const deleteFromFavouritesToast = toastInfo => toast.info(toastInfo)
-
-  useEffect(() => {
-    dispatch(getFavourites())
-  }, [dispatch])
 
   return (
     <Fragment>
@@ -41,7 +36,7 @@ export const CharacterDetails = () => {
                 data-tip='Add to favourites'
                 onClick={() => {
                   // eslint-disable-next-line
-                  let characterID = initialState.favouriteCharacters.find(char => {
+                  let characterID = list.find(char => {
                     if (char.created === characterDetails.created) return true
                   })
                   if (!characterID) {
@@ -55,15 +50,15 @@ export const CharacterDetails = () => {
                 <FontAwesomeIcon icon={faPlus} />
               </button>
               <button
-                className='add-button'
+                className='delete-button'
                 data-tip='Delete from favourites'
                 onClick={() => {
                   // eslint-disable-next-line
-                  let characterID = initialState.favouriteCharacters.find(char => {
+                  let characterID = list.find(char => {
                     if (char.created === characterDetails.created) return true
                   })
                   if (characterID) {
-                    dispatch(deleteFromFavourites(characterDetails))
+                    remove(characterDetails)
                     deleteFromFavouritesToast(`Been removed from the favorites list, ${characterDetails.name} has.`)
                   }
                   if(!characterID) {
@@ -127,3 +122,13 @@ export const CharacterDetails = () => {
     </Fragment>
   )
 }
+
+const mapStateToProps = state => ({
+  list: state.list
+})
+
+const mapDispatchToProps = dispatch => ({
+  remove: characterDetails => dispatch(deleteFromFavourites(characterDetails))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(CharacterDetails)
