@@ -1,55 +1,49 @@
-import React, { Fragment, useContext, useEffect } from 'react'
+import React, { Fragment, useContext } from 'react'
 import './Favourites.css'
 import yoda from '../../icons/baby-yoda.svg'
 import yoda2 from '../../icons/baby-yoda-2.svg'
-import { initialState } from '../../reducers/favouritesReducer'
 import ReactTooltip from 'react-tooltip'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfo } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
-import { deleteFromFavourites, getFavourites } from '../../actions/favouritesActions'
+import { deleteFromFavourites } from '../../actions/favouritesActions'
 import DataContext from '../../context/dataContext'
-import { connect, useDispatch } from 'react-redux'
+import { connect } from 'react-redux'
 import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
 
-const FavouritesPage = () => {
+const Favourites = ({ list, remove }) => {
   const dataContext = useContext(DataContext)
   const { getCharacterDetails, myTheme } = dataContext
-  const dispatch = useDispatch()
   //  toast
   const deleteFromFavouritesToastInfo = toastInfo => toast.info(toastInfo)
   const deleteFromFavouritesToastError = toastInfo => toast.error(toastInfo)
 
-  useEffect(() => {
-    dispatch(getFavourites())
-  } ,[dispatch])
-
   return (
     <Fragment>
-      {initialState.favouriteCharacters.length === 0 &&
+      {list?.length === 0 &&
         <div className='empty-list'>
           <h3>No any favourite characters yet, sorry there is. Add your favourite characters, please. </h3>
           <img src={myTheme === 'light' ? yoda : yoda2} alt='yoda' id='yoda-icon' />
         </div>
       }
       <Fragment>
-        {initialState.favouriteCharacters.map((character) => (
+        {list.map((character) => (
           <div key={character.created} className='character'>
             <div className='character-info'>
               <div className='character-info-header'>
                 <h3>{character.name}</h3>
                 <div>
                   <button
-                    className='add-button'
+                    className='delete-button'
                     data-tip='Delete from favourites'
                     onClick={() => {
                       // eslint-disable-next-line
-                      let characterID = initialState.favouriteCharacters.find(char => {
+                      let characterID = list.find(char => {
                         if (char.created === character.created) return true
                       })
                       if (characterID) {
-                        dispatch(deleteFromFavourites(character))
+                        remove(character)
                         deleteFromFavouritesToastInfo(`Been removed from the favorites list, ${character.name} has.`)
                       }
                       if(!characterID){
@@ -79,4 +73,12 @@ const FavouritesPage = () => {
   )
 }
 
-export const Favourites = connect((state) => ({ favouriteCharacters: state.favouriteCharacters }), {})(FavouritesPage)
+const mapStateToProps = state => ({
+  list: state.list
+})
+
+const mapDispatchToProps = dispatch => ({
+  remove: character => dispatch(deleteFromFavourites(character))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Favourites)
