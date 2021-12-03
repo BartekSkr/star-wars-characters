@@ -1,4 +1,4 @@
-import { ADD_TO_FAVOURITES, DELETE_FROM_FAVOURITES } from './types'
+import { ADD_TO_FAVOURITES, DELETE_FAVOURITE_LIST, DELETE_FROM_FAVOURITES } from './types'
 
 export const addToFavourites = character => {
   return {
@@ -13,3 +13,5 @@ export const deleteFromFavourites = character => {
     payload: character
   }
 }
+
+export const deleteFavouriteList = () => ({ type: DELETE_FAVOURITE_LIST })

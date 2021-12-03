@@ -9,3 +9,27 @@
   height: 100px;
   margin-top: 2rem;
 }
+
+h3 {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.delete-list-button {
+  margin-bottom: 1rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0.5rem;
+  border: none;
+  height: 2rem;
+  width: 4rem;
+  cursor: pointer;
+}
+
+.delete-list-button:hover {
+  color: red;
+}
+
+.delete-list-button > span {
+  margin-left: 0.5rem;
+}
