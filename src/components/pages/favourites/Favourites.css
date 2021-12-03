@@ -26,10 +26,6 @@ h3 {
   cursor: pointer;
 }
 
-.delete-list-button:hover {
-  color: red;
-}
-
 .delete-list-button > span {
   margin-left: 0.5rem;
 }
