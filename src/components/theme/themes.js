@@ -48,6 +48,7 @@ export const GlobalStyles = createGlobalStyle`
   .navbar-link-active {
     color: ${({ theme }) => theme.accentColor};
     border-bottom: 3px solid ${({ theme }) => theme.accentColor};
+    text-decoration: none
   }
 
   .navbar-li:hover a {

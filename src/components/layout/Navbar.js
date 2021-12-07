@@ -26,19 +26,16 @@ export const Navbar = ({ title }) => {
       <ul>
         <li className='navbar-li'>
           <NavLink
-            className='navbar-link'
-            activeClassName='navbar-link-active'
-            // exact to='/'
-            exact to='/characters'
+            className={navData => navData.isActive ? 'navbar-link-active' : 'navbar-link'}
+            to='/characters'
           >
             Characters
           </NavLink>
         </li>
         <li className='navbar-li'>
           <NavLink
-            className='navbar-link'
-            activeClassName='navbar-link-active'
-            exact to='/favourites'
+            className={navData => navData.isActive ? 'navbar-link-active' : 'navbar-link'}
+            to='/favourites'
           >
             Favourites
           </NavLink>
