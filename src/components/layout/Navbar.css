@@ -20,6 +20,7 @@ ul {
 
 .navbar-li {
   transition: all 0.2s ease-in-out;
+  margin: 0 0.5rem;
 }
 
 .navbar-link {
