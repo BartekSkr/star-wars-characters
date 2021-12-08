@@ -65,6 +65,13 @@ p {
   margin: 0.7rem 0;
 }
 
+.movies p,
+.vehicles p,
+.starships p {
+  text-align: left;
+  margin-left: 2rem;
+}
+
 #yoda-icon {
   width: 100px;
   height: 100px;
