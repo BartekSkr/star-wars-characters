@@ -66,7 +66,7 @@ const Favourites = ({ list, remove, deleteList }) => {
                     >
                       <FontAwesomeIcon icon={faTrash} />
                     </button>
-                    <Link to={`/details`}>
+                    <Link to={`/details/${character.name}`}>
                       <button
                         className='details-button'
                         data-tip='Show details'

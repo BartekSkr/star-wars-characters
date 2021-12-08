@@ -27,9 +27,11 @@ function App() {
             <div className='container'>
               <Routes>
                 <Route path='/' element={<Navigate to='/characters' />} />
-                <Route path='/characters' element={<Characters />} />
+                <Route path='/characters' element={<Characters />} >
+                  <Route path=':id' element={<Characters />} />
+                </Route>
                 <Route path='/favourites' element={<Favourites />} />
-                <Route path='/details' element={<CharacterDetails />} />
+                <Route path='/details/:id' element={<CharacterDetails />} />
                 <Route path='*'  element={<PageNotFound />} />
               </Routes>
             </div>

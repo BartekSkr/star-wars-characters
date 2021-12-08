@@ -7,7 +7,7 @@ import ReactTooltip from 'react-tooltip'
 
 export const Search = () => {
   const dataContext = useContext(DataContext)
-  const { getData, searchCharacterByName, setApi } = dataContext
+  const { getData, searchCharacterByName, setApi, currentPage } = dataContext
 
   return (
     <div className='search'>
@@ -17,7 +17,7 @@ export const Search = () => {
         data-tip='Show character list'
         onClick={() => {
           setApi('https://swapi.dev/api/people/?page=')
-          getData('https://swapi.dev/api/people/?page=', 1)
+          getData('https://swapi.dev/api/people/?page=', currentPage)
         }}
       >
         <FontAwesomeIcon icon={faJournalWhills} size='2x' />

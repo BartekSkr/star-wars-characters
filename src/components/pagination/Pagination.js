@@ -1,6 +1,7 @@
 import React, { Fragment, useContext } from 'react'
 import './Pagination.css'
 import DataContext from '../context/dataContext'
+import { Link } from 'react-router-dom'
 
 export const Pagination = () => {
   const dataContext = useContext(DataContext)
@@ -17,9 +18,10 @@ export const Pagination = () => {
         <ul id='pagination-ul'>
           {pageNumbers.map(number => (
             <li className='pagination-li' key={number} onClick={() => getData(api, number)}>
-              <a className={currentPage === number ? 'pagination-a-active' : 'pagination-a'} href="/#">
+              <Link className={currentPage === number ? 'pagination-a-active' : 'pagination-a'}
+                to={`/characters/#${number}`}>
                 {number}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
