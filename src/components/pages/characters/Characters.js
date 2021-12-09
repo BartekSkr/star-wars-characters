@@ -16,9 +16,9 @@ import { connect } from 'react-redux'
 import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
 
-const Characters = ({ list, add }) => {
+const Characters = ({ list, add, theme }) => {
   const dataContext = useContext(DataContext)
-  const { characters, loading, characterSearchError, display, getCharacterDetails, myTheme } = dataContext
+  const { characters, loading, characterSearchError, display, getCharacterDetails } = dataContext
   //  toast
   const addToFavouritesToastSuccess = toastInfo => toast.success(toastInfo)
   const addToFavouritesToastError = toastInfo => toast.error(toastInfo)
@@ -30,7 +30,7 @@ const Characters = ({ list, add }) => {
       {characterSearchError === true && loading === false &&
         <div className='search-error' >
           <h3>Sorry, no such character, there is... Try again, please!</h3>
-          <img src={myTheme === 'light' ? yoda : yoda2} alt='yoda' id='yoda-icon' />
+          <img src={theme.isDarkTheme === true ? yoda2 : yoda} alt='yoda' id='yoda-icon' />
         </div>
       }
       {/* spinner while loading data */}
@@ -60,7 +60,7 @@ const Characters = ({ list, add }) => {
                     data-tip='Add to favourites'
                     onClick={() => {
                       // eslint-disable-next-line
-                      let characterID = list.find(char => {
+                      let characterID = list.list.find(char => {
                         if (char.created === character.created) {
                           return true
                         }
@@ -97,7 +97,8 @@ const Characters = ({ list, add }) => {
 }
 
 const mapStateToProps = state => ({
-  list: state.list
+  list: state.favourites,
+  theme: state.theme
 })
 
 const mapDispatchToProps = dispatch => ({

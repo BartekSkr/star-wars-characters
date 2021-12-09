@@ -23,8 +23,6 @@ export const DataState = ({ children }) => {
   const [characterSearchError, setCharacterSearchError] = useState(false)
   //  does not display data when loading
   const [display, setDisplay] = useState(false)
-  //  theme state
-  const [myTheme, setMyTheme] = useState('dark')
 
   useEffect(() => {
     ReactTooltip.rebuild()
@@ -115,7 +113,7 @@ export const DataState = ({ children }) => {
     }
 
   return (
-    <DataContext.Provider value={{ loading, searchCharacterByName, characters, getData, currentPage, buttonKey, setButtonKey, charactersCount, api, setApi, inputValue, characterSearchError, display, getCharacterDetails, characterDetails, myTheme, setMyTheme }}>
+    <DataContext.Provider value={{ loading, searchCharacterByName, characters, getData, currentPage, buttonKey, setButtonKey, charactersCount, api, setApi, inputValue, characterSearchError, display, getCharacterDetails, characterDetails }}>
       {children}
     </DataContext.Provider>
   )

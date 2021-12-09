@@ -35,7 +35,7 @@ const CharacterDetails = ({ list, add, remove }) => {
                 data-tip='Add to favourites'
                 onClick={() => {
                   // eslint-disable-next-line
-                  let characterID = list.find(char => {
+                  let characterID = list.list.find(char => {
                     if (char.created === characterDetails.created) return true
                   })
                   if (!characterID) {
@@ -53,7 +53,7 @@ const CharacterDetails = ({ list, add, remove }) => {
                 data-tip='Delete from favourites'
                 onClick={() => {
                   // eslint-disable-next-line
-                  let characterID = list.find(char => {
+                  let characterID = list.list.find(char => {
                     if (char.created === characterDetails.created) return true
                   })
                   if (characterID) {
@@ -123,7 +123,7 @@ const CharacterDetails = ({ list, add, remove }) => {
 }
 
 const mapStateToProps = state => ({
-  list: state.list
+  list: state.favourites
 })
 
 const mapDispatchToProps = dispatch => ({

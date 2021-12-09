@@ -1,26 +1,21 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
-import { Navbar } from './components/layout/Navbar'
+import Navbar from './components/layout/Navbar'
 import Characters from './components/pages/characters/Characters'
-import { PageNotFound } from './components/pages/404/404-page'
+import PageNotFound from './components/pages/404/404-page'
 import Favourites from './components/pages/favourites/Favourites'
-import { Provider } from 'react-redux'
-import { store } from './components/store/store'
+import { connect } from 'react-redux'
 import { ToastContainer, Zoom } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import CharacterDetails from './components/pages/characters/CharacterDetails'
 import { ThemeProvider } from 'styled-components'
 import { darkTheme, GlobalStyles, lightTheme } from './components/theme/themes'
-import { useContext } from 'react'
-import DataContext from './components/context/dataContext'
+import { Fragment } from 'react'
 
-function App() {
-  const dataContext = useContext(DataContext)
-  const { myTheme } = dataContext
-
+function App({ theme }) {
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={myTheme === 'light' ? lightTheme : darkTheme}>
+    <Fragment>
+      <ThemeProvider theme={theme.isDarkTheme === true ? darkTheme : lightTheme}>
         <GlobalStyles />
           <Router>
             <Navbar />
@@ -44,11 +39,15 @@ function App() {
               autoClose={3000}
               transition={Zoom}
               limit={4}
-              theme={myTheme === 'light' ? 'light' : 'dark'}
+              theme={theme.isDarkTheme === true ? 'dark' : 'light'}
             />
       </ThemeProvider>
-    </Provider>
+    </Fragment>
   );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  theme: state.theme
+})
+
+export default connect(mapStateToProps, {})(App)

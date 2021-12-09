@@ -1,17 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Navbar.css'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
-import DataContext from '../context/dataContext'
-import { useContext } from 'react'
+import { connect } from 'react-redux'
+import { setTheme } from '../actions/themeActions'
 
-export const Navbar = ({ title }) => {
-  const dataContext = useContext(DataContext)
-  const { myTheme, setMyTheme } = dataContext
+export const Navbar = ({ title, theme, changeTheme }) => {
+  const themeTooltipText = theme.isDarkTheme === true ? 'Switch to light theme' : 'Switch to dark theme'
 
-  const themeTooltipText = myTheme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'
+  useEffect(() => {
+      localStorage.setItem('isDarkTheme', JSON.stringify(theme.isDarkTheme))
+  }, [theme])
 
   return (
     <nav className='navbar'>
@@ -19,9 +20,9 @@ export const Navbar = ({ title }) => {
       <button
         className='theme-button'
         aria-label={themeTooltipText}
-        onClick={() => myTheme === 'light' ? setMyTheme('dark') : setMyTheme('light')}
+        onClick={() => changeTheme()}
       >
-        <FontAwesomeIcon icon={myTheme === 'light' ? faMoon : faSun} />
+        <FontAwesomeIcon icon={theme.isDarkTheme === true ? faSun : faMoon} />
       </button>
       <ul>
         <li className='navbar-li'>
@@ -52,3 +53,13 @@ Navbar.defaultProps = {
 Navbar.propTypes = {
   title: PropTypes.string.isRequired
 }
+
+const mapStateToProps = state => ({
+  theme: state.theme
+})
+
+const mapDispatchToProps = dispatch => ({
+  changeTheme: () => dispatch(setTheme())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

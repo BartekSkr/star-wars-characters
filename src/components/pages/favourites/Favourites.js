@@ -12,26 +12,26 @@ import { connect } from 'react-redux'
 import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
 
-const Favourites = ({ list, remove, deleteList }) => {
+const Favourites = ({ list, remove, deleteList, theme }) => {
   const dataContext = useContext(DataContext)
-  const { getCharacterDetails, myTheme } = dataContext
+  const { getCharacterDetails } = dataContext
   //  toast
   const deleteFromFavouritesToastInfo = toastInfo => toast.info(toastInfo)
   const deleteFromFavouritesToastError = toastInfo => toast.error(toastInfo)
 
   useEffect(() => {
-    localStorage.setItem('favourites', JSON.stringify(list))
-  }, [list])
+    localStorage.setItem('favourites', JSON.stringify(list.list))
+  }, [list.list])
 
   return (
     <Fragment>
-      {list?.length === 0 &&
+      {list?.list.length === 0 &&
         <div className='empty-list'>
           <h3>No any favourite characters yet, sorry there is. Add your favourite characters, please. </h3>
-          <img src={myTheme === 'light' ? yoda : yoda2} alt='yoda' id='yoda-icon' />
+          <img src={theme.isDarkTheme === true ? yoda2 : yoda} alt='yoda' id='yoda-icon' />
         </div>
       }
-      {list.length > 0 &&
+      {list.list.length > 0 &&
         <Fragment>
           <h3>Your favourites characters from Star Wars</h3>
           <button
@@ -41,7 +41,7 @@ const Favourites = ({ list, remove, deleteList }) => {
           >
             <FontAwesomeIcon icon={faTrash} />
           </button>
-          {list.map((character) => (
+          {list.list.map((character) => (
             <div key={character.created} className='character'>
               <div className='character-info'>
                 <div className='character-info-header'>
@@ -52,7 +52,7 @@ const Favourites = ({ list, remove, deleteList }) => {
                       data-tip='Delete from favourites'
                       onClick={() => {
                         // eslint-disable-next-line
-                        let characterID = list.find(char => {
+                        let characterID = list.list.find(char => {
                           if (char.created === character.created) return true
                         })
                         if (characterID) {
@@ -88,7 +88,8 @@ const Favourites = ({ list, remove, deleteList }) => {
 }
 
 const mapStateToProps = state => ({
-  list: state.list
+  list: state.favourites,
+  theme: state.theme
 })
 
 const mapDispatchToProps = dispatch => ({
