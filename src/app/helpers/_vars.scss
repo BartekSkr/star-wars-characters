@@ -52,3 +52,34 @@
     }
   }
 }
+
+%button {
+  margin: 0.2rem;
+  border-radius: 0.5rem;
+  border: none;
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+}
+
+%button-delete-list {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0.5rem;
+  border: none;
+  height: 2rem;
+  width: 4rem;
+  cursor: pointer;
+  justify-content: center;
+
+  svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

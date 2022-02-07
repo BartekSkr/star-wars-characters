@@ -17,23 +17,8 @@ h3 {
   margin: 0.5rem 0;
 }
 
-.delete-list-button {
-  margin-bottom: 1rem;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  border-radius: 0.5rem;
-  border: none;
-  height: 2rem;
-  width: 4rem;
-  cursor: pointer;
-
-  .span {
-    margin-left: 0.5rem;
-  }
-
-  .character {
+.character {
     @extend %character-box;
-  }
 }
 
 @media (min-width: 900px) {
