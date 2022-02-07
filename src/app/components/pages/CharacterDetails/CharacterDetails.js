@@ -1,13 +1,13 @@
 import React, { Fragment, useContext } from 'react'
-import './Characters.css'
-import DataContext from '../../context/dataContext'
-import { Spinner } from '../../layout/Spinner'
+import '../Characters/Characters.css'
+import DataContext from '../../../context/dataContext'
+import { Spinner } from '../../ui/common/Spinner/Spinner'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { connect } from 'react-redux'
 import { toast } from 'react-toastify'
-import { addToFavourites, deleteFromFavourites } from '../../actions/favouritesActions'
+import { addToFavourites, deleteFromFavourites } from '../../../actions/favouritesActions'
 import ReactTooltip from 'react-tooltip'
 
 const CharacterDetails = ({ list, add, remove }) => {

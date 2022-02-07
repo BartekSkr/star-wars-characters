@@ -1,7 +1,7 @@
 import React from 'react'
 import './404-page.css'
-import darthVader from '../../icons/darth-vader.svg'
-import darthVader2 from '../../icons/darth-vader-2.svg'
+import darthVader from '../../../icons/darth-vader.svg'
+import darthVader2 from '../../../icons/darth-vader-2.svg'
 import { connect } from 'react-redux'
 
 export const PageNotFound = ({ theme }) => {

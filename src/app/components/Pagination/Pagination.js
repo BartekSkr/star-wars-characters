@@ -1,6 +1,6 @@
 import React, { Fragment, useContext } from 'react'
 import './Pagination.css'
-import DataContext from '../context/dataContext'
+import DataContext from '../../context/dataContext'
 import { Link } from 'react-router-dom'
 
 export const Pagination = () => {

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 import { connect } from 'react-redux'
-import { setTheme } from '../actions/themeActions'
+import { setTheme } from '../../../../actions/themeActions'
 
 export const Navbar = ({ title, theme, changeTheme }) => {
   const themeTooltipText = theme.isDarkTheme === true ? 'Switch to light theme' : 'Switch to dark theme'

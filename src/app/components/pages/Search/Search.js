@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import './Search.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faJournalWhills } from '@fortawesome/free-solid-svg-icons'
-import DataContext from '../../context/dataContext'
+import DataContext from '../../../context/dataContext'
 import ReactTooltip from 'react-tooltip'
 
 export const Search = () => {
