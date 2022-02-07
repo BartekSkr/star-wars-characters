@@ -1,16 +1,16 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 export const lightTheme = {
   body: 'white',
   fontColor: 'black',
-  accentColor: 'black'
-}
+  accentColor: 'black',
+};
 
 export const darkTheme = {
   body: 'black',
   fontColor: 'white',
-  accentColor: 'yellow'
-}
+  accentColor: 'yellow',
+};
 
 export const GlobalStyles = createGlobalStyle`
   body {
@@ -74,9 +74,7 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.accentColor};
   }
 
-  .add-button,
-  .delete-button,
-  .details-button,
+  .button,
   .delete-list-button {
     color: ${({ theme }) => theme.body};
     background-color: ${({ theme }) => theme.accentColor};
@@ -110,4 +108,4 @@ export const GlobalStyles = createGlobalStyle`
   .pagination-li:hover pagination-link {
     color: ${({ theme }) => theme.accentColor};
   }
-`
+`;
