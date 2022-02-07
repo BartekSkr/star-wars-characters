@@ -13,6 +13,10 @@ import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
 
 const Favourites = ({ list, remove, deleteList, theme }) => {
+  useEffect(() => {
+    document.title = 'Star Wars Characters - Favourites'
+  }, [])
+
   const dataContext = useContext(DataContext)
   const { getCharacterDetails } = dataContext
   //  toast

@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './404-page.css'
 import darthVader from '../../../icons/darth-vader.svg'
 import darthVader2 from '../../../icons/darth-vader-2.svg'
 import { connect } from 'react-redux'
 
 export const PageNotFound = ({ theme }) => {
+  useEffect(() => {
+    document.title = 'Star Wars Characters - Error 404 (Not Found)'
+  }, [])
+
   return (
     <div className='not-found-container'>
       <img src={theme.isDarkTheme === true ? darthVader2 : darthVader} alt="darth vader icon" />

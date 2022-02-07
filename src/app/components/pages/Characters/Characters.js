@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react'
+import React, { Fragment, useContext, useEffect } from 'react'
 import './Characters.css'
 import { Search } from '../Search/Search'
 import { Spinner } from '../../ui/common/Spinner/Spinner'
@@ -17,6 +17,10 @@ import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
 
 const Characters = ({ list, add, theme }) => {
+  useEffect(() => {
+    document.title = 'Star Wars Characters - Characters'
+  }, [])
+
   const dataContext = useContext(DataContext)
   const { characters, loading, characterSearchError, display, getCharacterDetails } = dataContext
   //  toast

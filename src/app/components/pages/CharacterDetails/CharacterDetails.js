@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react'
+import React, { Fragment, useContext, useEffect } from 'react'
 import '../Characters/Characters.css'
 import DataContext from '../../../context/dataContext'
 import { Spinner } from '../../ui/common/Spinner/Spinner'
@@ -11,6 +11,10 @@ import { addToFavourites, deleteFromFavourites } from '../../../actions/favourit
 import ReactTooltip from 'react-tooltip'
 
 const CharacterDetails = ({ list, add, remove }) => {
+  useEffect(() => {
+    document.title = `Star Wars Characters - Character Details`
+  }, [])
+
   const dataContext = useContext(DataContext)
   const { loading, display, characterDetails } = dataContext
   //  toast
