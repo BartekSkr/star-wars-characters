@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useEffect } from 'react'
-import './Favourites.css'
+import './Favourites.scss'
 import yoda from '../../../icons/baby-yoda.svg'
 import yoda2 from '../../../icons/baby-yoda-2.svg'
 import ReactTooltip from 'react-tooltip'
@@ -32,7 +32,7 @@ const Favourites = ({ list, remove, deleteList, theme }) => {
       {list?.list.length === 0 &&
         <div className='empty-list'>
           <h3>No any favourite characters yet, sorry there is. Add your favourite characters, please. </h3>
-          <img src={theme.isDarkTheme === true ? yoda2 : yoda} alt='yoda' id='yoda-icon' />
+          <img src={theme.isDarkTheme === true ? yoda2 : yoda} alt='yoda' className='yoda-icon' />
         </div>
       }
       {list.list.length > 0 &&

@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useEffect } from 'react'
-import './Characters.css'
+import './Characters.scss'
 import { Search } from '../Search/Search'
 import { Spinner } from '../../ui/common/Spinner/Spinner'
 import { Pagination } from '../../Pagination/Pagination'
@@ -34,7 +34,7 @@ const Characters = ({ list, add, theme }) => {
       {characterSearchError === true && loading === false &&
         <div className='search-error' >
           <h3>Sorry, no such character, there is... Try again, please!</h3>
-          <img src={theme.isDarkTheme === true ? yoda2 : yoda} alt='yoda' id='yoda-icon' />
+          <img src={theme.isDarkTheme === true ? yoda2 : yoda} alt='yoda' className='yoda-icon' />
         </div>
       }
       {/* spinner while loading data */}
@@ -47,7 +47,7 @@ const Characters = ({ list, add, theme }) => {
       {display === false && loading === false &&
         <div className='initial-info'>
           <h3>
-            Press the icon: <FontAwesomeIcon id='initial-info-icon' icon={faJournalWhills} /> to display the entire list of <span>Star Wars</span> characters, or enter the name of the character you are interested in.
+            Press the icon <FontAwesomeIcon className='initial-info-icon' icon={faJournalWhills} /> to display the entire list of <span>Star Wars</span> characters, or enter the name of the character you are interested in.
           </h3>
         </div>
       }

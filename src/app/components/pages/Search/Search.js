@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import './Search.css'
+import './Search.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faJournalWhills } from '@fortawesome/free-solid-svg-icons'
 import DataContext from '../../../context/dataContext'

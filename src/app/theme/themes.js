@@ -13,24 +13,9 @@ export const darkTheme = {
 }
 
 export const GlobalStyles = createGlobalStyle`
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
   body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    letter-spacing: 0.12rem;
     background-color: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.fontColor};
-  }
-
-  .container {
-    width: 90%;
-    margin: auto;
-    padding-top: 0.5rem;
   }
 
   .navbar {
@@ -75,11 +60,12 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.accentColor};
   }
 
-  .character {
+  .character,
+  .character-details {
     border: 3px solid ${({ theme }) => theme.accentColor};
   }
 
-  #initial-info-icon,
+  .initial-info-icon,
   .initial-info span {
     color ${({ theme }) => theme.accentColor};
   }
@@ -112,16 +98,16 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.accentColor};
   }
 
-  .pagination-a {
+  .pagination-link {
     color: ${({ theme }) => theme.fontColor};
   }
 
-  .pagination-a-active {
+  .pagination-link-active {
     border-bottom 3px solid ${({ theme }) => theme.accentColor};
     color: ${({ theme }) => theme.accentColor};
   }
 
-  .pagination-li:hover pagination-a {
+  .pagination-li:hover pagination-link {
     color: ${({ theme }) => theme.accentColor};
   }
 `

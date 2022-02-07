@@ -1,0 +1,22 @@
+.pagination-ul {
+  margin-bottom: 1rem;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+
+  .pagination-li {
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    .pagination-link,
+    .pagination-link-active {
+      text-decoration: none;
+      margin: 0 1rem;
+    }
+
+    &:hover {
+      transform: scale(1.5);
+      transition: all 0.2s ease-in-out;
+    }
+  }
+}

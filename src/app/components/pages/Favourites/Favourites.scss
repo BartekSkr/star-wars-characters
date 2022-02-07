@@ -1,13 +1,15 @@
+@import '../../../helpers/vars';
+
 .empty-list {
   margin: 2rem auto;
   text-align: center;
   width: 80%;
-}
 
-#yoda-icon {
-  width: 100px;
-  height: 100px;
-  margin-top: 2rem;
+  .yoda-icon {
+    width: 100px;
+    height: 100px;
+    margin-top: 2rem;
+  }
 }
 
 h3 {
@@ -24,8 +26,19 @@ h3 {
   height: 2rem;
   width: 4rem;
   cursor: pointer;
+
+  .span {
+    margin-left: 0.5rem;
+  }
+
+  .character {
+    @extend %character-box;
+  }
 }
 
-.delete-list-button > span {
-  margin-left: 0.5rem;
+@media (min-width: 900px) {
+  .character {
+    width: 50%;
+    margin: 0 auto 1rem auto;
+  }
 }

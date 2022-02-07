@@ -1,5 +1,6 @@
 import React, { Fragment, useContext, useEffect } from 'react'
-import '../Characters/Characters.css'
+// import '../Characters/Characters.scss'
+import './CharacterDetails.scss'
 import DataContext from '../../../context/dataContext'
 import { Spinner } from '../../ui/common/Spinner/Spinner'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -30,7 +31,7 @@ const CharacterDetails = ({ list, add, remove }) => {
         </Fragment>
       }
       {loading === false && display === true &&
-        <div className='character details'>
+        <div className='character-details'>
           <div className='character-info-header'>
           <h2>{characterDetails.name}</h2>
             <div>
