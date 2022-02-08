@@ -70,7 +70,7 @@ export const GlobalStyles = createGlobalStyle`
     color ${({ theme }) => theme.accentColor};
   }
 
-  .character-info-header {
+  .character-info {
     color: ${({ theme }) => theme.accentColor};
   }
 
