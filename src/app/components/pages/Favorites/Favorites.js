@@ -1,31 +1,31 @@
 import React, { Fragment, useContext, useEffect } from 'react';
-import './Favourites.scss';
+import './Favorites.scss';
 import yoda from '../../../icons/baby-yoda.svg';
 import yoda2 from '../../../icons/baby-yoda-2.svg';
 import ReactTooltip from 'react-tooltip';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import {
-  deleteFavouriteList,
-  deleteFromFavourites,
-} from '../../../actions/favouritesActions';
+  deleteFavoriteList,
+  deleteFromFavorites,
+} from '../../../actions/favoritesActions';
 import DataContext from '../../../context/dataContext';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { Button } from '../../ui/buttons/Button/Button';
 
-const Favourites = ({ list, remove, deleteList, theme }) => {
+const Favorites = ({ list, remove, deleteList, theme }) => {
   useEffect(() => {
-    document.title = 'Star Wars Characters - Favourites';
-    localStorage.setItem('favourites', JSON.stringify(list.list));
+    document.title = 'Star Wars Characters - Favorites';
+    localStorage.setItem('favorites', JSON.stringify(list.list));
   }, [list.list]);
 
   const dataContext = useContext(DataContext);
   const { getCharacterDetails } = dataContext;
   //  tooltip toast
-  const deleteFromFavouritesToastInfo = (toastInfo) => toast.info(toastInfo);
-  const deleteFromFavouritesToastError = (toastInfo) => toast.error(toastInfo);
+  const deleteFromFavoritesToastInfo = (toastInfo) => toast.info(toastInfo);
+  const deleteFromFavoritesToastError = (toastInfo) => toast.error(toastInfo);
 
   const handleDeleteBtnAction = (data) => {
     // eslint-disable-next-line
@@ -34,12 +34,12 @@ const Favourites = ({ list, remove, deleteList, theme }) => {
     });
     if (characterID) {
       remove(data);
-      deleteFromFavouritesToastInfo(
+      deleteFromFavoritesToastInfo(
         `Been removed from the favorites list, ${data.name} has.`
       );
     }
     if (!characterID) {
-      deleteFromFavouritesToastError(
+      deleteFromFavoritesToastError(
         `Not in your favorites list, this character is.`
       );
     }
@@ -100,13 +100,13 @@ const Favourites = ({ list, remove, deleteList, theme }) => {
 };
 
 const mapStateToProps = (state) => ({
-  list: state.favourites,
+  list: state.favorites,
   theme: state.theme,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  remove: (character) => dispatch(deleteFromFavourites(character)),
-  deleteList: () => dispatch(deleteFavouriteList()),
+  remove: (character) => dispatch(deleteFromFavorites(character)),
+  deleteList: () => dispatch(deleteFavoriteList()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Favourites);
+export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

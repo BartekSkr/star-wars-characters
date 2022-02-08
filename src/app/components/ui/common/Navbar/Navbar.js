@@ -51,9 +51,9 @@ export const Navbar = ({ title, theme, changeTheme }) => {
             className={(navData) =>
               navData.isActive ? 'navbar-link-active' : 'navbar-link'
             }
-            to='/favourites'
+            to='/favorites'
           >
-            Favourites
+            Favorites
           </NavLink>
         </li>
       </ul>

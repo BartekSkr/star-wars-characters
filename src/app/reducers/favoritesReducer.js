@@ -1,31 +1,31 @@
 import {
-  ADD_TO_FAVOURITES,
-  DELETE_FAVOURITE_LIST,
-  DELETE_FROM_FAVOURITES,
+  ADD_TO_FAVORITES,
+  DELETE_FAVORITE_LIST,
+  DELETE_FROM_FAVORITES,
 } from '../actions/types';
 
-const favouritesList = JSON.parse(localStorage.getItem('favourites') || '[]');
+const favoritesList = JSON.parse(localStorage.getItem('favorites') || '[]');
 
 export const INITIAL_STATE = {
-  listName: 'Favourite characters',
-  list: favouritesList,
+  listName: 'Favorite characters',
+  list: favoritesList,
 };
 
-export const favouriteListReducer = (state = INITIAL_STATE, action) => {
+export const favoriteListReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ADD_TO_FAVOURITES:
+    case ADD_TO_FAVORITES:
       return {
         ...state,
         list: [...state.list, action.payload],
       };
-    case DELETE_FROM_FAVOURITES:
+    case DELETE_FROM_FAVORITES:
       return {
         ...state,
         list: state.list.filter(
           (character) => character.name !== action.payload.name
         ),
       };
-    case DELETE_FAVOURITE_LIST:
+    case DELETE_FAVORITE_LIST:
       return {
         ...state,
         list: [],

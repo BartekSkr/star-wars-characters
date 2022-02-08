@@ -1,11 +1,11 @@
-import { combineReducers, createStore } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import { favouriteListReducer } from '../reducers/favouritesReducer'
-import { themeReducer } from '../reducers/themeReducer'
+import { combineReducers, createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { favoriteListReducer } from '../reducers/favoritesReducer';
+import { themeReducer } from '../reducers/themeReducer';
 
 const rootReducers = combineReducers({
   theme: themeReducer,
-  favourites: favouriteListReducer
-})
+  favorites: favoriteListReducer,
+});
 
-export const store = createStore(rootReducers, composeWithDevTools())
+export const store = createStore(rootReducers, composeWithDevTools());

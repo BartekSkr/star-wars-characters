@@ -11,7 +11,7 @@ import yoda from '../../../icons/baby-yoda.svg';
 import yoda2 from '../../../icons/baby-yoda-2.svg';
 import DataContext from '../../../context/dataContext';
 import ReactTooltip from 'react-tooltip';
-import { addToFavourites } from '../../../actions/favouritesActions';
+import { addToFavorites } from '../../../actions/favoritesActions';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
@@ -31,8 +31,8 @@ const Characters = ({ list, add, theme }) => {
     getCharacterDetails,
   } = dataContext;
   //  tooltip toast
-  const addToFavouritesToastSuccess = (toastInfo) => toast.success(toastInfo);
-  const addToFavouritesToastError = (toastInfo) => toast.error(toastInfo);
+  const addToFavoritesToastSuccess = (toastInfo) => toast.success(toastInfo);
+  const addToFavoritesToastError = (toastInfo) => toast.error(toastInfo);
 
   const handleAddBtnAction = (data) => {
     // eslint-disable-next-line
@@ -41,12 +41,12 @@ const Characters = ({ list, add, theme }) => {
     });
     if (!characterID) {
       add(data);
-      addToFavouritesToastSuccess(
-        `Been added to the favourites list, ${data.name} has.`
+      addToFavoritesToastSuccess(
+        `Been added to the favorites list, ${data.name} has.`
       );
     } else {
-      addToFavouritesToastError(
-        `Already on the favourites list, ${data.name} is.`
+      addToFavoritesToastError(
+        `Already on the favorites list, ${data.name} is.`
       );
     }
   };
@@ -95,7 +95,7 @@ const Characters = ({ list, add, theme }) => {
                 <div>
                   <Button
                     btnIcon={faPlus}
-                    tip='Add to favourites'
+                    tip='Add to favorites'
                     action={() => handleAddBtnAction(character)}
                     deleteList={false}
                   />
@@ -120,12 +120,12 @@ const Characters = ({ list, add, theme }) => {
 };
 
 const mapStateToProps = (state) => ({
-  list: state.favourites,
+  list: state.favorites,
   theme: state.theme,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  add: (character) => dispatch(addToFavourites(character)),
+  add: (character) => dispatch(addToFavorites(character)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Characters);

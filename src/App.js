@@ -8,7 +8,7 @@ import {
 import Navbar from '../src/app/components/ui/common/Navbar/Navbar';
 import Characters from './app/components/pages/Characters/Characters';
 import PageNotFound from './app/components/pages/404/404-page';
-import Favourites from './app/components/pages/Favourites/Favourites';
+import Favorites from './app/components/pages/Favorites/Favorites';
 import { connect } from 'react-redux';
 import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -27,7 +27,7 @@ function App({ theme }) {
           <Route path='/characters' element={<Characters />}>
             <Route path=':id' element={<Characters />} />
           </Route>
-          <Route path='/favourites' element={<Favourites />} />
+          <Route path='/favorites' element={<Favorites />} />
           <Route path='/details/:id' element={<CharacterDetails />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
