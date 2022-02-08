@@ -20,6 +20,10 @@
 
 .character {
   @extend %character-box;
+
+  .character-info {
+    @extend %character-info;
+  }
 }
 
 /* layout on larger screens */

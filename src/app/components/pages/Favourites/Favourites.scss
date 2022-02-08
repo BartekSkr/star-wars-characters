@@ -18,7 +18,11 @@ h3 {
 }
 
 .character {
-    @extend %character-box;
+  @extend %character-box;
+
+  .character-info {
+    @extend %character-info;
+  }
 }
 
 @media (min-width: 900px) {

@@ -2,9 +2,35 @@
 
 .character-details {
   @extend %character-box;
-
   margin-top: 1rem;
   border: none;
+
+  .character-info {
+    @extend %character-info;
+  }
+
+  .character-info-details {
+    padding: 0 1rem;
+
+    span {
+      display: flex;
+
+      p {
+        margin-left: 0.5rem;
+      }
+    }
+
+    .movies,
+    .vehicles,
+    .starships {
+      margin: 0.7rem 0;
+
+      p {
+        text-align: left;
+        margin-left: 1.5rem;
+      }
+    }
+  }
 }
 
 @media (min-width: 900px) {

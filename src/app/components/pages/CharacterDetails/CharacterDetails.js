@@ -69,7 +69,7 @@ const CharacterDetails = ({ list, add, remove }) => {
       )}
       {loading === false && display === true && (
         <div className='character-details'>
-          <div className='character-info-header'>
+          <div className='character-info'>
             <h2>{characterDetails.name}</h2>
             <div>
               <Button

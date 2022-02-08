@@ -90,7 +90,7 @@ const Characters = ({ list, add, theme }) => {
         <Fragment>
           {characters.map((character) => (
             <div key={character.created} className='character'>
-              <div className='character-info-header'>
+              <div className='character-info'>
                 <h3>{character.name}</h3>
                 <div>
                   <Button

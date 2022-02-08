@@ -5,52 +5,14 @@
 %character-box {
   border-radius: 1rem;
   margin-bottom: 1rem;
+}
 
-  .character-info-header {
-    width: 100%;
-    padding: 0.5rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .add-button,
-  .delete-button,
-  .details-button {
-    margin: 0.2rem;
-    border-radius: 0.5rem;
-    border: none;
-    height: 2rem;
-    width: 2rem;
-    cursor: pointer;
-  }
-
-  .details-button {
-    margin-left: 0.5rem;
-  }
-
-  .character-info-details {
-    padding: 0 1rem;
-
-    span {
-      display: flex;
-
-      p {
-        margin-left: 0.5rem;
-      }
-    }
-
-    .movies,
-    .vehicles,
-    .starships {
-      margin: 0.7rem 0;
-
-      p {
-        text-align: left;
-        margin-left: 1.5rem;
-      }
-    }
-  }
+%character-info {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 %button {

@@ -71,25 +71,25 @@ const Favourites = ({ list, remove, deleteList, theme }) => {
           />
           {list.list.map((character) => (
             <div key={character.created} className='character'>
+              {/* <div className='character-info'> */}
               <div className='character-info'>
-                <div className='character-info-header'>
-                  <h3>{character.name}</h3>
-                  <div>
+                <h3>{character.name}</h3>
+                <div>
+                  <Button
+                    btnIcon={faTrash}
+                    tip='Delete from favourites'
+                    action={() => handleDeleteBtnAction(character)}
+                  />
+                  <Link to={`/details/${character.name}`}>
                     <Button
-                      btnIcon={faTrash}
-                      tip='Delete from favourites'
-                      action={() => handleDeleteBtnAction(character)}
+                      btnIcon={faInfo}
+                      tip='Show details'
+                      action={() => getCharacterDetails(character.url)}
                     />
-                    <Link to={`/details/${character.name}`}>
-                      <Button
-                        btnIcon={faInfo}
-                        tip='Show details'
-                        action={() => getCharacterDetails(character.url)}
-                      />
-                    </Link>
-                  </div>
+                  </Link>
                 </div>
               </div>
+              {/* </div> */}
               <ReactTooltip place='left' effect='solid' type='info' />
             </div>
           ))}
