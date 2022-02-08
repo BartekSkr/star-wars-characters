@@ -8,7 +8,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import {
   deleteFavoriteList,
   deleteFromFavorites,
-} from '../../../actions/favoritesActions';
+} from '../../../actions/actions';
 import DataContext from '../../../context/dataContext';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -18,8 +18,8 @@ import { Button } from '../../ui/buttons/Button/Button';
 const Favorites = ({ list, remove, deleteList, theme }) => {
   useEffect(() => {
     document.title = 'Star Wars Characters - Favorites';
-    localStorage.setItem('favorites', JSON.stringify(list.list));
-  }, [list.list]);
+    localStorage.setItem('favorites', JSON.stringify(list));
+  }, [list]);
 
   const dataContext = useContext(DataContext);
   const { getCharacterDetails } = dataContext;
@@ -29,7 +29,7 @@ const Favorites = ({ list, remove, deleteList, theme }) => {
 
   const handleDeleteBtnAction = (data) => {
     // eslint-disable-next-line
-    let characterID = list.list.find((char) => {
+    let characterID = list.find((char) => {
       if (char.created === data.created) return true;
     });
     if (characterID) {
@@ -47,31 +47,30 @@ const Favorites = ({ list, remove, deleteList, theme }) => {
 
   return (
     <Fragment>
-      {list?.list.length === 0 && (
+      {list.length === 0 && (
         <div className='empty-list'>
           <h3>
-            No any favourite characters yet, sorry there is. Add your favourite
+            No any favorite characters yet, sorry there is. Add your favorite
             characters, please.{' '}
           </h3>
           <img
-            src={theme.isDarkTheme === true ? yoda2 : yoda}
+            src={theme === true ? yoda2 : yoda}
             alt='yoda'
             className='yoda-icon'
           />
         </div>
       )}
-      {list.list.length > 0 && (
+      {list.length > 0 && (
         <Fragment>
-          <h3>Your favourites characters from Star Wars</h3>
+          <h3>Your favorites characters from Star Wars</h3>
           <Button
             btnIcon={faTrash}
             tip='Delete whole list'
             action={() => deleteList()}
             deleteList={true}
           />
-          {list.list.map((character) => (
+          {list.map((character) => (
             <div key={character.created} className='character'>
-              {/* <div className='character-info'> */}
               <div className='character-info'>
                 <h3>{character.name}</h3>
                 <div>
@@ -89,7 +88,6 @@ const Favorites = ({ list, remove, deleteList, theme }) => {
                   </Link>
                 </div>
               </div>
-              {/* </div> */}
               <ReactTooltip place='left' effect='solid' type='info' />
             </div>
           ))}
@@ -100,8 +98,8 @@ const Favorites = ({ list, remove, deleteList, theme }) => {
 };
 
 const mapStateToProps = (state) => ({
-  list: state.favorites,
-  theme: state.theme,
+  list: state.list,
+  theme: state.isDarkTheme,
 });
 
 const mapDispatchToProps = (dispatch) => ({

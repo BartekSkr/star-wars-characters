@@ -16,10 +16,7 @@ import CharacterDetails from './app/components/pages/CharacterDetails/CharacterD
 
 function App({ theme }) {
   return (
-    <div
-      className='container'
-      data-theme={theme.isDarkTheme === true ? 'dark' : 'white'}
-    >
+    <div className='container' data-theme={theme === true ? 'dark' : 'white'}>
       <Router>
         <Navbar />
         <Routes>
@@ -40,14 +37,14 @@ function App({ theme }) {
         autoClose={3000}
         transition={Zoom}
         limit={4}
-        theme={theme.isDarkTheme === true ? 'dark' : 'light'}
+        theme={theme === true ? 'dark' : 'light'}
       />
     </div>
   );
 }
 
 const mapStateToProps = (state) => ({
-  theme: state.theme,
+  theme: state.isDarkTheme,
 });
 
 export default connect(mapStateToProps, {})(App);

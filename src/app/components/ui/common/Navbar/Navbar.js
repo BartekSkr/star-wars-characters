@@ -5,17 +5,14 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
-import { setTheme } from '../../../../actions/themeActions';
-
+import { setTheme } from '../../../../actions/actions';
 export const Navbar = ({ title, theme, changeTheme }) => {
   const themeTooltipText =
-    theme.isDarkTheme === true
-      ? 'Switch to light theme'
-      : 'Switch to dark theme';
+    theme === true ? 'Switch to light theme' : 'Switch to dark theme';
 
   useEffect(() => {
-    localStorage.setItem('isDarkTheme', JSON.stringify(theme.isDarkTheme));
-    theme.isDarkTheme === true
+    localStorage.setItem('isDarkTheme', JSON.stringify(theme));
+    theme === true
       ? (document.body.style.backgroundColor = 'black')
       : (document.body.style.backgroundColor = 'white');
   }, [theme]);
@@ -28,12 +25,12 @@ export const Navbar = ({ title, theme, changeTheme }) => {
         aria-label={themeTooltipText}
         onClick={() => {
           changeTheme();
-          theme.isDarkTheme === true
+          theme === true
             ? (document.body.style.backgroundColor = 'black')
             : (document.body.style.backgroundColor = 'white');
         }}
       >
-        <FontAwesomeIcon icon={theme.isDarkTheme === true ? faSun : faMoon} />
+        <FontAwesomeIcon icon={theme === true ? faSun : faMoon} />
       </button>
       <ul>
         <li className='navbar-li'>
@@ -70,7 +67,7 @@ Navbar.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  theme: state.theme,
+  theme: state.isDarkTheme,
 });
 
 const mapDispatchToProps = (dispatch) => ({

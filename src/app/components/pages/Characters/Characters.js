@@ -11,7 +11,7 @@ import yoda from '../../../icons/baby-yoda.svg';
 import yoda2 from '../../../icons/baby-yoda-2.svg';
 import DataContext from '../../../context/dataContext';
 import ReactTooltip from 'react-tooltip';
-import { addToFavorites } from '../../../actions/favoritesActions';
+import { addToFavorites } from '../../../actions/actions';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
@@ -36,7 +36,7 @@ const Characters = ({ list, add, theme }) => {
 
   const handleAddBtnAction = (data) => {
     // eslint-disable-next-line
-    let characterID = list.list.find((char) => {
+    let characterID = list.find((char) => {
       if (char.created === data.created) return true;
     });
     if (!characterID) {
@@ -59,7 +59,7 @@ const Characters = ({ list, add, theme }) => {
         <div className='search-error'>
           <h3>Sorry, no such character, there is... Try again, please!</h3>
           <img
-            src={theme.isDarkTheme === true ? yoda2 : yoda}
+            src={theme === true ? yoda2 : yoda}
             alt='yoda'
             className='yoda-icon'
           />
@@ -120,8 +120,8 @@ const Characters = ({ list, add, theme }) => {
 };
 
 const mapStateToProps = (state) => ({
-  list: state.favorites,
-  theme: state.theme,
+  list: state.list,
+  theme: state.isDarkTheme,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -6,10 +6,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
-import {
-  addToFavorites,
-  deleteFromFavorites,
-} from '../../../actions/favoritesActions';
+import { addToFavorites, deleteFromFavorites } from '../../../actions/actions';
 import ReactTooltip from 'react-tooltip';
 import { Button } from '../../ui/buttons/Button/Button';
 
@@ -27,7 +24,7 @@ const CharacterDetails = ({ list, add, remove }) => {
 
   const handleAddBtnAction = () => {
     // eslint-disable-next-line
-    let characterID = list.list.find((char) => {
+    let characterID = list.find((char) => {
       if (char.created === characterDetails.created) return true;
     });
     if (!characterID) {
@@ -44,7 +41,7 @@ const CharacterDetails = ({ list, add, remove }) => {
 
   const handleDeleteBtnAction = () => {
     // eslint-disable-next-line
-    let characterID = list.list.find((char) => {
+    let characterID = list.find((char) => {
       if (char.created === characterDetails.created) return true;
     });
     if (characterID) {
@@ -172,7 +169,7 @@ const CharacterDetails = ({ list, add, remove }) => {
 };
 
 const mapStateToProps = (state) => ({
-  list: state.favorites,
+  list: state.list,
 });
 
 const mapDispatchToProps = (dispatch) => ({
