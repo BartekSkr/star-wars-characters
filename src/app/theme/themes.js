@@ -16,6 +16,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.fontColor};
+    transition: background-color 0.5s;
   }
 
   .navbar {
@@ -78,6 +79,7 @@ export const GlobalStyles = createGlobalStyle`
   .delete-list-button {
     color: ${({ theme }) => theme.body};
     background-color: ${({ theme }) => theme.accentColor};
+    transition: all 0.5s;
   }
 
   .search-input {
@@ -94,6 +96,7 @@ export const GlobalStyles = createGlobalStyle`
 
   .empty-list {
     color: ${({ theme }) => theme.accentColor};
+    transition: all 0.5s;
   }
 
   .pagination-link {
