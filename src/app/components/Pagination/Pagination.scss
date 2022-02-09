@@ -18,11 +18,13 @@
     .pagination-link {
       text-decoration: none;
       color: var(--text-color);
+      transition: color var(--default-transition);
     }
 
     .pagination-link-active {
       border-bottom: epx solid var(--accent-color);
       color: var(--accent-color);
+      transition: color var(--default-transition);
       text-underline-offset: 0.2rem;
     }
 
@@ -32,6 +34,7 @@
 
       .pagination-link {
         color: var(--accent-color);
+        transition: color var(--default-transition);
       }
     }
   }

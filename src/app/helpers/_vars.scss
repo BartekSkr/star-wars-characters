@@ -1,5 +1,7 @@
 :root {
   --larger-screens-default-width: 50%;
+  --default-transition: 0.5s;
+
   --background: black;
   --text-color: white;
   --accent-color: yellow;
@@ -26,6 +28,7 @@
   align-items: center;
   justify-content: space-between;
   color: var(--accent-color);
+  transition: color var(--default-transition);
 }
 
 %button {
@@ -37,7 +40,7 @@
   cursor: pointer;
   color: var(--background);
   background-color: var(--accent-color);
-  transition: all 0.5s;
+  transition: background-color var(--default-transition);
 }
 
 %button-delete-list {
@@ -55,7 +58,7 @@
   justify-content: center;
   color: var(--background);
   background-color: var(--accent-color);
-  transition: all 0.5s;
+  transition: background-color 0.5s;
 
   svg {
     position: absolute;

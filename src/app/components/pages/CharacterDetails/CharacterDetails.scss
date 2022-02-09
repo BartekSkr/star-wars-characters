@@ -11,6 +11,7 @@
   .character-info-details {
     padding: 0 1rem;
     color: var(--text-color);
+    transition: color var(--default-transition);
 
     span {
       display: flex;

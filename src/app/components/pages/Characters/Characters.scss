@@ -17,10 +17,12 @@
   width: 80%;
   text-align: center;
   color: var(--accent-color);
+  transition: color var(--default-transition);
 
   .initial-info-icon,
   span {
     color: var(--accent-color);
+    transition: color var(--default-transition);
   }
 }
 
