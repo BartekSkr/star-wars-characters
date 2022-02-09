@@ -6,10 +6,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
-import {
-  addToFavourites,
-  deleteFromFavourites,
-} from '../../../actions/favouritesActions';
+import { addToFavorites, deleteFromFavorites } from '../../../actions/actions';
 import ReactTooltip from 'react-tooltip';
 import { Button } from '../../ui/buttons/Button/Button';
 
@@ -21,40 +18,40 @@ const CharacterDetails = ({ list, add, remove }) => {
   const dataContext = useContext(DataContext);
   const { loading, display, characterDetails } = dataContext;
   //  tooltip toast
-  const addToFavouritesToastSuccess = (toastInfo) => toast.success(toastInfo);
-  const addToFavouritesToastError = (toastInfo) => toast.error(toastInfo);
-  const deleteFromFavouritesToast = (toastInfo) => toast.info(toastInfo);
+  const addToFavoritesToastSuccess = (toastInfo) => toast.success(toastInfo);
+  const addToFavoritesToastError = (toastInfo) => toast.error(toastInfo);
+  const deleteFromFavoritesToast = (toastInfo) => toast.info(toastInfo);
 
   const handleAddBtnAction = () => {
     // eslint-disable-next-line
-    let characterID = list.list.find((char) => {
+    let characterID = list.find((char) => {
       if (char.created === characterDetails.created) return true;
     });
     if (!characterID) {
       add(characterDetails);
-      addToFavouritesToastSuccess(
-        `Been added to the favourites list, ${characterDetails.name} has.`
+      addToFavoritesToastSuccess(
+        `Been added to the favorites list, ${characterDetails.name} has.`
       );
     } else {
-      addToFavouritesToastError(
-        `Already on the favourites list, ${characterDetails.name} is.`
+      addToFavoritesToastError(
+        `Already on the favorites list, ${characterDetails.name} is.`
       );
     }
   };
 
   const handleDeleteBtnAction = () => {
     // eslint-disable-next-line
-    let characterID = list.list.find((char) => {
+    let characterID = list.find((char) => {
       if (char.created === characterDetails.created) return true;
     });
     if (characterID) {
       remove(characterDetails);
-      deleteFromFavouritesToast(
+      deleteFromFavoritesToast(
         `Been removed from the favorites list, ${characterDetails.name} has.`
       );
     }
     if (!characterID) {
-      addToFavouritesToastError(
+      addToFavoritesToastError(
         `Not in your favorites list, ${characterDetails.name} is.`
       );
     }
@@ -74,13 +71,13 @@ const CharacterDetails = ({ list, add, remove }) => {
             <div>
               <Button
                 btnIcon={faPlus}
-                tip='Add to favourites'
+                tip='Add to favorites'
                 action={handleAddBtnAction}
                 deleteList={false}
               />
               <Button
                 btnIcon={faTrash}
-                tip='Delete from favourites'
+                tip='Delete from favorites'
                 action={handleDeleteBtnAction}
                 deleteList={false}
               />
@@ -172,13 +169,12 @@ const CharacterDetails = ({ list, add, remove }) => {
 };
 
 const mapStateToProps = (state) => ({
-  list: state.favourites,
+  list: state.list,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  add: (characterDetails) => dispatch(addToFavourites(characterDetails)),
-  remove: (characterDetails) =>
-    dispatch(deleteFromFavourites(characterDetails)),
+  add: (characterDetails) => dispatch(addToFavorites(characterDetails)),
+  remove: (characterDetails) => dispatch(deleteFromFavorites(characterDetails)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CharacterDetails);

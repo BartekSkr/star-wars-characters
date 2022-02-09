@@ -5,6 +5,8 @@
   width: 80%;
   margin: 0 auto;
   padding: 0 2rem;
+  color: var(--text-color);
+  transition: color var(--default-transition);
 
   img {
     width: 100px;

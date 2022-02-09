@@ -1,3 +1,5 @@
+@import '../../../../helpers/vars';
+
 .navbar {
   display: flex;
   justify-content: center;
@@ -5,10 +7,14 @@
   align-items: center;
   display: block;
   padding: 1rem 2rem;
+  border-bottom: 5px solid var(--accent-color);
+  transition: color var(--default-transition);
 
   h1 {
     font-size: 2rem;
     margin-bottom: 0.8rem;
+    color: var(--accent-color);
+    transition: color var(--default-transition);
   }
 
   ul {
@@ -19,16 +25,31 @@
 
   .navbar-li {
     transition: all 0.2s ease-in-out;
-    margin: 0 0.5rem;
+    width: 8rem;
+    margin: 0 1rem;
 
     .navbar-link {
       margin: 0 1rem;
       text-decoration: none;
+      color: var(--text-color);
+      transition: color var(--default-transition);
+
+      &-active {
+        color: var(--accent-color);
+        border-bottom: 3px solid var(--accent-color);
+        text-decoration: none;
+        transition: color var(--default-transition);
+
+      }
     }
 
     &:hover {
       transform: scale(1.2);
       transition: all 0.2s ease-in-out;
+
+      a {
+        color: var(--accent-color);
+      }
     }
   }
 
@@ -43,6 +64,8 @@
     width: 1.5rem;
     cursor: pointer;
     opacity: 0.6;
+    color: var(--text-color);
+    transition: color var(--default-transition);
 
     &::after {
       content: attr(aria-label);
@@ -62,6 +85,8 @@
     &:focus {
       opacity: 1;
       background: hsla(0%, 0%, 50%, 0.3);
+      color: var(--accent-color);
+      transition: color var(--default-transition);
 
       &::after {
         opacity: 1;

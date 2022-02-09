@@ -13,6 +13,11 @@
     padding: 0;
     margin: 0;
     transition: all 0.2s ease-in-out;
+
+    svg {
+      color: var(--accent-color);
+      transition: color var(--default-transition);
+    }
   }
 
   .search-input {
@@ -24,6 +29,8 @@
     outline: none;
     overflow: hidden;
     text-indent: 1rem;
+    border: 3px solid var(--text-color);
+    transition: border 0.5s;
   }
 }
 
