@@ -6,7 +6,7 @@ import {
   VehiclesInterface,
 } from '../interface/interface';
 
-//  character details: starships, movies... (used in components: Favorites, Characters)
+//  character details: starships, movies etc (used in components: Favorites, Characters)
 export const getCharacterDetails = (
   setLoading: (isLoading: boolean) => void, //  dispatching is loading
   setDisplay: (isDisplay: boolean) => void, //  dispatching is display

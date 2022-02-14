@@ -5,7 +5,6 @@ import {
 
 //  fetching data from API (used in components: Search)
 export const fetchDataFromApi = (
-  // api: string, //  API address
   pageNumber: number, // page number to API
   setLoading: (isLoading: boolean) => void, //  dispatching is loading
   setDisplay: (isDisplay: boolean) => void, //  dispatching is display
@@ -16,7 +15,6 @@ export const fetchDataFromApi = (
 ) => {
   setLoading(true);
   setDisplay(false);
-  // fetch(`${api}${pageNumber}`)
   fetch(`https://swapi.dev/api/people/?page=${pageNumber}`)
     .then((res: Response) => res.json())
     .then(async (data: DataFromApiInterface) => {
