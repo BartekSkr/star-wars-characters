@@ -1,20 +1,25 @@
 import './App.scss';
 import {
   BrowserRouter as Router,
-  Routes,
   Route,
+  Routes,
   Navigate,
 } from 'react-router-dom';
-import Navbar from '../src/app/components/ui/common/Navbar/Navbar';
+import { connect } from 'react-redux';
+import { RootState } from './app/store/store';
+import Navbar from './app/components/ui/common/Navbar/Navbar';
 import Characters from './app/components/pages/Characters/Characters';
 import PageNotFound from './app/components/pages/404/404-page';
 import Favorites from './app/components/pages/Favorites/Favorites';
-import { connect } from 'react-redux';
-import { ToastContainer, Zoom } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import CharacterDetails from './app/components/pages/CharacterDetails/CharacterDetails';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function App({ theme }) {
+interface AppProps {
+  theme?: boolean;
+}
+
+const App: React.FC<AppProps> = ({ theme }) => {
   return (
     <div className='container' data-theme={theme === true ? 'dark' : 'white'}>
       <Router>
@@ -33,18 +38,18 @@ function App({ theme }) {
         position='bottom-center'
         hideProgressBar={true}
         pauseOnHover={false}
+        pauseOnFocusLoss={false}
         draggable={false}
         autoClose={3000}
-        transition={Zoom}
         limit={4}
         theme={theme === true ? 'dark' : 'light'}
       />
     </div>
   );
-}
+};
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: RootState) => ({
   theme: state.isDarkTheme,
 });
 
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps, null)(App);

@@ -41,6 +41,11 @@
   color: var(--background);
   background-color: var(--accent-color);
   transition: background-color var(--default-transition);
+
+  &[disabled] {
+    pointer-events: none;
+    opacity: 0.4;
+  }
 }
 
 %button-delete-list {

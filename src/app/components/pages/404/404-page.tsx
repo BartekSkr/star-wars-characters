@@ -1,10 +1,15 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import './404-page.scss';
 import darthVader from '../../../icons/darth-vader.svg';
 import darthVader2 from '../../../icons/darth-vader-2.svg';
+import { RootState } from '../../../store/store';
 import { connect } from 'react-redux';
 
-export const PageNotFound = ({ theme }) => {
+interface PageNotFoundProps {
+  theme?: boolean;
+}
+
+const PageNotFound: React.FC<PageNotFoundProps> = ({ theme }) => {
   useEffect(() => {
     document.title = 'Star Wars Characters - Error 404 (Not Found)';
   }, []);
@@ -30,8 +35,8 @@ export const PageNotFound = ({ theme }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: RootState) => ({
   theme: state.isDarkTheme,
 });
 
-export default connect(mapStateToProps, {})(PageNotFound);
+export default connect(mapStateToProps, null)(PageNotFound);

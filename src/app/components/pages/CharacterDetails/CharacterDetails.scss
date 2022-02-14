@@ -6,6 +6,10 @@
 
   .character-info {
     @extend %character-info;
+
+    h2 {
+      margin-left: 1rem;
+    }
   }
 
   .character-info-details {

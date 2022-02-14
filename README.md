@@ -6,10 +6,11 @@ App allows you to search characters from a Star Wars, add/remove them to/from yo
 
 - HTML
 - SASS
-- [React](https://create-react-app.dev/docs/getting-started)
-- Redux
+- [React](https://create-react-app.dev/docs/adding-typescript/)
+- [Redux](https://react-redux.js.org/introduction/getting-started)
 - [Star Wars Api](https://swapi.dev/)
-- [React-Tostify](https://fkhadra.github.io/react-toastify/how-to-style)
+- [React Tooltip](https://www.npmjs.com/package/react-tooltip?activeTab=versions)
+- [React-Toastify](https://fkhadra.github.io/react-toastify/how-to-style)
 
 ### Setup
 
