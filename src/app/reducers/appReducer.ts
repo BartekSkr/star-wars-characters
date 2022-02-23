@@ -3,7 +3,14 @@ import { ActionTypes } from '../actions/types';
 import { InitialInterface } from '../interface/interface';
 
 const favoritesList = JSON.parse(localStorage.getItem('favorites') || '[]');
-const isDarkTheme = JSON.parse(localStorage.getItem('isDarkTheme') || 'true');
+const isDarkTheme = JSON.parse(
+  localStorage.getItem('isDarkTheme') ||
+    `${
+      localStorage.getItem('isDarkTheme') === null
+        ? window.matchMedia('(prefers-color-scheme: dark)').matches
+        : false
+    }`
+);
 
 export const INITIAL_STATE: InitialInterface = {
   favoriteList: favoritesList,
