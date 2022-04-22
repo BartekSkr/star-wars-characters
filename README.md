@@ -14,6 +14,11 @@ App allows you to search characters from a Star Wars, add/remove them to/from yo
 
 ### Setup
 
-To run app click link below:
+To run app click link [Star Wars Characters](https://bartek-star-wars.netlify.app)
 
-https://bartek-star-wars.netlify.app
+or run it locally:
+
+```
+$ npm install
+$ npm run start
+```
