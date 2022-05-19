@@ -1,16 +1,16 @@
 import { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { RootState } from '../../../store/store';
+import { RootState } from '../../services/Redux/store';
 import './Favorites.scss';
 import { FavoritesProps } from './types';
-import yodaBlack from '../../../assets/images/baby-yoda-black.svg';
-import yodaYellow from '../../../assets/images/baby-yoda-yellow.svg';
-import { CharacterItem } from '../../CharacterItem/CharacterItem';
-import { deleteList, removeFromList } from '../../../reducers/actions';
-import { isOnFavoriteList } from '../../../helpers/favoriteListServices';
+import yodaBlack from '../../assets/images/baby-yoda-black.svg';
+import yodaYellow from '../../assets/images/baby-yoda-yellow.svg';
+import { CharacterItem } from '../../components/CharacterItem/CharacterItem';
+import { deleteList, removeFromList } from '../../services/Redux/actions';
+import { isOnFavoriteList } from '../../services/utils/favoriteListServices';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { CharacterInterface } from '../../../helpers/types';
-import { Button } from '../../Button/Button';
+import { CharacterInterface } from '../../services/utils/types';
+import { Button } from '../../components/Button/Button';
 
 const Favorites: React.FC<FavoritesProps> = ({ favoriteList, isDarkTheme }) => {
   const dispatch = useDispatch();

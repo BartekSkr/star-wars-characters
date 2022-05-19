@@ -4,7 +4,7 @@ import { CharacterItemProps } from './types';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import './CharacterItem.scss';
 import { useDispatch } from 'react-redux';
-import { setUrl } from '../../reducers/actions';
+import { setUrl } from '../../services/Redux/actions';
 
 export const CharacterItem: React.FC<CharacterItemProps> = ({
   character,

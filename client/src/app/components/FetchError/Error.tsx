@@ -1,9 +1,9 @@
-import './FetchError.scss';
+import './Error.scss';
 import yodaYellow from '../../assets/images/baby-yoda-yellow.svg';
 import yodaBlack from '../../assets/images/baby-yoda-black.svg';
-import { FetchErrorProps } from './types';
+import { ErrorProps } from './types';
 
-export const FetchError: React.FC<FetchErrorProps> = ({
+export const FetchError: React.FC<ErrorProps> = ({
   isDarkTheme,
   errorMessage,
 }) => {

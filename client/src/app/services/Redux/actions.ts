@@ -1,5 +1,5 @@
 import { createAction } from '@reduxjs/toolkit';
-import { CharacterInterface } from '../helpers/types';
+import { CharacterInterface } from '../utils/types';
 
 //  set url used to character's details
 export const setUrl = createAction<string>('set character url');

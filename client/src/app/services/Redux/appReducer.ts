@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { CharacterInterface } from '../helpers/types';
+import { CharacterInterface } from '../utils/types';
 import {
   addToList,
   deleteList,

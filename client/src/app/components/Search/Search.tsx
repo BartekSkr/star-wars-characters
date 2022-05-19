@@ -8,7 +8,7 @@ import {
   characterToFindName,
   isAllCharacters,
   setPage,
-} from '../../reducers/actions';
+} from '../../services/Redux/actions';
 
 export const Search: React.FC<SearchProps> = ({ page, findCharacter }) => {
   const dispatch = useDispatch();

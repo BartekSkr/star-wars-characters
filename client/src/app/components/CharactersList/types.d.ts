@@ -1,4 +1,7 @@
-import { CharacterInterface, FetchedDataInterface } from '../../helpers/types';
+import {
+  CharacterInterface,
+  FetchedDataInterface,
+} from '../../services/utils/types';
 
 export interface CharactersListProps {
   data: FetchedDataInterface;

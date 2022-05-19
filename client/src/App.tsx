@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
-import { RootState } from './app/store/store';
+import { RootState } from './app/services/Redux/store';
 import PropTypes from 'prop-types';
-import PageNotFound from './app/components/pages/404/404-page';
+import PageNotFound from './app/pages/404/404-page';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.scss';
 import Navbar from './app/components/Navbar/Navbar';
-import Characters from './app/components/pages/Characters/Characters';
+import Characters from './app/pages/Characters/Characters';
 import CharactersDetails from './app/components/CharacterDetails/CharactersDetails';
-import Favorites from './app/components/pages/Favorites/Favorites';
-import { Home } from './app/components/pages/Home/Home';
+import Favorites from './app/pages/Favorites/Favorites';
+import { Home } from './app/pages/Home/Home';
 interface AppProps {
   isDarkTheme?: boolean;
   page?: string;

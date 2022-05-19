@@ -1,9 +1,9 @@
 import './Home.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faJournalWhills } from '@fortawesome/free-solid-svg-icons';
-import { Search } from '../../Search/Search';
+import { Search } from '../../components/Search/Search';
 import { useLazyQuery } from '@apollo/client';
-import { FIND_CHARACTER_SCHEMA } from '../../../helpers/graphQlSchema';
+import { FIND_CHARACTER_SCHEMA } from '../../services/utils/graphQlSchema';
 import { HomeProps } from './types';
 
 export const Home: React.FC<HomeProps> = ({ page, isAllCharactersList }) => {

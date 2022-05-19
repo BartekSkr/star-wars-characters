@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
-import { RootState } from '../../../store/store';
+import { RootState } from '../../services/Redux/store';
 import { CharactersProps } from './types';
 import { useLazyQuery } from '@apollo/client';
 import {
   CHARACTERS_LIST_SCHEMA,
   FIND_CHARACTER_SCHEMA,
-} from '../../../helpers/graphQlSchema';
-import { Spinner } from '../../Spinner/Spinner';
-import { Search } from '../../Search/Search';
-import { CharactersList } from '../../CharactersList/CharactersList';
-import { FetchError } from '../../FetchError/FetchError';
+} from '../../services/utils/graphQlSchema';
+import { Spinner } from '../../components/Spinner/Spinner';
+import { Search } from '../../components/Search/Search';
+import { CharactersList } from '../../components/CharactersList/CharactersList';
+import { FetchError } from '../../components/FetchError/Error';
 
 const Characters: React.FC<CharactersProps> = ({
   favoriteList,

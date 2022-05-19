@@ -1,12 +1,12 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { isOnFavoriteList } from '../../helpers/favoriteListServices';
-import { CharacterInterface } from '../../helpers/types';
-import { addToList, setIsError } from '../../reducers/actions';
+import { isOnFavoriteList } from '../../services/utils/favoriteListServices';
+import { CharacterInterface } from '../../services/utils/types';
+import { addToList, setIsError } from '../../services/Redux/actions';
 import { CharacterItem } from '../CharacterItem/CharacterItem';
 import Pagination from '../Pagination/Pagination';
-import './Characters.List.scss';
+import './CharactersList.scss';
 import { CharactersListProps } from './types';
 
 export const CharactersList: React.FC<CharactersListProps> = ({
