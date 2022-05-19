@@ -1,9 +1,0 @@
-@import '../../../../helpers/vars';
-
-.button {
-  @extend %button
-}
-
-.delete-list-button {
-  @extend %button-delete-list;
-}

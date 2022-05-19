@@ -1,0 +1,8 @@
+@import '../../helpers/vars';
+
+.error-container {
+  margin: 0 auto;
+  text-align: center;
+  width: var(--larger-screens-default-width);
+  color: var(--accent-color);
+}

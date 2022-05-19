@@ -1,54 +1,35 @@
 {
-  "name": "star-wars-characters-ts",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@fortawesome/free-solid-svg-icons": "^6.0.0",
-    "@fortawesome/react-fontawesome": "^0.1.17",
-    "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.4.0",
-    "@types/node": "^17.0.18",
-    "@types/react": "^17.0.39",
-    "@types/react-dom": "^17.0.11",
-    "node-sass": "^7.0.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.6",
-    "react-router-dom": "^6.2.1",
-    "react-scripts": "5.0.0",
-    "react-toastify": "^8.1.1",
-    "react-tooltip": "^4.2.21",
-    "redux": "^4.1.2",
-    "redux-devtools-extension": "^2.13.9",
-    "svgo": "^2.8.0",
-    "typescript": "^4.5.5",
-    "web-vitals": "^2.1.4"
-  },
+  "name": "star-wars-characters-graphql",
+  "version": "1.0.0",
+  "description": "App shows Star Wars characters",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "yarn --cwd client start",
+    "dev": "concurrently \"yarn run server\" \"yarn run client\""
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BartekSkr/star-wars-characters-graphql.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "Bartek Skr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BartekSkr/star-wars-characters-graphql/issues"
+  },
+  "homepage": "https://github.com/BartekSkr/star-wars-characters-graphql#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "concurrently": "^7.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.4.0",
+    "node-sass": "^7.0.1",
+    "sass": "^1.51.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }

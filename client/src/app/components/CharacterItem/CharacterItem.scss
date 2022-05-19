@@ -1,0 +1,5 @@
+@import '../../helpers/vars';
+
+.character-info {
+  @extend %character-info;
+}

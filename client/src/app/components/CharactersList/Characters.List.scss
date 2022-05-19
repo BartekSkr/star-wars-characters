@@ -1,0 +1,12 @@
+@import '../../helpers/vars';
+
+.character {
+  @extend %character-box;
+}
+
+@media (min-width: 900px) {
+  .character {
+    width: 50%;
+    margin: 0 auto 1rem auto;
+  }
+}
