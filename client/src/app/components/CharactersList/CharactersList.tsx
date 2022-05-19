@@ -17,7 +17,6 @@ export const CharactersList: React.FC<CharactersListProps> = ({
 
   useEffect(() => {
     data.count === 0 ? dispatch(setIsError(true)) : dispatch(setIsError(false));
-    console.log(data.count);
     // eslint-disable-next-line
   }, []);
 
