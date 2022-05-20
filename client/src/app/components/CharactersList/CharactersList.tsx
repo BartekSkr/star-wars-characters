@@ -8,12 +8,16 @@ import { CharacterItem } from '../CharacterItem/CharacterItem';
 import Pagination from '../Pagination/Pagination';
 import './CharactersList.scss';
 import { CharactersListProps } from './types';
+import { toast } from 'react-toastify';
 
 export const CharactersList: React.FC<CharactersListProps> = ({
   data,
   favoriteList,
 }) => {
   const dispatch = useDispatch();
+
+  //  toast info
+  const addToFavoritesToast = (info: string) => toast.success(info);
 
   useEffect(() => {
     data.count === 0 ? dispatch(setIsError(true)) : dispatch(setIsError(false));
@@ -28,7 +32,13 @@ export const CharactersList: React.FC<CharactersListProps> = ({
             btnIcon={faPlus}
             character={character}
             favoriteList={favoriteList}
-            action={() => dispatch(addToList(character))}
+            // action={() => dispatch(addToList(character))}
+            action={() => {
+              dispatch(addToList(character));
+              addToFavoritesToast(
+                `Been added to the favorites list, ${character.name} has.`
+              );
+            }}
             isDisable={
               isOnFavoriteList(favoriteList!, character) ? true : false
             }

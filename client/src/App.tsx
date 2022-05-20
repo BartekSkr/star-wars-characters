@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import { RootState } from './app/services/Redux/store';
-import PropTypes from 'prop-types';
 import PageNotFound from './app/pages/404/404-page';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.scss';
@@ -10,6 +9,7 @@ import Characters from './app/pages/Characters/Characters';
 import CharactersDetails from './app/components/CharacterDetails/CharactersDetails';
 import Favorites from './app/pages/Favorites/Favorites';
 import { Home } from './app/pages/Home/Home';
+import 'react-toastify/dist/ReactToastify.css';
 interface AppProps {
   isDarkTheme?: boolean;
   page?: string;
@@ -58,14 +58,6 @@ const App: React.FC<AppProps> = ({
       />
     </div>
   );
-};
-
-Navbar.defaultProps = {
-  title: 'STAR WARS CHARACTERS',
-};
-
-Navbar.propTypes = {
-  title: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state: RootState) => ({

@@ -5,6 +5,7 @@ import { RootState } from '../../services/Redux/store';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 import './Navbar.scss';
 import { NavbarProps } from './types';
 
@@ -55,6 +56,14 @@ const Navbar: React.FC<NavbarProps> = ({ title, isDarkTheme }) => {
       </ul>
     </nav>
   );
+};
+
+Navbar.defaultProps = {
+  title: 'STAR WARS CHARACTERS',
+};
+
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state: RootState) => ({

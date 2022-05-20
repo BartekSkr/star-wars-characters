@@ -11,9 +11,13 @@ import { isOnFavoriteList } from '../../services/utils/favoriteListServices';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { CharacterInterface } from '../../services/utils/types';
 import { Button } from '../../components/Button/Button';
+import { toast } from 'react-toastify';
 
 const Favorites: React.FC<FavoritesProps> = ({ favoriteList, isDarkTheme }) => {
   const dispatch = useDispatch();
+
+  //  toast info
+  const deleteFromFavoritesToast = (info: string) => toast.error(info);
 
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favoriteList));
@@ -40,7 +44,7 @@ const Favorites: React.FC<FavoritesProps> = ({ favoriteList, isDarkTheme }) => {
           <Button
             btnIcon={faTrash}
             isDeleteList={true}
-            tip='Delete whole list'
+            tip='Delete list'
             action={() => dispatch(deleteList())}
           />
           {favoriteList!.map((character: CharacterInterface) => (
@@ -49,7 +53,12 @@ const Favorites: React.FC<FavoritesProps> = ({ favoriteList, isDarkTheme }) => {
                 btnIcon={faTrash}
                 character={character}
                 favoriteList={favoriteList!}
-                action={() => dispatch(removeFromList(character))}
+                action={() => {
+                  dispatch(removeFromList(character));
+                  deleteFromFavoritesToast(
+                    `Been removed from the favorites list, ${character.name} has.`
+                  );
+                }}
                 isDisable={
                   isOnFavoriteList(favoriteList!, character) ? false : true
                 }

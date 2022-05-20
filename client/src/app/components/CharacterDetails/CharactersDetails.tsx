@@ -11,6 +11,7 @@ import { isOnFavoriteList } from '../../services/utils/favoriteListServices';
 import { addToList, removeFromList } from '../../services/Redux/actions';
 import { useEffect } from 'react';
 import { CharacterInterface } from '../../services/utils/types';
+import { toast } from 'react-toastify';
 
 interface CharacterDetailsProps {
   favoriteList?: CharacterInterface[];
@@ -25,6 +26,10 @@ const CharactersDetails: React.FC<CharacterDetailsProps> = ({
   const characterDetailsQuery = useQuery(CHARACTER_DETAILS_SCHEMA, {
     variables: { url },
   });
+
+  //  toast info
+  const addToFavoritesToast = (info: string) => toast.success(info);
+  const deleteFromFavoritesToast = (info: string) => toast.error(info);
 
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favoriteList));
@@ -42,11 +47,14 @@ const CharactersDetails: React.FC<CharacterDetailsProps> = ({
                 btnIcon={faPlus}
                 isDeleteList={false}
                 tip='Add to favorites'
-                action={() =>
+                action={() => {
                   dispatch(
                     addToList(characterDetailsQuery.data.characterDetails)
-                  )
-                }
+                  );
+                  addToFavoritesToast(
+                    `Been added to the favorites list, ${characterDetailsQuery.data.characterDetails.name} has.`
+                  );
+                }}
                 isDisable={
                   isOnFavoriteList(
                     favoriteList!,
@@ -60,11 +68,14 @@ const CharactersDetails: React.FC<CharacterDetailsProps> = ({
                 btnIcon={faTrash}
                 isDeleteList={false}
                 tip='Delete from favorites'
-                action={() =>
+                action={() => {
                   dispatch(
                     removeFromList(characterDetailsQuery.data.characterDetails)
-                  )
-                }
+                  );
+                  deleteFromFavoritesToast(
+                    `Been removed from the favorites list, ${characterDetailsQuery.data.characterDetails.name} has.`
+                  );
+                }}
                 isDisable={
                   isOnFavoriteList(
                     favoriteList!,
