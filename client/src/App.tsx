@@ -48,7 +48,7 @@ const App: React.FC<AppProps> = ({
       </Router>
       <ToastContainer
         position='bottom-center'
-        hideProgressBar={true}
+        hideProgressBar={false}
         pauseOnHover={false}
         pauseOnFocusLoss={false}
         draggable={false}
