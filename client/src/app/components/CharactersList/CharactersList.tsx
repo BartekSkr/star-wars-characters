@@ -32,7 +32,6 @@ export const CharactersList: React.FC<CharactersListProps> = ({
             btnIcon={faPlus}
             character={character}
             favoriteList={favoriteList}
-            // action={() => dispatch(addToList(character))}
             action={() => {
               dispatch(addToList(character));
               addToFavoritesToast(
