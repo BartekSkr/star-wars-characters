@@ -18,7 +18,7 @@ App allows you to search characters from a Star Wars, add/remove them to/from yo
 
 To run app click [Star Wars App](https://bartek-star-wars-characters.herokuapp.com)
 
-or run it locally:
+or download the code run it locally:
 
 ```
 $ cd client
