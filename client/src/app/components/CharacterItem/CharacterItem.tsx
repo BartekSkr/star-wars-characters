@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import { Button } from '../Button/Button';
+import { Button } from '../common/Button/Button';
 import { CharacterItemProps } from './types';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import './CharacterItem.scss';
 import { useDispatch } from 'react-redux';
-import { setUrl } from '../../services/Redux/actions';
+import { setUrl } from '../../services/store/actions';
 
 export const CharacterItem: React.FC<CharacterItemProps> = ({
   character,

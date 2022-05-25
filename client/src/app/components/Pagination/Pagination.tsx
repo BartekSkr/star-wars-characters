@@ -1,7 +1,7 @@
 import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { setPage } from '../../services/Redux/actions';
-import { RootState } from '../../services/Redux/store';
+import { setPage } from '../../services/store/actions';
+import { RootState } from '../../services/store/store';
 import './Pagination.scss';
 import { PaginationProps } from './types';
 

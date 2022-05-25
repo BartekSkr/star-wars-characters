@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import './404-page.scss';
 import darthVaderYellow from '../../assets/images/darth-vader-yellow.svg';
 import darthVaderBlack from '../../assets/images/darth-vader-black.svg';
-import { RootState } from '../../services/Redux/store';
+import { RootState } from '../../services/store/store';
 import { connect } from 'react-redux';
 import { PageNotFoundProps } from './types';
 

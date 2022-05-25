@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { darkTheme } from '../../services/Redux/actions';
-import { RootState } from '../../services/Redux/store';
+import { darkTheme } from '../../services/store/actions';
+import { RootState } from '../../services/store/store';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
