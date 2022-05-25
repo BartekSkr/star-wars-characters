@@ -9,11 +9,16 @@ import PropTypes from 'prop-types';
 import './Navbar.scss';
 import { NavbarProps } from './types';
 
-const Navbar: React.FC<NavbarProps> = ({ title, isDarkTheme }) => {
+const Navbar: React.FC<NavbarProps> = ({ title, isDarkTheme, page }) => {
   const themeTooltipText =
     isDarkTheme === true ? 'Switch to light theme' : 'Switch to dark theme';
 
   const dispatch = useDispatch();
+
+  const navbarTabs = [
+    { name: 'Characters', href: `/characters/#${page}` },
+    { name: 'Favorites', href: '/favorites' },
+  ];
 
   useEffect(() => {
     localStorage.setItem('isDarkTheme', JSON.stringify(isDarkTheme));
@@ -33,26 +38,18 @@ const Navbar: React.FC<NavbarProps> = ({ title, isDarkTheme }) => {
         <FontAwesomeIcon icon={isDarkTheme === true ? faSun : faMoon} />
       </button>
       <ul>
-        <li className='navbar-li'>
-          <NavLink
-            className={(navData) =>
-              navData.isActive ? 'navbar-link-active' : 'navbar-link'
-            }
-            to='/characters'
-          >
-            Characters
-          </NavLink>
-        </li>
-        <li className='navbar-li'>
-          <NavLink
-            className={(navData) =>
-              navData.isActive ? 'navbar-link-active' : 'navbar-link'
-            }
-            to='/favorites'
-          >
-            Favorites
-          </NavLink>
-        </li>
+        {navbarTabs.map((tab) => (
+          <li key={tab.name} className='navbar-li'>
+            <NavLink
+              className={(navData) =>
+                navData.isActive ? 'navbar-link-active' : 'navbar-link'
+              }
+              to={tab.href}
+            >
+              {tab.name}
+            </NavLink>
+          </li>
+        ))}
       </ul>
     </nav>
   );
@@ -68,6 +65,7 @@ Navbar.propTypes = {
 
 const mapStateToProps = (state: RootState) => ({
   isDarkTheme: state.isDarkTheme,
+  page: state.page,
 });
 
 export default connect(mapStateToProps, null)(Navbar);
