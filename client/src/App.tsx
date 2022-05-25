@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
-import { RootState } from './app/services/Redux/store';
+import { RootState } from './app/services/store/store';
 import PageNotFound from './app/pages/404/404-page';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.scss';

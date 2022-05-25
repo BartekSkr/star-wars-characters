@@ -1,16 +1,16 @@
 import { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { RootState } from '../../services/Redux/store';
+import { RootState } from '../../services/store/store';
 import './Favorites.scss';
 import { FavoritesProps } from './types';
 import yodaBlack from '../../assets/images/baby-yoda-black.svg';
 import yodaYellow from '../../assets/images/baby-yoda-yellow.svg';
 import { CharacterItem } from '../../components/CharacterItem/CharacterItem';
-import { deleteList, removeFromList } from '../../services/Redux/actions';
+import { deleteList, removeFromList } from '../../services/store/actions';
 import { isOnFavoriteList } from '../../services/utils/favoriteListServices';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { CharacterInterface } from '../../services/utils/types';
-import { Button } from '../../components/Button/Button';
+import { Button } from '../../components/common/Button/Button';
 import { toast } from 'react-toastify';
 
 const Favorites: React.FC<FavoritesProps> = ({ favoriteList, isDarkTheme }) => {

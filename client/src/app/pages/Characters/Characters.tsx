@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
-import { RootState } from '../../services/Redux/store';
+import { RootState } from '../../services/store/store';
 import { CharactersProps } from './types';
 import { useLazyQuery } from '@apollo/client';
 import {

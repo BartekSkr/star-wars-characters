@@ -8,7 +8,8 @@ import {
   characterToFindName,
   isAllCharacters,
   setPage,
-} from '../../services/Redux/actions';
+} from '../../services/store/actions';
+import ReactTooltip from 'react-tooltip';
 
 export const Search: React.FC<SearchProps> = ({ page, findCharacter }) => {
   const dispatch = useDispatch();
@@ -22,6 +23,8 @@ export const Search: React.FC<SearchProps> = ({ page, findCharacter }) => {
   return (
     <div className='search'>
       <Link
+        data-for='list-btn'
+        data-tip='Show character list'
         to={`/characters/#${page}`}
         className='search-button'
         onClick={() => dispatch(isAllCharacters(true))}
@@ -48,6 +51,7 @@ export const Search: React.FC<SearchProps> = ({ page, findCharacter }) => {
           }
         }}
       />
+      <ReactTooltip id='list-btn' place='left' effect='solid' type='info' />
     </div>
   );
 };
