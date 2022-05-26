@@ -40,11 +40,16 @@
   cursor: pointer;
   color: var(--background);
   background-color: var(--accent-color);
-  transition: background-color var(--default-transition-duration);
+  transition: all var(--default-transition-duration);
 
   &[disabled] {
     pointer-events: none;
     opacity: 0.4;
+  }
+
+  &:active {
+    transform: scale(0.7);
+    transition: transform var(--default-transition-duration);
   }
 }
 
@@ -53,8 +58,6 @@
   display: flex;
   margin: 0 auto;
   margin-bottom: 1rem;
-  margin-left: 50%;
-  transform: translateX(-50%);
   border-radius: 0.5rem;
   border: none;
   height: 2rem;
@@ -64,6 +67,11 @@
   color: var(--background);
   background-color: var(--accent-color);
   transition: background-color var(--default-transition-duration);
+
+  &:active {
+    transform: scale(0.7);
+    transition: transform var(--default-transition-duration);
+  }
 
   svg {
     position: absolute;
