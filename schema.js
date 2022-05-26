@@ -133,10 +133,11 @@ const StarshipsType = new GraphQLObjectType({
 // root query
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
-  description: 'page is from 1 to 9',
+  description: 'in charactersList page is from 1 to 9',
   fields: {
     charactersList: {
       type: CharactersListType,
+      description: 'list of all characters',
       args: {
         page: {
           type: new GraphQLNonNull(GraphQLString),
@@ -151,6 +152,7 @@ const RootQuery = new GraphQLObjectType({
     },
     characterDetails: {
       type: CharacterType,
+      description: 'details od specific character',
       args: {
         url: {
           type: new GraphQLNonNull(GraphQLString),
@@ -165,6 +167,7 @@ const RootQuery = new GraphQLObjectType({
     },
     findCharacter: {
       type: FindCharacterType,
+      description: 'searching character by name',
       args: {
         name: {
           type: new GraphQLNonNull(GraphQLString),
