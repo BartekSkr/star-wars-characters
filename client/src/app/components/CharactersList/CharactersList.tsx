@@ -1,9 +1,9 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { isOnFavoriteList } from '../../services/utils/favoriteListServices';
-import { CharacterInterface } from '../../services/utils/types';
-import { addToList, setIsError } from '../../services/store/actions';
+import { isOnFavoriteList } from '../../utils/favoriteListServices';
+import { CharacterInterface } from '../../utils/types';
+import { addToList, setIsError } from '../../store/actions';
 import { CharacterItem } from '../CharacterItem/CharacterItem';
 import Pagination from '../Pagination/Pagination';
 import './CharactersList.scss';

@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
-import { RootState } from '../../services/store/store';
+import { RootState } from '../../store/store';
 import { CharactersProps } from './types';
 import { useLazyQuery } from '@apollo/client';
 import {
   CHARACTERS_LIST_SCHEMA,
   FIND_CHARACTER_SCHEMA,
-} from '../../services/utils/graphQlSchema';
+} from '../../utils/graphQlSchema';
 import { Spinner } from '../../components/Spinner/Spinner';
 import { Search } from '../../components/Search/Search';
 import { CharactersList } from '../../components/CharactersList/CharactersList';

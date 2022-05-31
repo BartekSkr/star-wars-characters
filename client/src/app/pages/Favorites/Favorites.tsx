@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { RootState } from '../../services/store/store';
+import { RootState } from '../../store/store';
 import './Favorites.scss';
 import { FavoritesProps } from './types';
 import yodaBlack from '../../assets/images/baby-yoda-black.svg';
 import yodaYellow from '../../assets/images/baby-yoda-yellow.svg';
 import { CharacterItem } from '../../components/CharacterItem/CharacterItem';
-import { deleteList, removeFromList } from '../../services/store/actions';
-import { isOnFavoriteList } from '../../services/utils/favoriteListServices';
+import { deleteList, removeFromList } from '../../store/actions';
+import { isOnFavoriteList } from '../../utils/favoriteListServices';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { CharacterInterface } from '../../services/utils/types';
+import { CharacterInterface } from '../../utils/types';
 import { Button } from '../../components/common/Button/Button';
 import { toast } from 'react-toastify';
 

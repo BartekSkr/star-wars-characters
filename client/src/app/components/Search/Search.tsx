@@ -8,7 +8,7 @@ import {
   characterToFindName,
   isAllCharacters,
   setPage,
-} from '../../services/store/actions';
+} from '../../store/actions';
 import ReactTooltip from 'react-tooltip';
 
 export const Search: React.FC<SearchProps> = ({ page, findCharacter }) => {

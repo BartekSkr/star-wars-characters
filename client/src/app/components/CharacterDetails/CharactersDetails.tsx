@@ -1,16 +1,16 @@
 import { useQuery } from '@apollo/client';
 import { connect, useDispatch } from 'react-redux';
-import { CHARACTER_DETAILS_SCHEMA } from '../../services/utils/graphQlSchema';
-import { RootState } from '../../services/store/store';
+import { CHARACTER_DETAILS_SCHEMA } from '../../utils/graphQlSchema';
+import { RootState } from '../../store/store';
 import { Button } from '../common/Button/Button';
 import { Spinner } from '../Spinner/Spinner';
 import './CharacterDetails.scss';
 import { FilmsInterface, StarshipsInterface, VehiclesInterface } from './types';
 import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { isOnFavoriteList } from '../../services/utils/favoriteListServices';
-import { addToList, removeFromList } from '../../services/store/actions';
+import { isOnFavoriteList } from '../../utils/favoriteListServices';
+import { addToList, removeFromList } from '../../store/actions';
 import { useEffect } from 'react';
-import { CharacterInterface } from '../../services/utils/types';
+import { CharacterInterface } from '../../utils/types';
 import { toast } from 'react-toastify';
 
 interface CharacterDetailsProps {
