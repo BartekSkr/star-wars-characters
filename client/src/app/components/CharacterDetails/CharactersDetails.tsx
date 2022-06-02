@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import { connect, useDispatch } from 'react-redux';
-import { CHARACTER_DETAILS_SCHEMA } from '../../utils/graphQlSchema';
+import { CHARACTER_DETAILS_SCHEMA } from '../../graphql/schema';
 import { RootState } from '../../store/store';
 import { Button } from '../common/Button/Button';
 import { Spinner } from '../Spinner/Spinner';
