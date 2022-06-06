@@ -45,7 +45,7 @@ const Characters: React.FC<CharactersProps> = ({
     isAllCharactersList
       ? charactersList({ variables: { page } })
       : findCharacterList({ variables: { page, name: characterName } });
-    document.title = 'StarWars Characters';
+    document.title = 'StarWars - characters';
     // eslint-disable-next-line
   }, [favoriteList, page, characterName, isAllCharactersList]);
 
