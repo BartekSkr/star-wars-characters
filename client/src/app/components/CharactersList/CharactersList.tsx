@@ -27,7 +27,7 @@ export const CharactersList: React.FC<CharactersListProps> = ({
   return (
     <>
       {data.results.map((character: CharacterInterface) => (
-        <div key={character.created} className='character'>
+        <div key={character.created} className="character">
           <CharacterItem
             btnIcon={faPlus}
             character={character}
