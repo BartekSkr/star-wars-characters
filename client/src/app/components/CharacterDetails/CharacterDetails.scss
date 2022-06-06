@@ -36,6 +36,14 @@
       }
     }
   }
+  .button-wrapper {
+    @extend %character-info;
+
+    button {
+      width: 4rem;
+      margin: 0 auto 0.3rem calc(100% - 4rem);
+    }
+  }
 }
 
 @media (min-width: 900px) {

@@ -1,16 +1,7 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { MouseEventHandler } from 'react';
 import ReactTooltip from 'react-tooltip';
 import './Button.scss';
-
-interface ButtonProps {
-  action: MouseEventHandler<HTMLButtonElement>;
-  btnIcon: IconDefinition;
-  isDeleteList: boolean;
-  tip?: string;
-  isDisable?: boolean;
-}
+import { ButtonProps } from './types';
 
 export const Button: React.FC<ButtonProps> = ({
   action,
@@ -29,7 +20,7 @@ export const Button: React.FC<ButtonProps> = ({
       >
         <FontAwesomeIcon icon={btnIcon} />
       </button>
-      <ReactTooltip place='left' effect='solid' type='info' />
+      <ReactTooltip place="left" effect="solid" type="info" />
     </>
   );
 };

@@ -6,12 +6,17 @@ import { Button } from '../common/Button/Button';
 import { Spinner } from '../Spinner/Spinner';
 import './CharacterDetails.scss';
 import { FilmsInterface, StarshipsInterface, VehiclesInterface } from './types';
-import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArrowLeft,
+  faPlus,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
 import { isOnFavoriteList } from '../../utils/favoriteListServices';
 import { addToList, removeFromList } from '../../store/actions';
 import { useEffect } from 'react';
 import { CharacterInterface } from '../../utils/types';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 interface CharacterDetailsProps {
   favoriteList?: CharacterInterface[];
@@ -26,6 +31,8 @@ const CharactersDetails: React.FC<CharacterDetailsProps> = ({
   const characterDetailsQuery = useQuery(CHARACTER_DETAILS_SCHEMA, {
     variables: { url },
   });
+
+  const navigate = useNavigate();
 
   //  toast info
   const addToFavoritesToast = (info: string) => toast.success(info);
@@ -179,6 +186,13 @@ const CharactersDetails: React.FC<CharacterDetailsProps> = ({
                 </>
               </div>
             )}
+          </div>
+          <div className="button-wrapper">
+            <Button
+              action={() => navigate(-1)}
+              btnIcon={faArrowLeft}
+              isDeleteList={false}
+            />
           </div>
         </div>
       )}
