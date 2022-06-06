@@ -44,6 +44,7 @@ export const CHARACTER_DETAILS_SCHEMA = gql`
         created
       }
       created
+      url
     }
   }
 `;
