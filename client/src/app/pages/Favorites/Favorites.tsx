@@ -21,20 +21,21 @@ const Favorites: React.FC<FavoritesProps> = ({ favoriteList, isDarkTheme }) => {
 
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favoriteList));
+    document.title = 'StarWars - favorites';
   }, [favoriteList]);
 
   return (
     <>
       {favoriteList!.length === 0 && (
-        <div className='empty-list'>
+        <div className="empty-list">
           <h3>
             No any favorite characters yet, sorry there is. Add your favorite
             characters, please.
           </h3>
           <img
             src={isDarkTheme === true ? yodaYellow : yodaBlack}
-            alt='baby yoda'
-            className='yoda-icon'
+            alt="baby yoda"
+            className="yoda-icon"
           />
         </div>
       )}
@@ -44,11 +45,11 @@ const Favorites: React.FC<FavoritesProps> = ({ favoriteList, isDarkTheme }) => {
           <Button
             btnIcon={faTrash}
             isDeleteList={true}
-            tip='Delete list'
+            tip="Delete list"
             action={() => dispatch(deleteList())}
           />
           {favoriteList!.map((character: CharacterInterface) => (
-            <div key={character.created} className='character'>
+            <div key={character.created} className="character">
               <CharacterItem
                 btnIcon={faTrash}
                 character={character}

@@ -45,6 +45,7 @@ const Characters: React.FC<CharactersProps> = ({
     isAllCharactersList
       ? charactersList({ variables: { page } })
       : findCharacterList({ variables: { page, name: characterName } });
+    document.title = 'StarWars Characters';
     // eslint-disable-next-line
   }, [favoriteList, page, characterName, isAllCharactersList]);
 
@@ -74,14 +75,14 @@ const Characters: React.FC<CharactersProps> = ({
       {(charactersError || findCharacterError) && (
         <Error
           isDarkTheme={isDarkTheme!}
-          errorMessage='Oops... Wrong something went!!! Hmm.'
+          errorMessage="Oops... Wrong something went!!! Hmm."
         />
       )}
       {/* error message if there is no character with searched name */}
       {!findCharacterLoading && !charactersLoading && isSearchError && (
         <Error
           isDarkTheme={isDarkTheme!}
-          errorMessage='Sorry, no such character, there is... Try again, please!'
+          errorMessage="Sorry, no such character, there is... Try again, please!"
         />
       )}
     </>

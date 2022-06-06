@@ -33,20 +33,25 @@ const CharactersDetails: React.FC<CharacterDetailsProps> = ({
 
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favoriteList));
-  }, [favoriteList]);
+    if (characterDetailsQuery.loading) {
+      document.title = 'StarWars - loading...';
+    } else if (!characterDetailsQuery.loading && characterDetailsQuery.data) {
+      document.title = `StarWars - ${characterDetailsQuery.data.characterDetails.name}`;
+    }
+  }, [favoriteList, characterDetailsQuery.data]);
 
   return (
     <>
       {characterDetailsQuery.loading && <Spinner />}
       {characterDetailsQuery.data && (
-        <div className='character-details'>
-          <div className='character-info'>
+        <div className="character-details">
+          <div className="character-info">
             <h2>{characterDetailsQuery.data.characterDetails.name}</h2>
             <div>
               <Button
                 btnIcon={faPlus}
                 isDeleteList={false}
-                tip='Add to favorites'
+                tip="Add to favorites"
                 action={() => {
                   dispatch(
                     addToList(characterDetailsQuery.data.characterDetails)
@@ -67,7 +72,7 @@ const CharactersDetails: React.FC<CharacterDetailsProps> = ({
               <Button
                 btnIcon={faTrash}
                 isDeleteList={false}
-                tip='Delete from favorites'
+                tip="Delete from favorites"
                 action={() => {
                   dispatch(
                     removeFromList(characterDetailsQuery.data.characterDetails)
@@ -87,7 +92,7 @@ const CharactersDetails: React.FC<CharacterDetailsProps> = ({
               />
             </div>
           </div>
-          <div className='character-info-details'>
+          <div className="character-info-details">
             <span>
               <strong>Height: </strong>
               <p>{characterDetailsQuery.data.characterDetails.height} cm</p>
@@ -123,7 +128,7 @@ const CharactersDetails: React.FC<CharacterDetailsProps> = ({
               </p>
             </span>
             {characterDetailsQuery.data.characterDetails.films.length !== 0 && (
-              <div className='movies'>
+              <div className="movies">
                 <h3>
                   <p>Movies:</p>
                 </h3>
@@ -142,7 +147,7 @@ const CharactersDetails: React.FC<CharacterDetailsProps> = ({
             )}
             {characterDetailsQuery.data.characterDetails.vehicles.length !==
               0 && (
-              <div className='vehicles'>
+              <div className="vehicles">
                 <h3>
                   <p>Vehicles:</p>
                 </h3>
@@ -159,7 +164,7 @@ const CharactersDetails: React.FC<CharacterDetailsProps> = ({
             )}
             {characterDetailsQuery.data.characterDetails.starships.length !==
               0 && (
-              <div className='starships'>
+              <div className="starships">
                 <h3>
                   <p>Starships:</p>
                 </h3>

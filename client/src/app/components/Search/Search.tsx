@@ -15,27 +15,23 @@ export const Search: React.FC<SearchProps> = ({ page, findCharacter }) => {
   const dispatch = useDispatch();
 
   let navigate = useNavigate();
-  const routeChange = () => {
-    let path = `/characters/#${page}`;
-    navigate(path);
-  };
 
   return (
-    <div className='search'>
+    <div className="search">
       <Link
-        data-for='list-btn'
-        data-tip='Show character list'
+        data-for="list-btn"
+        data-tip="Show character list"
         to={`/characters/#${page}`}
-        className='search-button'
+        className="search-button"
         onClick={() => dispatch(isAllCharacters(true))}
       >
-        <FontAwesomeIcon icon={faJournalWhills} size='2x' />
+        <FontAwesomeIcon icon={faJournalWhills} size="2x" />
       </Link>
       <input
-        type='text'
-        name='text'
-        className='search-input'
-        placeholder='Search for a character...'
+        type="text"
+        name="text"
+        className="search-input"
+        placeholder="Search for a character..."
         onClick={(e: React.MouseEvent<HTMLInputElement>) =>
           (e.currentTarget.value = '')
         }
@@ -47,11 +43,11 @@ export const Search: React.FC<SearchProps> = ({ page, findCharacter }) => {
             dispatch(isAllCharacters(false));
             dispatch(setPage('1'));
             dispatch(characterToFindName(e.currentTarget.value));
-            routeChange();
+            navigate(`/characters/#${page}`);
           }
         }}
       />
-      <ReactTooltip id='list-btn' place='left' effect='solid' type='info' />
+      <ReactTooltip id="list-btn" place="left" effect="solid" type="info" />
     </div>
   );
 };
