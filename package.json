@@ -4,8 +4,8 @@
   "description": "App shows Star Wars characters",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js",
+    "start": "node --cwd server server.js",
+    "server": "nodemon --cwd server server.js",
     "client": "yarn --cwd client start",
     "dev": "concurrently \"yarn run server\" \"yarn run client\""
   },

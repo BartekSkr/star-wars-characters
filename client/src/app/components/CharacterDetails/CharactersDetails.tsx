@@ -45,6 +45,7 @@ const CharactersDetails: React.FC<CharacterDetailsProps> = ({
     } else if (!characterDetailsQuery.loading && characterDetailsQuery.data) {
       document.title = `StarWars - ${characterDetailsQuery.data.characterDetails.name}`;
     }
+    // eslint-disable-next-line
   }, [favoriteList, characterDetailsQuery.data]);
 
   return (
