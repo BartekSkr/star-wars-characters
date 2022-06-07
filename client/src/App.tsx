@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import { RootState } from './app/store/store';
 import PageNotFound from './app/pages/404/404-page';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.scss';
+import './app/styles/App.scss';
 import Navbar from './app/components/Navbar/Navbar';
 import Characters from './app/pages/Characters/Characters';
 import CharactersDetails from './app/components/CharacterDetails/CharactersDetails';
@@ -25,29 +25,29 @@ const App: React.FC<AppProps> = ({
 }) => {
   return (
     <div
-      className='container'
+      className="container"
       data-theme={isDarkTheme === true ? 'dark' : 'white'}
     >
       <Router>
         <Navbar />
         <Routes>
           <Route
-            path='/'
+            path="/"
             element={
               <Home page={page!} isAllCharactersList={isAllCharactersList!} />
             }
           />
-          <Route path='/characters' element={<Characters page={page!} />} />
+          <Route path="/characters" element={<Characters page={page!} />} />
           <Route
-            path='/details/:id'
+            path="/details/:id"
             element={<CharactersDetails url={url!} />}
           />
-          <Route path='/favorites' element={<Favorites />} />
-          <Route path='*' element={<PageNotFound />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Router>
       <ToastContainer
-        position='bottom-center'
+        position="bottom-center"
         hideProgressBar={false}
         pauseOnHover={false}
         pauseOnFocusLoss={false}
