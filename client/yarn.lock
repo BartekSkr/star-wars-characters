@@ -19,10 +19,10 @@
     jsonpointer "^5.0.0"
     leven "^3.1.0"
 
-"@apollo/client@^3.6.5":
-  version "3.6.5"
-  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.6.5.tgz#6a7baaf05852187b0eac1c6064e721d47326d70c"
-  integrity sha512-xGAZzv1f5abyH45MSU5eOLyGQuP4Ps0OhP36pSCtt6pCICI3n4yDkdftFCPvqDVqVTuciX1kkyeJPfGodz5kwg==
+"@apollo/client@^3.6.6":
+  version "3.6.6"
+  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.6.6.tgz#3fb1f5b11da9a64b51b5a86b62450bee034e7f41"
+  integrity sha512-AzNLN043wy0bDTTR9wzKYSu+I1IT2Ox3+vWckxgIt88Jfw5jHBvumf3lXE1JlgvbFCTiKS/Sa66AadQXWMVBRQ==
   dependencies:
     "@graphql-typed-document-node/core" "^3.1.1"
     "@wry/context" "^0.6.0"
@@ -1925,10 +1925,18 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@*", "@types/jest@^27.0.1":
+"@types/jest@*":
   version "27.5.1"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-27.5.1.tgz#2c8b6dc6ff85c33bcd07d0b62cb3d19ddfdb3ab9"
   integrity sha512-fUy7YRpT+rHXto1YlL+J9rs0uLGyiqVt3ZOTQR+4ROc47yNl8WLdVLgUloBRhOxP1PZvguHl44T3H0wAWxahYQ==
+  dependencies:
+    jest-matcher-utils "^27.0.0"
+    pretty-format "^27.0.0"
+
+"@types/jest@^28.1.1":
+  version "28.1.1"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-28.1.1.tgz#8c9ba63702a11f8c386ee211280e8b68cb093cd1"
+  integrity sha512-C2p7yqleUKtCkVjlOur9BWVA4HgUQmEj/HWCt5WzZ5mLXrWnyIfl0wGuArc+kBXsy0ZZfLp+7dywB4HtSVYGVA==
   dependencies:
     jest-matcher-utils "^27.0.0"
     pretty-format "^27.0.0"
@@ -1953,10 +1961,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.33.tgz#3c1879b276dc63e73030bb91165e62a4509cd506"
   integrity sha512-miWq2m2FiQZmaHfdZNcbpp9PuXg34W5JZ5CrJ/BaS70VuhoJENBEQybeiYSaPBRNq6KQGnjfEnc/F3PN++D+XQ==
 
-"@types/node@^17.0.36":
-  version "17.0.36"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.36.tgz#c0d5f2fe76b47b63e0e0efc3d2049a9970d68794"
-  integrity sha512-V3orv+ggDsWVHP99K3JlwtH20R7J4IhI1Kksgc+64q5VxgfRkQG8Ws3MFm/FZOKDYGy9feGFlZ70/HpCNe9QaA==
+"@types/node@^17.0.40":
+  version "17.0.40"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.40.tgz#76ee88ae03650de8064a6cf75b8d95f9f4a16090"
+  integrity sha512-UXdBxNGqTMtm7hCwh9HtncFVLrXoqA3oJW30j6XWp5BH/wu3mVeaxo7cq5benFdBw34HB3XDT2TRPI7rXZ+mDg==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -2002,10 +2010,19 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^18.0.0":
+"@types/react@*":
   version "18.0.9"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.9.tgz#d6712a38bd6cd83469603e7359511126f122e878"
   integrity sha512-9bjbg1hJHUm4De19L1cHiW0Jvx3geel6Qczhjd0qY5VKVE2X5+x77YxAepuCwVh4vrgZJdgEJw48zrhRIeF4Nw==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@^18.0.12":
+  version "18.0.12"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.12.tgz#cdaa209d0a542b3fcf69cf31a03976ec4cdd8840"
+  integrity sha512-duF1OTASSBQtcigUvhuiTB1Ya3OvSy+xORCiEf20H0P0lzx+/KeVsA99U5UjLXSbyo1DRJDlLKqTeM1ngosqtg==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -7294,7 +7311,7 @@ react-router@6.3.0:
   dependencies:
     history "^5.2.0"
 
-react-scripts@5.0.1:
+react-scripts@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-5.0.1.tgz#6285dbd65a8ba6e49ca8d651ce30645a6d980003"
   integrity sha512-8VAmEm/ZAwQzJ+GOMLbBsTdDKOpuZh7RPs0UymvBR2vRk4iZWCskjbFnxqjrzoIvlNNRZ3QJFx6/qDSi6zSnaQ==
@@ -7349,10 +7366,10 @@ react-scripts@5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
-react-toastify@^9.0.2:
-  version "9.0.2"
-  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-9.0.2.tgz#f7934b52ac30eb0c4de452920494b45d65957026"
-  integrity sha512-IknOvdh7LNzeLKmZTn7EXYC4kaSM0VdUvRuNdBJs/F/NMgRW9kFXbzAUb8rpQxIH+p1YJ3KVbfmL5ThCPH6o0A==
+react-toastify@^9.0.3:
+  version "9.0.3"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-9.0.3.tgz#8e6d22651c85cb584c5ebd0b5e2c3bf0d7ec06ee"
+  integrity sha512-0QZJk0SqYBxouRBGCFU3ymvjlwimRRhVH7SzqGRiVrQ001KSoUNbGKx9Yq42aoPv18n45yJzEFG82zqv3HnASg==
   dependencies:
     clsx "^1.1.1"
 
@@ -7414,11 +7431,6 @@ redent@^3.0.0:
   dependencies:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
-
-redux-devtools-extension@^2.13.9:
-  version "2.13.9"
-  resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.9.tgz#6b764e8028b507adcb75a1cae790f71e6be08ae7"
-  integrity sha512-cNJ8Q/EtjhQaZ71c8I9+BPySIBVEKssbPpskBfsXqb8HJ002A3KRVHfeRzwRo6mGPqsm7XuHTqNSNeS1Khig0A==
 
 redux-thunk@^2.4.1:
   version "2.4.1"
@@ -8435,10 +8447,10 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
-typescript@^4.7.2:
-  version "4.7.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.7.2.tgz#1f9aa2ceb9af87cca227813b4310fff0b51593c4"
-  integrity sha512-Mamb1iX2FDUpcTRzltPxgWMKy3fhg0TN378ylbktPGPK/99KbDtMQ4W1hwgsbPAsG3a0xKa1vmw4VKZQbkvz5A==
+typescript@^4.7.3:
+  version "4.7.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.7.3.tgz#8364b502d5257b540f9de4c40be84c98e23a129d"
+  integrity sha512-WOkT3XYvrpXx4vMMqlD+8R8R37fZkjyLGlxavMc4iB8lrl8L0DeTcHbYgw/v0N/z9wAFsgBhcsF0ruoySS22mA==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"
