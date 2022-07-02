@@ -11,6 +11,7 @@ import { Spinner } from '../../components/Spinner/Spinner';
 import { Search } from '../../components/Search/Search';
 import { CharactersList } from '../../components/CharactersList/CharactersList';
 import { Error } from '../../components/Error/Error';
+import { motion } from 'framer-motion';
 
 const Characters: React.FC<CharactersProps> = ({
   favoriteList,
@@ -50,7 +51,11 @@ const Characters: React.FC<CharactersProps> = ({
   }, [favoriteList, page, characterName, isAllCharactersList]);
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <Search
         page={page}
         findCharacter={findCharacterList}
@@ -85,7 +90,7 @@ const Characters: React.FC<CharactersProps> = ({
           errorMessage="Sorry, no such character, there is... Try again, please!"
         />
       )}
-    </>
+    </motion.div>
   );
 };
 

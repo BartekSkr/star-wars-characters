@@ -12,6 +12,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { CharacterInterface } from '../../utils/types';
 import { Button } from '../../components/common/Button/Button';
 import { toast } from 'react-toastify';
+import { motion } from 'framer-motion';
 
 const Favorites: React.FC<FavoritesProps> = ({ favoriteList, isDarkTheme }) => {
   const dispatch = useDispatch();
@@ -25,7 +26,11 @@ const Favorites: React.FC<FavoritesProps> = ({ favoriteList, isDarkTheme }) => {
   }, [favoriteList]);
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       {favoriteList!.length === 0 && (
         <div className="empty-list">
           <h3>
@@ -73,7 +78,7 @@ const Favorites: React.FC<FavoritesProps> = ({ favoriteList, isDarkTheme }) => {
           ))}
         </>
       )}
-    </>
+    </motion.div>
   );
 };
 

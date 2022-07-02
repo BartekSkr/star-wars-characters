@@ -17,6 +17,7 @@ import { useEffect } from 'react';
 import { CharacterInterface } from '../../utils/types';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 interface CharacterDetailsProps {
   favoriteList?: CharacterInterface[];
@@ -49,7 +50,11 @@ const CharactersDetails: React.FC<CharacterDetailsProps> = ({
   }, [favoriteList, characterDetailsQuery.data]);
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       {characterDetailsQuery.loading && <Spinner />}
       {characterDetailsQuery.data && (
         <div className="character-details">
@@ -197,7 +202,7 @@ const CharactersDetails: React.FC<CharacterDetailsProps> = ({
           </div>
         </div>
       )}
-    </>
+    </motion.div>
   );
 };
 

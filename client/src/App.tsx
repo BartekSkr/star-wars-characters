@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import { RootState } from './app/store/store';
 import PageNotFound from './app/pages/404/404-page';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import './app/styles/App.scss';
 import Navbar from './app/components/Navbar/Navbar';
 import Characters from './app/pages/Characters/Characters';
@@ -10,6 +10,7 @@ import CharactersDetails from './app/components/CharacterDetails/CharactersDetai
 import Favorites from './app/pages/Favorites/Favorites';
 import { Home } from './app/pages/Home/Home';
 import 'react-toastify/dist/ReactToastify.css';
+import { AnimatePresence } from 'framer-motion';
 interface AppProps {
   isDarkTheme?: boolean;
   page?: string;
@@ -23,14 +24,16 @@ const App: React.FC<AppProps> = ({
   url,
   isAllCharactersList,
 }) => {
+  const location = useLocation();
+
   return (
     <div
       className="container"
       data-theme={isDarkTheme === true ? 'dark' : 'white'}
     >
-      <Router>
-        <Navbar />
-        <Routes>
+      <Navbar />
+      <AnimatePresence exitBeforeEnter initial={false}>
+        <Routes location={location} key={location.pathname}>
           <Route
             path="/"
             element={
@@ -45,17 +48,17 @@ const App: React.FC<AppProps> = ({
           <Route path="/favorites" element={<Favorites />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
-      </Router>
-      <ToastContainer
-        position="bottom-center"
-        hideProgressBar={false}
-        pauseOnHover={false}
-        pauseOnFocusLoss={false}
-        draggable={false}
-        autoClose={3000}
-        limit={4}
-        theme={isDarkTheme === true ? 'dark' : 'light'}
-      />
+        <ToastContainer
+          position="bottom-center"
+          hideProgressBar={false}
+          pauseOnHover={false}
+          pauseOnFocusLoss={false}
+          draggable={false}
+          autoClose={3000}
+          limit={4}
+          theme={isDarkTheme === true ? 'dark' : 'light'}
+        />
+      </AnimatePresence>
     </div>
   );
 };

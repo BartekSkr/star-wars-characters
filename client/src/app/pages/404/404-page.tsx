@@ -5,6 +5,7 @@ import darthVaderBlack from '../../assets/images/darth-vader-black.svg';
 import { RootState } from '../../store/store';
 import { connect } from 'react-redux';
 import { PageNotFoundProps } from './types';
+import { motion } from 'framer-motion';
 
 const PageNotFound: React.FC<PageNotFoundProps> = ({ isDarkTheme }) => {
   useEffect(() => {
@@ -12,15 +13,20 @@ const PageNotFound: React.FC<PageNotFoundProps> = ({ isDarkTheme }) => {
   }, []);
 
   return (
-    <div className='not-found-container'>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="not-found-container"
+    >
       <img
         src={isDarkTheme === true ? darthVaderYellow : darthVaderBlack}
-        alt='darth vader icon'
+        alt="darth vader icon"
       />
       <h2>ERROR</h2>
-      <div className='not-found-info'>
+      <div className="not-found-info">
         <h3>The page you are looking for, we cannot find!</h3>
-        <ul className='not-found-ul'>
+        <ul className="not-found-ul">
           <li>Not exist, page does.</li>
           <li>The page changed its location.</li>
           <li>
@@ -28,7 +34,7 @@ const PageNotFound: React.FC<PageNotFoundProps> = ({ isDarkTheme }) => {
           </li>
         </ul>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
