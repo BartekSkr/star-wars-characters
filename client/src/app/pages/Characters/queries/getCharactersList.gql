@@ -1,0 +1,12 @@
+query CharactersList($page: String!) {
+  charactersList(page: $page) {
+    count
+    next
+    previous
+    results {
+      name
+      created
+      url
+    }
+  }
+}

@@ -1,6 +1,5 @@
 import { useQuery } from '@apollo/client';
 import { connect, useDispatch } from 'react-redux';
-import { CHARACTER_DETAILS_SCHEMA } from '../../graphql/schema';
 import { RootState } from '../../store/store';
 import { Button } from '../common/Button/Button';
 import { Spinner } from '../Spinner/Spinner';
@@ -18,6 +17,7 @@ import { CharacterInterface } from '../../utils/types';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { loader } from 'graphql.macro';
 
 interface CharacterDetailsProps {
   favoriteList?: CharacterInterface[];
@@ -28,6 +28,8 @@ const CharactersDetails: React.FC<CharacterDetailsProps> = ({
   url,
   favoriteList,
 }) => {
+  const CHARACTER_DETAILS_SCHEMA = loader('./queries/getCharacterDetails.gql');
+
   const dispatch = useDispatch();
   const characterDetailsQuery = useQuery(CHARACTER_DETAILS_SCHEMA, {
     variables: { url },

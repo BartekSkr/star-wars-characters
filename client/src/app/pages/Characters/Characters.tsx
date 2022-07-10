@@ -3,15 +3,12 @@ import React, { useEffect } from 'react';
 import { RootState } from '../../store/store';
 import { CharactersProps } from './types';
 import { useLazyQuery } from '@apollo/client';
-import {
-  CHARACTERS_LIST_SCHEMA,
-  FIND_CHARACTER_SCHEMA,
-} from '../../graphql/schema';
 import { Spinner } from '../../components/Spinner/Spinner';
 import { Search } from '../../components/Search/Search';
 import { CharactersList } from '../../components/CharactersList/CharactersList';
 import { Error } from '../../components/Error/Error';
 import { motion } from 'framer-motion';
+import { loader } from 'graphql.macro';
 
 const Characters: React.FC<CharactersProps> = ({
   favoriteList,
@@ -21,6 +18,9 @@ const Characters: React.FC<CharactersProps> = ({
   isDarkTheme,
   isSearchError,
 }) => {
+  const CHARACTERS_LIST_SCHEMA = loader('./queries/getCharactersList.gql');
+  const FIND_CHARACTER_SCHEMA = loader('./queries/findCharacters.gql');
+
   //  query used when fetching all characters
   const [
     charactersList,
