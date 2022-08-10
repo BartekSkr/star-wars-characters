@@ -35,9 +35,7 @@ export const CharactersList = ({ data, favoriteList }: CharactersListProps) => {
                 `Been added to the favorites list, ${character.name} has.`
               );
             }}
-            isDisable={
-              isOnFavoriteList(favoriteList!, character) ? true : false
-            }
+            isDisable={Boolean(isOnFavoriteList(favoriteList!, character))}
             tip={
               isOnFavoriteList(favoriteList!, character)
                 ? 'Delete from favorites'

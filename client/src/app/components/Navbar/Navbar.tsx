@@ -10,8 +10,9 @@ import './Navbar.scss';
 import { NavbarProps } from './types';
 
 const Navbar = ({ title, isDarkTheme, page }: NavbarProps) => {
-  const themeTooltipText =
-    isDarkTheme === true ? 'Switch to light theme' : 'Switch to dark theme';
+  const themeTooltipText = isDarkTheme
+    ? 'Switch to light theme'
+    : 'Switch to dark theme';
 
   const dispatch = useDispatch();
 
@@ -22,7 +23,7 @@ const Navbar = ({ title, isDarkTheme, page }: NavbarProps) => {
 
   useEffect(() => {
     localStorage.setItem('isDarkTheme', JSON.stringify(isDarkTheme));
-    isDarkTheme === true
+    isDarkTheme
       ? (document.body.style.backgroundColor = 'black')
       : (document.body.style.backgroundColor = 'white');
   }, [isDarkTheme]);
@@ -35,7 +36,7 @@ const Navbar = ({ title, isDarkTheme, page }: NavbarProps) => {
         aria-label={themeTooltipText}
         onClick={() => dispatch(darkTheme(!isDarkTheme))}
       >
-        <FontAwesomeIcon icon={isDarkTheme === true ? faSun : faMoon} />
+        <FontAwesomeIcon icon={isDarkTheme ? faSun : faMoon} />
       </button>
       <ul>
         {navbarTabs.map((tab) => (

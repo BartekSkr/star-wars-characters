@@ -16,7 +16,7 @@ const Pagination = ({ pageNumber, charactersAmount }: PaginationProps) => {
   return (
     <>
       <ul className="pagination-ul">
-        {pageNumbers.map((number: any) => (
+        {pageNumbers.map((number: number) => (
           <li
             className="pagination-li"
             key={number}
@@ -24,7 +24,7 @@ const Pagination = ({ pageNumber, charactersAmount }: PaginationProps) => {
           >
             <Link
               className={
-                parseInt(pageNumber!) === number
+                Number(pageNumber) === number
                   ? 'pagination-link-active'
                   : 'pagination-link'
               }

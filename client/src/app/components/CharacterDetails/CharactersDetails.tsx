@@ -1,4 +1,3 @@
-import { useQuery } from '@apollo/client';
 import { connect, useDispatch } from 'react-redux';
 import { RootState } from '../../store/store';
 import { Button } from '../common/Button/Button';
@@ -18,19 +17,16 @@ import {
 import { isOnFavoriteList } from '../../utils/favoriteListServices';
 import { addToList, removeFromList } from '../../store/actions';
 import { useEffect } from 'react';
-import { CharacterInterface } from '../../utils/types';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { loader } from 'graphql.macro';
+import { useCharactersDetailsData } from './queries';
 
 const CharactersDetails = ({ url, favoriteList }: CharacterDetailsProps) => {
-  const CHARACTER_DETAILS_SCHEMA = loader('./queries/getCharacterDetails.gql');
+  const { data, state } = useCharactersDetailsData({ url });
+  const characterDetails = data?.characterDetails;
 
   const dispatch = useDispatch();
-  const characterDetailsQuery = useQuery(CHARACTER_DETAILS_SCHEMA, {
-    variables: { url },
-  });
 
   const navigate = useNavigate();
 
@@ -40,13 +36,13 @@ const CharactersDetails = ({ url, favoriteList }: CharacterDetailsProps) => {
 
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favoriteList));
-    if (characterDetailsQuery.loading) {
+    if (state.loading) {
       document.title = 'StarWars - loading...';
-    } else if (!characterDetailsQuery.loading && characterDetailsQuery.data) {
-      document.title = `StarWars - ${characterDetailsQuery.data.characterDetails.name}`;
+    } else if (!state.loading && characterDetails) {
+      document.title = `StarWars - ${characterDetails.name}`;
     }
     // eslint-disable-next-line
-  }, [favoriteList, characterDetailsQuery.data]);
+  }, [favoriteList, characterDetails]);
 
   return (
     <motion.div
@@ -54,117 +50,98 @@ const CharactersDetails = ({ url, favoriteList }: CharacterDetailsProps) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      {characterDetailsQuery.loading && <Spinner />}
-      {characterDetailsQuery.data && (
+      {state.loading && <Spinner />}
+      {characterDetails && (
         <div className="character-details">
           <div className="character-info">
-            <h2>{characterDetailsQuery.data.characterDetails.name}</h2>
+            <h2>{characterDetails.name}</h2>
             <div>
               <Button
                 btnIcon={faPlus}
                 isDeleteList={false}
                 tip="Add to favorites"
                 action={() => {
-                  dispatch(
-                    addToList(characterDetailsQuery.data.characterDetails)
-                  );
+                  dispatch(addToList(characterDetails));
                   addToFavoritesToast(
-                    `Been added to the favorites list, ${characterDetailsQuery.data.characterDetails.name} has.`
+                    `Been added to the favorites list, ${characterDetails.name} has.`
                   );
                 }}
-                isDisable={
-                  isOnFavoriteList(
-                    favoriteList!,
-                    characterDetailsQuery.data.characterDetails
-                  )
-                    ? true
-                    : false
-                }
+                isDisable={Boolean(
+                  isOnFavoriteList(favoriteList!, characterDetails)
+                )}
               />
               <Button
                 btnIcon={faTrash}
                 isDeleteList={false}
                 tip="Delete from favorites"
                 action={() => {
-                  dispatch(
-                    removeFromList(characterDetailsQuery.data.characterDetails)
-                  );
+                  dispatch(removeFromList(characterDetails));
                   deleteFromFavoritesToast(
-                    `Been removed from the favorites list, ${characterDetailsQuery.data.characterDetails.name} has.`
+                    `Been removed from the favorites list, ${characterDetails.name} has.`
                   );
                 }}
-                isDisable={
-                  isOnFavoriteList(
-                    favoriteList!,
-                    characterDetailsQuery.data.characterDetails
-                  )
-                    ? false
-                    : true
-                }
+                isDisable={Boolean(
+                  !isOnFavoriteList(favoriteList!, characterDetails)
+                )}
               />
             </div>
           </div>
           <div className="character-info-details">
             <span>
               <strong>Height: </strong>
-              <p>{characterDetailsQuery.data.characterDetails.height} cm</p>
+              <p>{characterDetails.height} cm</p>
             </span>
             <span>
               <strong>Mass: </strong>
-              <p>{characterDetailsQuery.data.characterDetails.mass} kg</p>
+              <p>{characterDetails.mass} kg</p>
             </span>
             <span>
               <strong>Hair color: </strong>
-              <p>{characterDetailsQuery.data.characterDetails.hair_color}</p>
+              <p>{characterDetails.hair_color}</p>
             </span>
             <span>
               <strong>Skin color: </strong>
-              <p>{characterDetailsQuery.data.characterDetails.skin_color}</p>
+              <p>{characterDetails.skin_color}</p>
             </span>
             <span>
               <strong>Eye color: </strong>
-              <p>{characterDetailsQuery.data.characterDetails.eye_color}</p>
+              <p>{characterDetails.eye_color}</p>
             </span>
             <span>
               <strong>Birth year: </strong>
-              <p>{characterDetailsQuery.data.characterDetails.birth_year}</p>
+              <p>{characterDetails.birth_year}</p>
             </span>
             <span>
               <strong>Gender: </strong>
-              <p>{characterDetailsQuery.data.characterDetails.gender}</p>
+              <p>{characterDetails.gender}</p>
             </span>
             <span>
               <strong>Homeworld: </strong>
-              <p>
-                {characterDetailsQuery.data.characterDetails.homeworld.name}
-              </p>
+              <p>{characterDetails.homeworld.name}</p>
             </span>
-            {characterDetailsQuery.data.characterDetails.films.length !== 0 && (
+            {characterDetails.films.length !== 0 && (
               <div className="movies">
                 <h3>
                   <p>Movies:</p>
                 </h3>
                 <>
-                  {characterDetailsQuery.data.characterDetails.films.map(
-                    (film: FilmsInterface) => (
-                      <div key={film.episode_id}>
-                        <div>
-                          ● '{film.title}' (ep. {film.episode_id})
-                        </div>
+                  {characterDetails.films.map((film: FilmsInterface) => (
+                    <div key={film.episode_id}>
+                      <div>
+                        ● '{film.title}' (ep. {film.episode_id})
                       </div>
-                    )
-                  )}
+                    </div>
+                  ))}
                 </>
               </div>
             )}
-            {characterDetailsQuery.data.characterDetails.vehicles.length !==
-              0 && (
+            {characterDetails.vehicles.length !== 0 && (
               <div className="vehicles">
                 <h3>
                   <p>Vehicles:</p>
                 </h3>
                 <>
-                  {characterDetailsQuery.data.characterDetails.vehicles.map(
+                  {characterDetails.vehicles.map(
                     (vehicle: VehiclesInterface) => (
                       <div key={vehicle.created}>
                         <div>● {vehicle.name}</div>
@@ -174,14 +151,13 @@ const CharactersDetails = ({ url, favoriteList }: CharacterDetailsProps) => {
                 </>
               </div>
             )}
-            {characterDetailsQuery.data.characterDetails.starships.length !==
-              0 && (
+            {characterDetails.starships.length !== 0 && (
               <div className="starships">
                 <h3>
                   <p>Starships:</p>
                 </h3>
                 <>
-                  {characterDetailsQuery.data.characterDetails.starships.map(
+                  {characterDetails.starships.map(
                     (starships: StarshipsInterface) => (
                       <div key={starships.created}>
                         <div>● {starships.name}</div>

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { RootState } from '../../store/store';
 import { CharactersProps } from './types';
 import { useLazyQuery } from '@apollo/client';

@@ -38,7 +38,7 @@ const Favorites = ({ favoriteList, isDarkTheme }: FavoritesProps) => {
             characters, please.
           </h3>
           <img
-            src={isDarkTheme === true ? yodaYellow : yodaBlack}
+            src={isDarkTheme ? yodaYellow : yodaBlack}
             alt="baby yoda"
             className="yoda-icon"
           />
@@ -65,9 +65,7 @@ const Favorites = ({ favoriteList, isDarkTheme }: FavoritesProps) => {
                     `Been removed from the favorites list, ${character.name} has.`
                   );
                 }}
-                isDisable={
-                  isOnFavoriteList(favoriteList!, character) ? false : true
-                }
+                isDisable={Boolean(!isOnFavoriteList(favoriteList!, character))}
                 tip={
                   isOnFavoriteList(favoriteList!, character)
                     ? 'Delete From favorites'

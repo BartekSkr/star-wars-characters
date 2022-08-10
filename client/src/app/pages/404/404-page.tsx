@@ -20,7 +20,7 @@ const PageNotFound = ({ isDarkTheme }: PageNotFoundProps) => {
       className="not-found-container"
     >
       <img
-        src={isDarkTheme === true ? darthVaderYellow : darthVaderBlack}
+        src={isDarkTheme ? darthVaderYellow : darthVaderBlack}
         alt="darth vader icon"
       />
       <h2>ERROR</h2>
