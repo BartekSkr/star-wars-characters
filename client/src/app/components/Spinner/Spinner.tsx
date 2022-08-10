@@ -1,15 +1,15 @@
 import React from 'react';
 import './Spinner.scss';
 
-export const Spinner: React.FC = () => {
+export const Spinner = () => {
   return (
-    <div className='spinner'>
-      <div className='spinner-dot'></div>
-      <div className='spinner-dot'></div>
-      <div className='spinner-dot'></div>
-      <div className='spinner-dot'></div>
-      <div className='spinner-dot'></div>
-      <div className='spinner-dot'></div>
+    <div className="spinner">
+      <div className="spinner-dot"></div>
+      <div className="spinner-dot"></div>
+      <div className="spinner-dot"></div>
+      <div className="spinner-dot"></div>
+      <div className="spinner-dot"></div>
+      <div className="spinner-dot"></div>
     </div>
   );
 };

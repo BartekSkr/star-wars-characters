@@ -11,6 +11,7 @@ import Favorites from './app/pages/Favorites/Favorites';
 import { Home } from './app/pages/Home/Home';
 import 'react-toastify/dist/ReactToastify.css';
 import { AnimatePresence } from 'framer-motion';
+
 interface AppProps {
   isDarkTheme?: boolean;
   page?: string;
@@ -18,12 +19,7 @@ interface AppProps {
   isAllCharactersList?: boolean;
 }
 
-const App: React.FC<AppProps> = ({
-  isDarkTheme,
-  page,
-  url,
-  isAllCharactersList,
-}) => {
+const App = ({ isDarkTheme, page, url, isAllCharactersList }: AppProps) => {
   const location = useLocation();
 
   return (

@@ -11,7 +11,7 @@ import {
 } from '../../store/actions';
 import ReactTooltip from 'react-tooltip';
 
-export const Search: React.FC<SearchProps> = ({ page, findCharacter }) => {
+export const Search = ({ page, findCharacter }: SearchProps) => {
   const dispatch = useDispatch();
 
   let navigate = useNavigate();

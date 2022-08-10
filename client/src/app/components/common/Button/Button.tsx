@@ -3,13 +3,13 @@ import ReactTooltip from 'react-tooltip';
 import './Button.scss';
 import { ButtonProps } from './types';
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button = ({
   action,
   btnIcon,
   isDeleteList,
   tip,
   isDisable,
-}) => {
+}: ButtonProps) => {
   return (
     <>
       <button

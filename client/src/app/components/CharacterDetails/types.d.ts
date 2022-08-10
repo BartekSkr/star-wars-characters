@@ -1,3 +1,7 @@
+export interface CharacterDetailsProps {
+  favoriteList?: CharacterInterface[];
+  url: string;
+}
 export interface FilmsInterface {
   title: string;
   episode_id: number;

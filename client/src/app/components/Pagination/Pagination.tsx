@@ -5,10 +5,7 @@ import { RootState } from '../../store/store';
 import './Pagination.scss';
 import { PaginationProps } from './types';
 
-const Pagination: React.FC<PaginationProps> = ({
-  pageNumber,
-  charactersAmount,
-}) => {
+const Pagination = ({ pageNumber, charactersAmount }: PaginationProps) => {
   const dispatch = useDispatch();
   const pageNumbers = [];
 
@@ -18,10 +15,10 @@ const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <>
-      <ul className='pagination-ul'>
+      <ul className="pagination-ul">
         {pageNumbers.map((number: any) => (
           <li
-            className='pagination-li'
+            className="pagination-li"
             key={number}
             onClick={() => dispatch(setPage(number.toString()))}
           >

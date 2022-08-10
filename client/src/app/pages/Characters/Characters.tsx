@@ -10,14 +10,14 @@ import { Error } from '../../components/Error/Error';
 import { motion } from 'framer-motion';
 import { loader } from 'graphql.macro';
 
-const Characters: React.FC<CharactersProps> = ({
+const Characters = ({
   favoriteList,
   page,
   isAllCharactersList,
   characterName,
   isDarkTheme,
   isSearchError,
-}) => {
+}: CharactersProps) => {
   const CHARACTERS_LIST_SCHEMA = loader('./queries/getCharactersList.gql');
   const FIND_CHARACTER_SCHEMA = loader('./queries/findCharacters.gql');
 

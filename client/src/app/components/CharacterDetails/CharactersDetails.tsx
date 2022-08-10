@@ -4,7 +4,12 @@ import { RootState } from '../../store/store';
 import { Button } from '../common/Button/Button';
 import { Spinner } from '../Spinner/Spinner';
 import './CharacterDetails.scss';
-import { FilmsInterface, StarshipsInterface, VehiclesInterface } from './types';
+import {
+  CharacterDetailsProps,
+  FilmsInterface,
+  StarshipsInterface,
+  VehiclesInterface,
+} from './types';
 import {
   faArrowLeft,
   faPlus,
@@ -19,15 +24,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { loader } from 'graphql.macro';
 
-interface CharacterDetailsProps {
-  favoriteList?: CharacterInterface[];
-  url: string;
-}
-
-const CharactersDetails: React.FC<CharacterDetailsProps> = ({
-  url,
-  favoriteList,
-}) => {
+const CharactersDetails = ({ url, favoriteList }: CharacterDetailsProps) => {
   const CHARACTER_DETAILS_SCHEMA = loader('./queries/getCharacterDetails.gql');
 
   const dispatch = useDispatch();

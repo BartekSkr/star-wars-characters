@@ -14,7 +14,7 @@ import { Button } from '../../components/common/Button/Button';
 import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
 
-const Favorites: React.FC<FavoritesProps> = ({ favoriteList, isDarkTheme }) => {
+const Favorites = ({ favoriteList, isDarkTheme }: FavoritesProps) => {
   const dispatch = useDispatch();
 
   //  toast info

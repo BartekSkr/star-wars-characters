@@ -3,11 +3,11 @@ import yodaYellow from '../../assets/images/baby-yoda-yellow.svg';
 import yodaBlack from '../../assets/images/baby-yoda-black.svg';
 import { ErrorProps } from './types';
 
-export const Error: React.FC<ErrorProps> = ({ isDarkTheme, errorMessage }) => {
+export const Error = ({ isDarkTheme, errorMessage }: ErrorProps) => {
   return (
-    <div className='error-container'>
+    <div className="error-container">
       <h2>{errorMessage}</h2>
-      <img src={isDarkTheme ? yodaYellow : yodaBlack} alt='yoda' />
+      <img src={isDarkTheme ? yodaYellow : yodaBlack} alt="yoda" />
     </div>
   );
 };

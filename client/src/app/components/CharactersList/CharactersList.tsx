@@ -10,10 +10,7 @@ import './CharactersList.scss';
 import { CharactersListProps } from './types';
 import { toast } from 'react-toastify';
 
-export const CharactersList: React.FC<CharactersListProps> = ({
-  data,
-  favoriteList,
-}) => {
+export const CharactersList = ({ data, favoriteList }: CharactersListProps) => {
   const dispatch = useDispatch();
 
   //  toast info

@@ -6,7 +6,7 @@ import { useLazyQuery } from '@apollo/client';
 import { HomeProps } from './types';
 import { loader } from 'graphql.macro';
 
-export const Home: React.FC<HomeProps> = ({ page, isAllCharactersList }) => {
+export const Home = ({ page, isAllCharactersList }: HomeProps) => {
   const FIND_CHARACTER_SCHEMA = loader('./queries/findCharacters.gql');
 
   const [findCharacterList] = useLazyQuery(FIND_CHARACTER_SCHEMA);

@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { PageNotFoundProps } from './types';
 import { motion } from 'framer-motion';
 
-const PageNotFound: React.FC<PageNotFoundProps> = ({ isDarkTheme }) => {
+const PageNotFound = ({ isDarkTheme }: PageNotFoundProps) => {
   useEffect(() => {
     document.title = 'Star Wars Characters - Error 404 (Not Found)';
   }, []);

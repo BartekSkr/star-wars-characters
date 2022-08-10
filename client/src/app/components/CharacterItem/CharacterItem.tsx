@@ -6,17 +6,17 @@ import './CharacterItem.scss';
 import { useDispatch } from 'react-redux';
 import { setUrl } from '../../store/actions';
 
-export const CharacterItem: React.FC<CharacterItemProps> = ({
+export const CharacterItem = ({
   character,
   isDisable,
   btnIcon,
   action,
   tip,
-}) => {
+}: CharacterItemProps) => {
   const dispatch = useDispatch();
 
   return (
-    <div className='character-info'>
+    <div className="character-info">
       <h3>{character.name}</h3>
       <div>
         <Button
@@ -30,7 +30,7 @@ export const CharacterItem: React.FC<CharacterItemProps> = ({
           <Button
             btnIcon={faInfo}
             isDeleteList={false}
-            tip='Show details'
+            tip="Show details"
             action={() => dispatch(setUrl(character.url))}
           />
         </Link>

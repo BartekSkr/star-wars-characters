@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import './Navbar.scss';
 import { NavbarProps } from './types';
 
-const Navbar: React.FC<NavbarProps> = ({ title, isDarkTheme, page }) => {
+const Navbar = ({ title, isDarkTheme, page }: NavbarProps) => {
   const themeTooltipText =
     isDarkTheme === true ? 'Switch to light theme' : 'Switch to dark theme';
 
@@ -28,10 +28,10 @@ const Navbar: React.FC<NavbarProps> = ({ title, isDarkTheme, page }) => {
   }, [isDarkTheme]);
 
   return (
-    <nav className='navbar'>
+    <nav className="navbar">
       <h1>{title}</h1>
       <button
-        className='theme-button'
+        className="theme-button"
         aria-label={themeTooltipText}
         onClick={() => dispatch(darkTheme(!isDarkTheme))}
       >
@@ -39,7 +39,7 @@ const Navbar: React.FC<NavbarProps> = ({ title, isDarkTheme, page }) => {
       </button>
       <ul>
         {navbarTabs.map((tab) => (
-          <li key={tab.name} className='navbar-li'>
+          <li key={tab.name} className="navbar-li">
             <NavLink
               className={(navData) =>
                 navData.isActive ? 'navbar-link-active' : 'navbar-link'
