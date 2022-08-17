@@ -41,7 +41,6 @@ const CharactersDetails = ({ url, favoriteList }: CharacterDetailsProps) => {
     } else if (!state.loading && characterDetails) {
       document.title = `StarWars - ${characterDetails.name}`;
     }
-    // eslint-disable-next-line
   }, [favoriteList, characterDetails]);
 
   return (

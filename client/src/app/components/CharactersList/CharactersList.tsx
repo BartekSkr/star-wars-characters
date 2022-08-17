@@ -18,8 +18,7 @@ export const CharactersList = ({ data, favoriteList }: CharactersListProps) => {
 
   useEffect(() => {
     data.count === 0 ? dispatch(setIsError(true)) : dispatch(setIsError(false));
-    // eslint-disable-next-line
-  }, []);
+  }, [data.count, dispatch]);
 
   return (
     <>
