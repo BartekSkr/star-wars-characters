@@ -23,10 +23,7 @@ const App = ({ isDarkTheme, page, url, isAllCharactersList }: AppProps) => {
   const location = useLocation();
 
   return (
-    <div
-      className="container"
-      data-theme={isDarkTheme === true ? 'dark' : 'white'}
-    >
+    <div className="container" data-theme={isDarkTheme ? 'dark' : 'white'}>
       <Navbar />
       <AnimatePresence exitBeforeEnter initial={false}>
         <Routes location={location} key={location.pathname}>
@@ -52,7 +49,7 @@ const App = ({ isDarkTheme, page, url, isAllCharactersList }: AppProps) => {
           draggable={false}
           autoClose={3000}
           limit={4}
-          theme={isDarkTheme === true ? 'dark' : 'light'}
+          theme={isDarkTheme ? 'dark' : 'light'}
         />
       </AnimatePresence>
     </div>

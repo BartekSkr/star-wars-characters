@@ -18,8 +18,7 @@ export const CharactersList = ({ data, favoriteList }: CharactersListProps) => {
 
   useEffect(() => {
     data.count === 0 ? dispatch(setIsError(true)) : dispatch(setIsError(false));
-    // eslint-disable-next-line
-  }, []);
+  }, [data.count, dispatch]);
 
   return (
     <>
@@ -35,9 +34,7 @@ export const CharactersList = ({ data, favoriteList }: CharactersListProps) => {
                 `Been added to the favorites list, ${character.name} has.`
               );
             }}
-            isDisable={
-              isOnFavoriteList(favoriteList!, character) ? true : false
-            }
+            isDisable={Boolean(isOnFavoriteList(favoriteList!, character))}
             tip={
               isOnFavoriteList(favoriteList!, character)
                 ? 'Delete from favorites'
