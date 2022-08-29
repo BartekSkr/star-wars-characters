@@ -1,3 +1,9 @@
+## TO DO!!!:
+
+- theme change (App.tsx, Navbar.tsx)
+- animation after hovering navbar tabs in Navbar.tsx
+- add transitions after changing theme
+
 ### About
 
 App allows you to search characters from a Star Wars, add/remove them to/from your favorites list.
