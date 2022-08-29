@@ -1,4 +1,3 @@
-import './Search.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faJournalWhills } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
@@ -17,20 +16,24 @@ export const Search = ({ page, findCharacter }: SearchProps) => {
   let navigate = useNavigate();
 
   return (
-    <div className="search">
+    <div className="flex w-[90%] relative justify-center mt-4 mr-auto mb-6 ml-auto">
       <Link
         data-for="list-btn"
         data-tip="Show character list"
         to={`/characters/#${page}`}
-        className="search-button"
+        className="bg-none cursor-pointer p-0 mr-4 active:scale-75 active:transition-transform duration-500"
         onClick={() => dispatch(isAllCharacters(true))}
       >
-        <FontAwesomeIcon icon={faJournalWhills} size="2x" />
+        <FontAwesomeIcon
+          icon={faJournalWhills}
+          size="2x"
+          className="text-default-color"
+        />
       </Link>
       <input
         type="text"
         name="text"
-        className="search-input"
+        className="w-full text-black ml-4 h-8 text-lg rounded-2xl outline-none overflow-hidden indent-4 md:w-[50%]"
         placeholder="Search for a character..."
         onClick={(e: React.MouseEvent<HTMLInputElement>) =>
           (e.currentTarget.value = '')

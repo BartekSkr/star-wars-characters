@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import { RootState } from './app/store/store';
 import PageNotFound from './app/pages/404/404-page';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import './app/styles/App.scss';
+import './App.scss';
 import Navbar from './app/components/Navbar/Navbar';
 import Characters from './app/pages/Characters/Characters';
 import CharactersDetails from './app/components/CharacterDetails/CharactersDetails';
@@ -23,7 +23,8 @@ const App = ({ isDarkTheme, page, url, isAllCharactersList }: AppProps) => {
   const location = useLocation();
 
   return (
-    <div className="container" data-theme={isDarkTheme ? 'dark' : 'white'}>
+    // <div className="container" data-theme={isDarkTheme ? 'dark' : 'white'}>
+    <div>
       <Navbar />
       <AnimatePresence exitBeforeEnter initial={false}>
         <Routes location={location} key={location.pathname}>
