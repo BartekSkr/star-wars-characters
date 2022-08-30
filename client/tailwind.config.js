@@ -13,6 +13,10 @@ module.exports = {
       3: '3px',
       4: '4px',
     },
+    fontSize: {
+      '2rem': '2rem',
+      larger: '1.2rem',
+    },
   },
   plugins: [],
 };
