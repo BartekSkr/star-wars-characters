@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { RootState } from '../../store/store';
-import './Favorites.scss';
 import { FavoritesProps } from './types';
 import yodaBlack from '../../assets/images/baby-yoda-black.svg';
 import yodaYellow from '../../assets/images/baby-yoda-yellow.svg';
@@ -32,21 +31,23 @@ const Favorites = ({ favoriteList, isDarkTheme }: FavoritesProps) => {
       exit={{ opacity: 0 }}
     >
       {favoriteList!.length === 0 && (
-        <div className="empty-list">
-          <h3>
+        <div className="my-8 mx-auto items-center text-larger font-bold text-center w-[80%] text-default-color transition-colors duration-500">
+          <p className="text-center my-2 mx-0 transition-colors duration-500">
             No any favorite characters yet, sorry there is. Add your favorite
             characters, please.
-          </h3>
+          </p>
           <img
             src={isDarkTheme ? yodaYellow : yodaBlack}
             alt="baby yoda"
-            className="yoda-icon"
+            className="w-24 h-24 mt-8 mx-auto"
           />
         </div>
       )}
       {favoriteList!.length > 0 && (
         <>
-          <h3>Your favorites characters from Star Wars</h3>
+          <p className="text-center text-larger text-default-color font-bold my-2 mx-0 transition-colors duration-500">
+            Your favorites characters from Star Wars
+          </p>
           <Button
             btnIcon={faTrash}
             isDeleteList={true}
@@ -54,7 +55,10 @@ const Favorites = ({ favoriteList, isDarkTheme }: FavoritesProps) => {
             action={() => dispatch(deleteList())}
           />
           {favoriteList!.map((character: CharacterInterface) => (
-            <div key={character.created} className="character">
+            <div
+              key={character.created}
+              className="rounded-2xl mb-4 w-[90%] my-4 mx-auto border-3 border-default-color md:w-[50%]"
+            >
               <CharacterItem
                 btnIcon={faTrash}
                 character={character}
