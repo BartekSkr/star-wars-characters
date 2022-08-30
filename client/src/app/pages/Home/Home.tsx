@@ -17,7 +17,6 @@ export const Home = ({ page, isAllCharactersList }: HomeProps) => {
         findCharacter={findCharacterList}
         isAllCharactersList={isAllCharactersList}
       />
-      {/* <div className="initial-info"> */}
       <div className="my-8 mx-auto w-[80%] text-larger text-center text-default-color duration-500 md:w-[50%]">
         <p>
           Press the icon{' '}
