@@ -1,4 +1,3 @@
-// import './Error.scss';
 import yodaYellow from '../../assets/images/baby-yoda-yellow.svg';
 import yodaBlack from '../../assets/images/baby-yoda-black.svg';
 import { ErrorProps } from './types';
