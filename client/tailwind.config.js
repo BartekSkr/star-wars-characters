@@ -14,8 +14,9 @@ module.exports = {
       4: '4px',
     },
     fontSize: {
-      '2rem': '2rem',
       larger: '1.2rem',
+      '1.5rem': '1.5rem',
+      '2rem': '2rem',
     },
   },
   plugins: [],
