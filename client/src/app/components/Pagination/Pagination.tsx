@@ -2,7 +2,6 @@ import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setPage } from '../../store/actions';
 import { RootState } from '../../store/store';
-import './Pagination.scss';
 import { PaginationProps } from './types';
 
 const Pagination = ({ pageNumber, charactersAmount }: PaginationProps) => {
@@ -15,18 +14,18 @@ const Pagination = ({ pageNumber, charactersAmount }: PaginationProps) => {
 
   return (
     <>
-      <ul className="pagination-ul">
+      <ul className="mb-4 list-none flex justify-center">
         {pageNumbers.map((number: number) => (
           <li
-            className="pagination-li"
+            className="cursor-pointer transition-all ease-in-out duration-0.2 hover:scale-150"
             key={number}
             onClick={() => dispatch(setPage(number.toString()))}
           >
             <Link
               className={
                 Number(pageNumber) === number
-                  ? 'pagination-link-active'
-                  : 'pagination-link'
+                  ? 'my-0 mx-4 border-b-2 text-default-color transition-colors duration-500'
+                  : 'my-0 mx-4 transition-colors duration-500'
               }
               to={`/characters/#${number}`}
             >
