@@ -17,10 +17,10 @@ export const Home = ({ page, isAllCharactersList }: HomeProps) => {
         findCharacter={findCharacterList}
         isAllCharactersList={isAllCharactersList}
       />
-      <div className="my-8 mx-auto w-[80%] text-larger text-center text-default-color duration-500 md:w-[50%]">
+      <div className="my-8 mx-auto w-[80%] text-larger text-center text-default-color duration-0.2 md:w-[50%]">
         <p>
           Press the icon{' '}
-          <FontAwesomeIcon className="duration-500" icon={faJournalWhills} /> to
+          <FontAwesomeIcon className="duration-0.2" icon={faJournalWhills} /> to
           display the entire list of <span>Star Wars</span> characters, or enter
           the name of the character you are interested in.
         </p>

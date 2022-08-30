@@ -40,12 +40,12 @@ const Navbar = ({ title, isDarkTheme, page }: NavbarProps) => {
       </button> */}
       <ul className="list-none flex justify-center">
         {navbarTabs.map((tab) => (
-          <li key={tab.name} className="text-larger w-32 mx-4 duration-500">
+          <li key={tab.name} className="text-larger w-32 mx-4 duration-0.2">
             <NavLink
               className={(navData) =>
                 navData.isActive
                   ? 'border-b-3 text-default-color'
-                  : 'inline-block text-white hover:text-default-color hover:duration-500'
+                  : 'inline-block text-white hover:text-default-color hover:duration-0.2'
               }
               to={tab.href}
             >

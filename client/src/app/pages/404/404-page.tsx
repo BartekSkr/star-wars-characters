@@ -16,7 +16,7 @@ const PageNotFound = ({ isDarkTheme }: PageNotFoundProps) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="w-[80%] my-0 mx-auto py-0 px-8 md:w-[50%] duration-500"
+      className="w-[80%] my-0 mx-auto py-0 px-8 md:w-[50%] duration-0.2"
     >
       <img
         src={isDarkTheme ? darthVaderYellow : darthVaderBlack}

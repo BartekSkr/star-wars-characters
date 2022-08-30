@@ -21,7 +21,7 @@ export const Search = ({ page, findCharacter }: SearchProps) => {
         data-for="list-btn"
         data-tip="Show character list"
         to={`/characters/#${page}`}
-        className="bg-none cursor-pointer p-0 mr-4 active:scale-75 active:transition-transform duration-500"
+        className="bg-none cursor-pointer p-0 mr-4 active:scale-75 ease-in-out active:transition-transform duration-0.2"
         onClick={() => dispatch(isAllCharacters(true))}
       >
         <FontAwesomeIcon

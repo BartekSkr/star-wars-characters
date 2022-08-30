@@ -31,8 +31,8 @@ const Favorites = ({ favoriteList, isDarkTheme }: FavoritesProps) => {
       exit={{ opacity: 0 }}
     >
       {favoriteList!.length === 0 && (
-        <div className="my-8 mx-auto items-center text-larger font-bold text-center w-[80%] text-default-color transition-colors duration-500">
-          <p className="text-center my-2 mx-0 transition-colors duration-500">
+        <div className="my-8 mx-auto items-center text-larger font-bold text-center w-[80%] text-default-color transition-colors duration-0.2">
+          <p className="text-center my-2 mx-0 transition-colors duration-0.2">
             No any favorite characters yet, sorry there is. Add your favorite
             characters, please.
           </p>
@@ -45,7 +45,7 @@ const Favorites = ({ favoriteList, isDarkTheme }: FavoritesProps) => {
       )}
       {favoriteList!.length > 0 && (
         <>
-          <p className="text-center text-larger text-default-color font-bold my-2 mx-0 transition-colors duration-500">
+          <p className="text-center text-larger text-default-color font-bold my-2 mx-0 transition-colors duration-0.2">
             Your favorites characters from Star Wars
           </p>
           <Button
