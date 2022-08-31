@@ -2,7 +2,6 @@ import { connect, useDispatch } from 'react-redux';
 import { RootState } from '../../store/store';
 import { Button } from '../common/Button/Button';
 import { Spinner } from '../Spinner/Spinner';
-import './CharacterDetails.scss';
 import {
   CharacterDetailsProps,
   FilmsInterface,
@@ -51,9 +50,11 @@ const CharactersDetails = ({ url, favoriteList }: CharacterDetailsProps) => {
     >
       {state.loading && <Spinner />}
       {characterDetails && (
-        <div className="character-details">
-          <div className="character-info">
-            <h2>{characterDetails.name}</h2>
+        <div className="rounded-2xl w-[90%] my-4 mx-auto border-3 border-default-color md:w-[50%]">
+          <div className="w-full py-2 px-4 flex items-center justify-between text-default-color transition-colors duration-0.2">
+            <p className="ml-4 text-1.5rem font-bold">
+              {characterDetails.name}
+            </p>
             <div>
               <Button
                 btnIcon={faPlus}
@@ -85,44 +86,44 @@ const CharactersDetails = ({ url, favoriteList }: CharacterDetailsProps) => {
               />
             </div>
           </div>
-          <div className="character-info-details">
-            <span>
+          <div className="py-0 px-4 transition-colors duration-0.2">
+            <span className="flex">
               <strong>Height: </strong>
-              <p>{characterDetails.height} cm</p>
+              <p className="ml-2">{characterDetails.height} cm</p>
             </span>
-            <span>
+            <span className="flex">
               <strong>Mass: </strong>
-              <p>{characterDetails.mass} kg</p>
+              <p className="ml-2">{characterDetails.mass} kg</p>
             </span>
-            <span>
+            <span className="flex">
               <strong>Hair color: </strong>
-              <p>{characterDetails.hair_color}</p>
+              <p className="ml-2">{characterDetails.hair_color}</p>
             </span>
-            <span>
+            <span className="flex">
               <strong>Skin color: </strong>
-              <p>{characterDetails.skin_color}</p>
+              <p className="ml-2">{characterDetails.skin_color}</p>
             </span>
-            <span>
+            <span className="flex">
               <strong>Eye color: </strong>
-              <p>{characterDetails.eye_color}</p>
+              <p className="ml-2">{characterDetails.eye_color}</p>
             </span>
-            <span>
+            <span className="flex">
               <strong>Birth year: </strong>
-              <p>{characterDetails.birth_year}</p>
+              <p className="ml-2">{characterDetails.birth_year}</p>
             </span>
-            <span>
+            <span className="flex">
               <strong>Gender: </strong>
-              <p>{characterDetails.gender}</p>
+              <p className="ml-2">{characterDetails.gender}</p>
             </span>
-            <span>
+            <span className="flex">
               <strong>Homeworld: </strong>
-              <p>{characterDetails.homeworld.name}</p>
+              <p className="ml-2">{characterDetails.homeworld.name}</p>
             </span>
             {characterDetails.films.length !== 0 && (
-              <div className="movies">
-                <h3>
-                  <p>Movies:</p>
-                </h3>
+              <div className="my-3">
+                <p className="text-larger text-default-color font-bold text-left ml-6">
+                  Movies:
+                </p>
                 <>
                   {characterDetails.films.map((film: FilmsInterface) => (
                     <div key={film.episode_id}>
@@ -135,10 +136,10 @@ const CharactersDetails = ({ url, favoriteList }: CharacterDetailsProps) => {
               </div>
             )}
             {characterDetails.vehicles.length !== 0 && (
-              <div className="vehicles">
-                <h3>
-                  <p>Vehicles:</p>
-                </h3>
+              <div className="my-3">
+                <p className="text-larger text-default-color font-bold text-left ml-6">
+                  Vehicles:
+                </p>
                 <>
                   {characterDetails.vehicles.map(
                     (vehicle: VehiclesInterface) => (
@@ -151,10 +152,10 @@ const CharactersDetails = ({ url, favoriteList }: CharacterDetailsProps) => {
               </div>
             )}
             {characterDetails.starships.length !== 0 && (
-              <div className="starships">
-                <h3>
-                  <p>Starships:</p>
-                </h3>
+              <div className="my-3">
+                <p className="text-larger text-default-color font-bold text-left ml-6">
+                  Starships:
+                </p>
                 <>
                   {characterDetails.starships.map(
                     (starships: StarshipsInterface) => (
@@ -167,7 +168,7 @@ const CharactersDetails = ({ url, favoriteList }: CharacterDetailsProps) => {
               </div>
             )}
           </div>
-          <div className="button-wrapper">
+          <div className="w-full py-2 px-4 text-right text-default-color transition-colors duration-0.2">
             <Button
               action={() => navigate(-1)}
               btnIcon={faArrowLeft}
