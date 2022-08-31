@@ -3,8 +3,6 @@
 - theme change (App.tsx, Navbar.tsx)
 - animation after hovering navbar tabs in Navbar.tsx
 - add transitions after changing theme
-- tailwind in spinner component
-- tailwind in spinner
 - change width of back button in CharacterItem.tsx (optional)
 
 ### About
