@@ -6,7 +6,6 @@ import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
-import './Navbar.scss';
 import { NavbarProps } from './types';
 
 const Navbar = ({ title, isDarkTheme, page }: NavbarProps) => {
@@ -29,25 +28,31 @@ const Navbar = ({ title, isDarkTheme, page }: NavbarProps) => {
   }, [isDarkTheme]);
 
   return (
-    <nav className="block text-center items-center pt-4 pb-4 px-8 border-b-4 border-default-color">
-      <h1 className="text-default-color text-2rem font-bold mb-2">{title}</h1>
+    <nav className="block text-center items-center py-4 px-8 border-b-4 border-default-color">
+      <p className="text-default-color text-2rem font-bold mb-2">{title}</p>
       <button
-        className="bg-none absolute top-theme-btn-top right-theme-btn-right border-none h-6 w-6 cursor-pointer opacity-60 transition-all duration-0.2 hover:opacity-100 hover:text-default-color hover:duration-0.2
-        after:content-[attr(aria-label)] after:absolute after:max-w-max after:bg-tooltip-background after:rounded-sm after:py-2 after:px-5 after:left-tooltip-left after:top-tooltip-top after:my-0 after:mx-auto after:scale-100 after:hover:scale-100 after:hover:text-white"
+        className="bg-none absolute top-theme-btn-top right-theme-btn-right border-none h-6 w-6 cursor-pointer opacity-60 transition-all duration-0.2 hover:opacity-100 hover:duration-0.2
+        after:content-[attr(aria-label)] after:absolute after:max-w-max after:bg-tooltip-background after:rounded-sm after:py-2 after:px-5 after:left-tooltip-left after:top-tooltip-top after:my-0 after:mx-auto after:scale-0 after:hover:scale-100"
         aria-label={themeTooltipText}
         // onClick={() => dispatch(darkTheme(!isDarkTheme))}
         onClick={() => console.log('click')}
       >
-        <FontAwesomeIcon icon={isDarkTheme ? faSun : faMoon} />
+        <FontAwesomeIcon
+          icon={isDarkTheme ? faSun : faMoon}
+          className=" hover:text-default-color"
+        />
       </button>
       <ul className="list-none flex justify-center">
         {navbarTabs.map((tab) => (
-          <li key={tab.name} className="text-larger w-32 mx-4 duration-0.2">
+          <li
+            key={tab.name}
+            className="text-larger h-8 w-32 mx-4 transition-all ease-in-out duration-0.2"
+          >
             <NavLink
               className={(navData) =>
                 navData.isActive
-                  ? 'border-b-3 text-default-color transition-all duration-0.2'
-                  : 'inline-block text-white transition-all duration-0.2 hover:text-default-color hover:border-b-3 hover:duration-0.2'
+                  ? 'inline-block border-b-3 transition-colors duration-0.2 text-default-color after:scale-x-100'
+                  : 'inline-block transition-colors duration-0.2 after:block after:border-b-3 after:border-default-color after:scale-x-0 after:transition-transform after:duration-0.2 hover:after:scale-x-100 hover:text-default-color hover:duration-0.2 hover:transition-all'
               }
               to={tab.href}
             >

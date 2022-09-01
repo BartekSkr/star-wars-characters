@@ -29,6 +29,17 @@ module.exports = {
       'tooltip-left': '-12rem',
       'tooltip-top': '-40%',
     },
+    extend: {
+      animation: {
+        navUnderline: '1s ease-in-out',
+      },
+      keyframes: {
+        navUnderline: {
+          '100%': { transform: 'scaleX(1)' },
+          '0%': { transform: 'scaleX(0)' },
+        },
+      },
+    },
   },
   plugins: [],
 };
