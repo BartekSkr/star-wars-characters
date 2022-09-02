@@ -15,7 +15,7 @@ export const CharacterItem = ({
   const dispatch = useDispatch();
 
   return (
-    <div className="w-full py-2 px-4 flex items-center justify-between text-larger text-default-color transition-colors duration-0.2">
+    <div className="w-full py-2 px-4 flex items-center justify-between text-1.2rem text-accent-color transition-colors duration-0.2s">
       <p className="font-bold">{character.name}</p>
       <div>
         <Button

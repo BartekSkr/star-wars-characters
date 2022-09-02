@@ -14,8 +14,8 @@ export const Button = ({
       <button
         className={
           isDeleteList
-            ? 'relative flex my-0 mx-auto mb-4 rounded-lg h-8 w-16 cursor-pointer justify-center text-black bg-default-color transition-colors active:scale-75 active:transition-transform duration-0.2'
-            : 'relative m-1 rounded-lg h-8 w-8 cursor-pointer text-black bg-default-color transition-all active:scale-75 active:transition-transform duration-0.2 disabled:opacity-40 disabled:pointer-events-none'
+            ? 'relative flex my-0 mx-auto mb-4 rounded-lg h-8 w-16 cursor-pointer justify-center text-background-color bg-accent-color transition-colors active:scale-75 active:transition-transform duration-0.2s'
+            : 'relative m-1 rounded-lg h-8 w-8 cursor-pointer text-background-color bg-accent-color transition-all active:scale-75 active:transition-transform duration-0.2s disabled:opacity-40 disabled:pointer-events-none'
         }
         onClick={action}
         data-tip={tip}

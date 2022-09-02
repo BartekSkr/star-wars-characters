@@ -1,7 +1,8 @@
 ## TO DO!!!
 
-- theme change (App.tsx, Navbar.tsx)
-- add transitions after changing theme
+- add underline or something like that to navbar tabs in light theme
+- icon size in buttons
+- Favorites.tsx
 
 ### About
 

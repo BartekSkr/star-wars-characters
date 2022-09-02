@@ -4,7 +4,7 @@ import { ErrorProps } from './types';
 
 export const Error = ({ isDarkTheme, errorMessage }: ErrorProps) => {
   return (
-    <div className="my-0 mx-auto text-center text-default-color w-[50%]">
+    <div className="my-0 mx-auto text-center text-accent-color w-[50%]">
       <p className="text-1.5rem font-bold">{errorMessage}</p>
       <img
         src={isDarkTheme ? yodaYellow : yodaBlack}

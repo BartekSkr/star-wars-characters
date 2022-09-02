@@ -21,19 +21,19 @@ export const Search = ({ page, findCharacter }: SearchProps) => {
         data-for="list-btn"
         data-tip="Show character list"
         to={`/characters/#${page}`}
-        className="bg-none cursor-pointer p-0 mr-4 active:scale-75 ease-in-out active:transition-transform duration-0.2"
+        className="bg-none cursor-pointer p-0 mr-4 active:scale-75 ease-in-out active:transition-transform duration-0.2s"
         onClick={() => dispatch(isAllCharacters(true))}
       >
         <FontAwesomeIcon
           icon={faJournalWhills}
           size="2x"
-          className="text-default-color"
+          className="text-accent-color"
         />
       </Link>
       <input
         type="text"
         name="text"
-        className="w-full text-black ml-4 h-8 text-lg rounded-2xl outline-none overflow-hidden indent-4 md:w-[50%]"
+        className="w-full text-black border-3px border-text-color ml-4 h-8 text-lg rounded-2xl outline-none overflow-hidden indent-4 md:w-[50%]"
         placeholder="Search for a character..."
         onClick={(e: React.MouseEvent<HTMLInputElement>) =>
           (e.currentTarget.value = '')

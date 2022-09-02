@@ -31,8 +31,8 @@ const Favorites = ({ favoriteList, isDarkTheme }: FavoritesProps) => {
       exit={{ opacity: 0 }}
     >
       {favoriteList!.length === 0 && (
-        <div className="my-8 mx-auto items-center text-larger font-bold text-center w-[80%] text-default-color transition-colors duration-0.2">
-          <p className="text-center my-2 mx-0 transition-colors duration-0.2">
+        <div className="my-8 mx-auto items-center text-1.2rem font-bold text-center w-[80%] text-accent-color transition-colors duration-0.2s">
+          <p className="text-center my-2 mx-0 transition-colors duration-0.2s">
             No any favorite characters yet, sorry there is. Add your favorite
             characters, please.
           </p>
@@ -45,7 +45,7 @@ const Favorites = ({ favoriteList, isDarkTheme }: FavoritesProps) => {
       )}
       {favoriteList!.length > 0 && (
         <>
-          <p className="text-center text-larger text-default-color font-bold my-2 mx-0 transition-colors duration-0.2">
+          <p className="text-center text-1.2rem text-accent-color font-bold my-2 mx-0 transition-colors duration-0.2s">
             Your favorites characters from Star Wars
           </p>
           <Button
@@ -57,7 +57,7 @@ const Favorites = ({ favoriteList, isDarkTheme }: FavoritesProps) => {
           {favoriteList!.map((character: CharacterInterface) => (
             <div
               key={character.created}
-              className="rounded-2xl mb-4 w-[90%] my-4 mx-auto border-3 border-default-color md:w-[50%]"
+              className="rounded-2xl mb-4 w-[90%] my-4 mx-auto border-3px border-accent-color md:w-[50%]"
             >
               <CharacterItem
                 btnIcon={faTrash}

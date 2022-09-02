@@ -22,10 +22,9 @@ export const CharactersList = ({ data, favoriteList }: CharactersListProps) => {
   return (
     <>
       {data.results.map((character: CharacterInterface) => (
-        // <div key={character.created} className="character">
         <div
           key={character.created}
-          className="rounded-2xl mb-4 w-[90%] my-4 mx-auto border-3 border-default-color md:w-[50%]"
+          className="rounded-2xl mb-4 w-[90%] my-4 mx-auto border-3px border-accent-color md:w-[50%]"
         >
           <CharacterItem
             btnIcon={faPlus}

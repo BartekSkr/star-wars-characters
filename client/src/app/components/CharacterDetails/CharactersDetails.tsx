@@ -50,8 +50,8 @@ const CharactersDetails = ({ url, favoriteList }: CharacterDetailsProps) => {
     >
       {state.loading && <Spinner />}
       {characterDetails && (
-        <div className="rounded-2xl w-[90%] my-4 mx-auto border-3 border-default-color md:w-[50%]">
-          <div className="w-full py-2 px-4 flex items-center justify-between text-default-color transition-colors duration-0.2">
+        <div className="rounded-2xl w-[90%] my-4 mx-auto border-3px border-accent-color md:w-[50%]">
+          <div className="w-full py-2 px-4 flex items-center justify-between text-accent-color transition-colors duration-0.2s">
             <p className="ml-4 text-1.5rem font-bold">
               {characterDetails.name}
             </p>
@@ -86,50 +86,48 @@ const CharactersDetails = ({ url, favoriteList }: CharacterDetailsProps) => {
               />
             </div>
           </div>
-          <div className="py-0 px-4 transition-colors duration-0.2">
-            <span className="flex">
+          <div className="py-0 px-4 transition-colors duration-0.2s">
+            <span className="flex text-text-color">
               <strong>Height: </strong>
               <p className="ml-2">{characterDetails.height} cm</p>
             </span>
-            <span className="flex">
+            <span className="flex text-text-color">
               <strong>Mass: </strong>
               <p className="ml-2">{characterDetails.mass} kg</p>
             </span>
-            <span className="flex">
+            <span className="flex text-text-color">
               <strong>Hair color: </strong>
               <p className="ml-2">{characterDetails.hair_color}</p>
             </span>
-            <span className="flex">
+            <span className="flex text-text-color">
               <strong>Skin color: </strong>
               <p className="ml-2">{characterDetails.skin_color}</p>
             </span>
-            <span className="flex">
+            <span className="flex text-text-color">
               <strong>Eye color: </strong>
               <p className="ml-2">{characterDetails.eye_color}</p>
             </span>
-            <span className="flex">
+            <span className="flex text-text-color">
               <strong>Birth year: </strong>
               <p className="ml-2">{characterDetails.birth_year}</p>
             </span>
-            <span className="flex">
+            <span className="flex text-text-color">
               <strong>Gender: </strong>
               <p className="ml-2">{characterDetails.gender}</p>
             </span>
-            <span className="flex">
+            <span className="flex text-text-color">
               <strong>Homeworld: </strong>
               <p className="ml-2">{characterDetails.homeworld.name}</p>
             </span>
             {characterDetails.films.length !== 0 && (
               <div className="my-3">
-                <p className="text-larger text-default-color font-bold text-left ml-6">
+                <p className="text-1.2rem text-accent-color font-bold text-left ml-6">
                   Movies:
                 </p>
                 <>
                   {characterDetails.films.map((film: FilmsInterface) => (
-                    <div key={film.episode_id}>
-                      <div>
-                        ● '{film.title}' (ep. {film.episode_id})
-                      </div>
+                    <div key={film.episode_id} className="text-text-color">
+                      ● '{film.title}' (ep. {film.episode_id})
                     </div>
                   ))}
                 </>
@@ -137,14 +135,14 @@ const CharactersDetails = ({ url, favoriteList }: CharacterDetailsProps) => {
             )}
             {characterDetails.vehicles.length !== 0 && (
               <div className="my-3">
-                <p className="text-larger text-default-color font-bold text-left ml-6">
+                <p className="text-1.2rem text-accent-color font-bold text-left ml-6">
                   Vehicles:
                 </p>
                 <>
                   {characterDetails.vehicles.map(
                     (vehicle: VehiclesInterface) => (
-                      <div key={vehicle.created}>
-                        <div>● {vehicle.name}</div>
+                      <div key={vehicle.created} className="text-text-color">
+                        ● {vehicle.name}
                       </div>
                     )
                   )}
@@ -153,14 +151,14 @@ const CharactersDetails = ({ url, favoriteList }: CharacterDetailsProps) => {
             )}
             {characterDetails.starships.length !== 0 && (
               <div className="my-3">
-                <p className="text-larger text-default-color font-bold text-left ml-6">
+                <p className="text-1.2rem text-accent-color font-bold text-left ml-6">
                   Starships:
                 </p>
                 <>
                   {characterDetails.starships.map(
                     (starships: StarshipsInterface) => (
-                      <div key={starships.created}>
-                        <div>● {starships.name}</div>
+                      <div key={starships.created} className="text-text-color">
+                        ● {starships.name}
                       </div>
                     )
                   )}
@@ -168,7 +166,7 @@ const CharactersDetails = ({ url, favoriteList }: CharacterDetailsProps) => {
               </div>
             )}
           </div>
-          <div className="w-full py-2 px-4 text-right text-default-color transition-colors duration-0.2">
+          <div className="w-full py-2 px-4 text-right text-accent-color transition-colors duration-0.2s">
             <Button
               action={() => navigate(-1)}
               btnIcon={faArrowLeft}

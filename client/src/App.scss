@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+.theme-dark {
+  --background: black;
+  --text-color: white;
+  --accent-color: yellow;
+}
+
+.theme-light {
+  --background: white;
+  --text-color: black;
+  --accent-color: black;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,8 +21,6 @@
 }
 
 body {
-  background: black;
-  color: white;
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
