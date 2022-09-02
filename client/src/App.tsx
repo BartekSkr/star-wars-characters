@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import { RootState } from './app/store/store';
 import PageNotFound from './app/pages/404/404-page';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import './App.scss';
+import './App.css';
 import Navbar from './app/components/Navbar/Navbar';
 import Characters from './app/pages/Characters/Characters';
 import CharactersDetails from './app/components/CharacterDetails/CharactersDetails';
