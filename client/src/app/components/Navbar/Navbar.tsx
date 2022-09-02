@@ -51,8 +51,8 @@ const Navbar = ({ title, isDarkTheme, page }: NavbarProps) => {
             <NavLink
               className={(navData) =>
                 navData.isActive
-                  ? 'inline-block border-b-3 transition-colors duration-0.2 text-default-color after:scale-x-100'
-                  : 'inline-block transition-colors duration-0.2 after:block after:border-b-3 after:border-default-color after:scale-x-0 after:transition-transform after:duration-0.2 hover:after:scale-x-100 hover:text-default-color hover:duration-0.2 hover:transition-all'
+                  ? 'inline-block transition-colors duration-0.2 text-default-color after:block after:scale-x-100 after:border-b-3 after:transition-transform after:duration-0.2'
+                  : 'inline-block transition-colors duration-0.2 after:block after:border-b-3 after:scale-x-0 after:transition-transform after:duration-0.2 hover:text-default-color hover:duration-0.2 hover:transition-colors'
               }
               to={tab.href}
             >
