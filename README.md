@@ -1,9 +1,3 @@
-## TO DO!!!
-
-- add underline or something like that to navbar tabs in light theme
-- icon size in buttons
-- Favorites.tsx
-
 ### About
 
 App allows you to search characters from a Star Wars, add/remove them to/from your favorites list.
