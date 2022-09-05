@@ -4,7 +4,6 @@ import { Search } from '../../components/Search/Search';
 import { useLazyQuery } from '@apollo/client';
 import { HomeProps } from './types';
 import { loader } from 'graphql.macro';
-import { Spinner } from '../../components/Spinner/Spinner';
 
 export const Home = ({ page, isAllCharactersList }: HomeProps) => {
   const FIND_CHARACTER_SCHEMA = loader('./queries/findCharacters.gql');

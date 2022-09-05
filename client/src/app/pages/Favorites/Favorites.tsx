@@ -9,7 +9,7 @@ import { deleteList, removeFromList } from '../../store/actions';
 import { isOnFavoriteList } from '../../utils/favoriteListServices';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { CharacterInterface } from '../../utils/types';
-import { Button } from '../../components/common/Button/Button';
+import { Button } from '../../components/Button/Button';
 import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
 

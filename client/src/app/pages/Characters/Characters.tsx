@@ -17,14 +17,14 @@ const Characters = ({
   isDarkTheme,
   isSearchError,
 }: CharactersProps) => {
-  //  query used when fetching all characters
+  //  fetching all characters
   const {
     getCharactersList,
     data: charactersListData,
     state: charactersListState,
   } = useGetCharactersList({ page });
 
-  //  query used when fetching characters searched by name
+  //  searching character by name
   const {
     findCharacter,
     data: findCharactersData,

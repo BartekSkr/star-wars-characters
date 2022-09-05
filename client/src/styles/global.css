@@ -1,17 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import './variables.css';
 
 .theme-dark {
-  --background: black;
-  --text-color: white;
-  --accent-color: yellow;
+  --background: var(--color-black);
+  --text-color: var(--color-white);
+  --accent-color: var(--color-yellow);
 }
 
 .theme-light {
-  --background: white;
-  --text-color: black;
-  --accent-color: black;
+  --background: var(--color-white);
+  --text-color: var(--color-black);
+  --accent-color: var(--color-black);
 }
 
 * {

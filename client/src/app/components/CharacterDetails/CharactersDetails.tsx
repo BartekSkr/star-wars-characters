@@ -1,6 +1,6 @@
 import { connect, useDispatch } from 'react-redux';
 import { RootState } from '../../store/store';
-import { Button } from '../common/Button/Button';
+import { Button } from '../Button/Button';
 import { Spinner } from '../Spinner/Spinner';
 import {
   CharacterDetailsProps,
