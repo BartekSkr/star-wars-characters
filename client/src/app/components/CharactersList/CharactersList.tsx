@@ -6,7 +6,6 @@ import { CharacterInterface } from '../../utils/types';
 import { addToList, setIsError } from '../../store/actions';
 import { CharacterItem } from '../CharacterItem/CharacterItem';
 import Pagination from '../Pagination/Pagination';
-import './CharactersList.scss';
 import { CharactersListProps } from './types';
 import { toast } from 'react-toastify';
 
@@ -23,7 +22,10 @@ export const CharactersList = ({ data, favoriteList }: CharactersListProps) => {
   return (
     <>
       {data.results.map((character: CharacterInterface) => (
-        <div key={character.created} className="character">
+        <div
+          key={character.created}
+          className="rounded-2xl mb-4 w-[90%] my-4 mx-auto border-3px border-accent-color md:w-[50%]"
+        >
           <CharacterItem
             btnIcon={faPlus}
             character={character}

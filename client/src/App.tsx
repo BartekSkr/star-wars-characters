@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import { RootState } from './app/store/store';
 import PageNotFound from './app/pages/404/404-page';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import './app/styles/App.scss';
+import './styles/global.css';
 import Navbar from './app/components/Navbar/Navbar';
 import Characters from './app/pages/Characters/Characters';
 import CharactersDetails from './app/components/CharacterDetails/CharactersDetails';
@@ -11,6 +11,7 @@ import Favorites from './app/pages/Favorites/Favorites';
 import { Home } from './app/pages/Home/Home';
 import 'react-toastify/dist/ReactToastify.css';
 import { AnimatePresence } from 'framer-motion';
+import { useEffect, useMemo } from 'react';
 
 interface AppProps {
   isDarkTheme?: boolean;
@@ -22,8 +23,19 @@ interface AppProps {
 const App = ({ isDarkTheme, page, url, isAllCharactersList }: AppProps) => {
   const location = useLocation();
 
+  useEffect(() => {
+    localStorage.setItem('isDarkTheme', JSON.stringify(isDarkTheme));
+    isDarkTheme
+      ? (document.body.style.backgroundColor = 'black')
+      : (document.body.style.backgroundColor = 'white');
+  }, [isDarkTheme]);
+
+  const theme = useMemo(() => {
+    return isDarkTheme ? 'theme-dark' : 'theme-light';
+  }, [isDarkTheme]);
+
   return (
-    <div className="container" data-theme={isDarkTheme ? 'dark' : 'white'}>
+    <div className={`${theme}`}>
       <Navbar />
       <AnimatePresence exitBeforeEnter initial={false}>
         <Routes location={location} key={location.pathname}>

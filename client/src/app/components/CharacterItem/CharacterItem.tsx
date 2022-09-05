@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Button } from '../common/Button/Button';
+import { Button } from '../Button/Button';
 import { CharacterItemProps } from './types';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
-import './CharacterItem.scss';
 import { useDispatch } from 'react-redux';
 import { setUrl } from '../../store/actions';
 
@@ -16,8 +15,8 @@ export const CharacterItem = ({
   const dispatch = useDispatch();
 
   return (
-    <div className="character-info">
-      <h3>{character.name}</h3>
+    <div className="w-full py-2 px-4 flex items-center justify-between text-1.2rem text-accent-color transition-colors duration-0.2s">
+      <p className="font-bold">{character.name}</p>
       <div>
         <Button
           btnIcon={btnIcon}

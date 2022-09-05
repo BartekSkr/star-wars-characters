@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './variables.css';
+
+.theme-dark {
+  --background: var(--color-black);
+  --text-color: var(--color-white);
+  --accent-color: var(--color-yellow);
+}
+
+.theme-light {
+  --background: var(--color-white);
+  --text-color: var(--color-black);
+  --accent-color: var(--color-black);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.12rem;
+  transition: background-color 0.5s;
+}

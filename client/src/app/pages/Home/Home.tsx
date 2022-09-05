@@ -1,4 +1,3 @@
-import './Home.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faJournalWhills } from '@fortawesome/free-solid-svg-icons';
 import { Search } from '../../components/Search/Search';
@@ -18,16 +17,13 @@ export const Home = ({ page, isAllCharactersList }: HomeProps) => {
         findCharacter={findCharacterList}
         isAllCharactersList={isAllCharactersList}
       />
-      <div className="initial-info">
-        <h3>
+      <div className="my-8 mx-auto w-[80%] text-1.2rem font-bold text-center text-accent-color duration-0.2s md:w-[50%]">
+        <p>
           Press the icon{' '}
-          <FontAwesomeIcon
-            className="initial-info-icon"
-            icon={faJournalWhills}
-          />{' '}
+          <FontAwesomeIcon className="duration-0.2s" icon={faJournalWhills} />{' '}
           to display the entire list of <span>Star Wars</span> characters, or
           enter the name of the character you are interested in.
-        </h3>
+        </p>
       </div>
     </>
   );
