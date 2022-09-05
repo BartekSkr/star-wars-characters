@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a82f853b.css",
+    "main.js": "/static/js/main.662cd7da.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/darth-vader-black.svg": "/static/media/darth-vader-black.ddeda470a7f42c0807c4c469a71a01a6.svg",
+    "static/media/darth-vader-yellow.svg": "/static/media/darth-vader-yellow.2a7874562eb078783a590a8b715dddff.svg",
+    "static/media/baby-yoda-yellow.svg": "/static/media/baby-yoda-yellow.fad565e6d277365eb27f6f7cf8e54f92.svg",
+    "static/media/baby-yoda-black.svg": "/static/media/baby-yoda-black.029325cdecb0fa611cb9d006e47d77e4.svg",
+    "index.html": "/index.html",
+    "main.a82f853b.css.map": "/static/css/main.a82f853b.css.map",
+    "main.662cd7da.js.map": "/static/js/main.662cd7da.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a82f853b.css",
+    "static/js/main.662cd7da.js"
+  ]
+}
