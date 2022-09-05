@@ -28,4 +28,3 @@ $ cd ..
 $ yarn
 $ yarn dev
 ```
-# star-wars-characters-server
