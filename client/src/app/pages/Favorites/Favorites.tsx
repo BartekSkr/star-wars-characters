@@ -20,7 +20,6 @@ const Favorites = ({ favoriteList, isDarkTheme }: FavoritesProps) => {
   const deleteFromFavoritesToast = (info: string) => toast.error(info);
 
   useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favoriteList));
     document.title = 'StarWars - favorites';
   }, [favoriteList]);
 

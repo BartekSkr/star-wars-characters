@@ -24,7 +24,6 @@ const App = ({ isDarkTheme, page, url, isAllCharactersList }: AppProps) => {
   const location = useLocation();
 
   useEffect(() => {
-    localStorage.setItem('isDarkTheme', JSON.stringify(isDarkTheme));
     isDarkTheme
       ? (document.body.style.backgroundColor = 'black')
       : (document.body.style.backgroundColor = 'white');

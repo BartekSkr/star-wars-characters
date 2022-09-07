@@ -33,7 +33,6 @@ const Characters = ({
 
   useEffect(() => {
     document.title = 'StarWars - characters';
-    localStorage.setItem('favorites', JSON.stringify(favoriteList));
     isAllCharactersList
       ? getCharactersList({ variables: { page } })
       : findCharacter({ variables: { page, name: characterName } });

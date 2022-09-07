@@ -34,7 +34,6 @@ const CharactersDetails = ({ url, favoriteList }: CharacterDetailsProps) => {
   const deleteFromFavoritesToast = (info: string) => toast.error(info);
 
   useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favoriteList));
     if (state.loading) {
       document.title = 'StarWars - loading...';
     } else if (!state.loading && characterDetails) {

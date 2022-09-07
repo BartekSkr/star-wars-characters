@@ -13,19 +13,9 @@ import {
 } from './actions';
 import { InitialInterface } from './types';
 
-const favoritesList = JSON.parse(localStorage.getItem('favorites') || '[]');
-const isDarkTheme = JSON.parse(
-  localStorage.getItem('isDarkTheme') ||
-    `${
-      localStorage.getItem('isDarkTheme') === null
-        ? window.matchMedia('(prefers-color-scheme: dark)').matches
-        : false
-    }`
-);
-
 const INITIAL_STATE: InitialInterface = {
-  favoriteList: favoritesList,
-  isDarkTheme: isDarkTheme,
+  favoriteList: [],
+  isDarkTheme: true,
   page: '1',
   url: '',
   isAllCharacters: true,
