@@ -19,7 +19,7 @@ Server's repository for the app https://github.com/BartekSkr/star-wars-character
 
 ### Setup
 
-To run app click [Star Wars App](https://star-wars-characters-client.netlify.app)
+To run app click [Star Wars App](https://bartek-star-wars-characters.netlify.app)
 
 or download the code run it locally:
 
