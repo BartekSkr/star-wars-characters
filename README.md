@@ -2,6 +2,8 @@
 
 App allows you to search characters from a Star Wars, add/remove them to/from your favorites list.
 
+Server's repository for the app https://github.com/BartekSkr/star-wars-characters-server
+
 ### Build using:
 
 - [tailwind css](https://tailwindcss.com)
@@ -17,14 +19,11 @@ App allows you to search characters from a Star Wars, add/remove them to/from yo
 
 ### Setup
 
-To run app click [Star Wars App](https://bartek-star-wars-characters.herokuapp.com)
+To run app click [Star Wars App](https://star-wars-characters-client.netlify.app)
 
 or download the code run it locally:
 
 ```
-$ cd client
 $ yarn
-$ cd ..
-$ yarn
-$ yarn dev
+$ yarn start
 ```
